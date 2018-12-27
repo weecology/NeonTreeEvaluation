@@ -4,24 +4,40 @@
     <size>
         <width>400</width>
         <height>400</height>
+        <depth>3</depth>
     </size>
     <segmented>0</segmented>
     <object>
         <name>Tree</name>
         <pose>Unspecified</pose>
         <truncated>0</truncated>
+        <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>316</xmin>
-            <ymin>123</ymin>
-            <xmax>400</xmax>
-            <ymax>209</ymax>
+            <xmin>261</xmin>
+            <ymin>361</ymin>
+            <xmax>313</xmax>
+            <ymax>400</ymax>
         </bndbox>
     </object>
     <object>
         <name>Tree</name>
         <pose>Unspecified</pose>
         <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>320</xmin>
+            <ymin>123</ymin>
+            <xmax>400</xmax>
+            <ymax>202</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
             <xmin>326</xmin>

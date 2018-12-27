@@ -4,37 +4,54 @@
     <size>
         <width>400</width>
         <height>400</height>
+        <depth>3</depth>
     </size>
     <segmented>0</segmented>
     <object>
         <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
         <bndbox>
             <xmin>365</xmin>
             <ymin>340</ymin>
             <xmax>400</xmax>
-            <ymax>388</ymax>
+            <ymax>381</ymax>
         </bndbox>
     </object>
     <object>
         <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
         <bndbox>
-            <xmin>244</xmin>
-            <ymin>242</ymin>
+            <xmin>245</xmin>
+            <ymin>243</ymin>
             <xmax>295</xmax>
             <ymax>293</ymax>
         </bndbox>
     </object>
     <object>
         <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
         <bndbox>
-            <xmin>95</xmin>
-            <ymin>104</ymin>
-            <xmax>242</xmax>
-            <ymax>236</ymax>
+            <xmin>113</xmin>
+            <ymin>112</ymin>
+            <xmax>230</xmax>
+            <ymax>232</ymax>
         </bndbox>
     </object>
     <object>
         <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
         <bndbox>
             <xmin>339</xmin>
             <ymin>10</ymin>
