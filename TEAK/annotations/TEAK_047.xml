@@ -14,6 +14,32 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
+            <xmin>123</xmin>
+            <ymin>234</ymin>
+            <xmax>159</xmax>
+            <ymax>268</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>93</xmin>
+            <ymin>71</ymin>
+            <xmax>152</xmax>
+            <ymax>116</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
             <xmin>245</xmin>
             <ymin>380</ymin>
             <xmax>275</xmax>
@@ -238,7 +264,7 @@
             <xmin>98</xmin>
             <ymin>24</ymin>
             <xmax>160</xmax>
-            <ymax>100</ymax>
+            <ymax>65</ymax>
         </bndbox>
     </object>
     <object>
