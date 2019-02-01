@@ -49,6 +49,8 @@ plot(laz)
 <img src="figures/SJER_005.jpeg" height="300">
 <img src="figures/SJER_005_laz.png" height="300">
 
+For more guidance on data loading, see /utilities.
+
 # Performance
 
 The following papers report statistics for performance at one or more sites.
