@@ -8,7 +8,7 @@ Description: The NeonTreeEvaluation dataset is a set of bounding boxes drawn on 
 
 # How were images annotated?
 
-Each visible tree was annotated to create a bounding box that encompassed all portions of the vertical object. Fallen trees were not annotated. 
+Each visible tree was annotated to create a bounding box that encompassed all portions of the vertical object. Fallen trees were not annotated. Visible standing stags were annotated. Trees which were judged to have less than 50% of biomass in the image edge were ignored.
 
 <img src="figures/rectlabel.png" height="400">
 
