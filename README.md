@@ -1,4 +1,4 @@
-# A benchmark dataset for trees in RGB and point clouds.
+# A benchmark dataset for detecting individual trees in RGB and point clouds
 
 Individual tree detection is a central task in forestry and ecology. Very few papers analyze proposed methods across a wide geographic area. This limits the utility of tools and inhibits comparisons across methods. This benchmark dataset is the first dataset to have consistant annotation approach accross a variety of ecosystems. 
 
