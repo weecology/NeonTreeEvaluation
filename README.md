@@ -34,6 +34,23 @@ The following tools are useful for interacting with this dataset.
 
 * lidR
 * raster
+
+# Example
+
+```
+library(raster)
+library(lidR)
+
+rgb<-stack("data/NeonTreeEvaluation/SJER/SJER_005.tif")
+plotRGB(rgb)
+
+laz<-readLAS("data/NeonTreeEvaluation/SJER/SJER_005.laz")
+plot(laz)
+```
+
+![tif image](figures/SJER_005.jpeg)
+![tif image](figures/SJER_005_laz.png)
+
 # How can I add to this dataset?
 
 Anyone is welcome to add to this dataset by cloning this repo and labeling a new site in [rectlabel](https://rectlabel.com/). NEON data is available on the [NEON data server](http://data.neonscience.org/home). We used the NEON 2018 “classified LiDAR point cloud” data
