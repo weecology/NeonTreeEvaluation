@@ -2,7 +2,9 @@
 title: "Loading the dataset in R"
 author: "Ben Weinstein"
 date: "2/1/2019"
-output: html_document
+output: 
+  html_document: 
+    keep_md: yes
 ---
 
 How to read and view xml annotations from the NEONTreeEvaluation benchmark dataset
