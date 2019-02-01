@@ -8,13 +8,11 @@ Description: The NeonTreeEvaluation dataset is a set of bounding boxes drawn on 
 
 # How were images annotated?
 
-Each visible tree was annotated to create a bounding box that encompassed all portions of the vertical object. Fallen trees were not annotated. 
+Each visible tree was annotated to create a bounding box that encompassed all portions of the vertical object. Fallen trees were not annotated. Visible standing stags were annotated. Trees which were judged to have less than 50% of biomass in the image edge were ignored.
 
-![alt text](figures/rectlabel.png)
+<img src="figures/rectlabel.png" height="400">
 
 For the point cloud annotations, the two dimensional bounding boxes were [draped](https://github.com/weecology/DeepLidar/blob/b3449f6bd4d0e00c24624ff82da5cfc0a018afc5/DeepForest/postprocessing.py#L13) over the point cloud, and all non-ground points (height < 2m) were excluded. Minor cosmetic cleanup was performed to include missing points. In general, the point cloud annotations should be seen as less thoroughly cleaned, given the tens of thousands of potential points in each image.
-
-
 
 # Sites
 
@@ -48,8 +46,14 @@ laz<-readLAS("data/NeonTreeEvaluation/SJER/SJER_005.laz")
 plot(laz)
 ```
 
-![tif image](figures/SJER_005.jpeg)
-![tif image](figures/SJER_005_laz.png)
+<img src="figures/SJER_005.jpeg" height="300">
+<img src="figures/SJER_005_laz.png" height="300">
+
+# Performance
+
+The following papers report statistics for performance at one or more sites.
+
+* https://www.biorxiv.org/content/10.1101/532952v1
 
 # How can I add to this dataset?
 
