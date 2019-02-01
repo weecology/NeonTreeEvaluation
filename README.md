@@ -22,3 +22,22 @@ SJER: "Located at The San Joaquin Experimental Range, in the western foothills o
 
 TEAK: "The site encompasses 5,138 hectares (12,696 acres) of mixed conifer and red fir forest, ranging in elevation from 1,990 to 2,807 m (6,529 – 9,209ft). The varied terrain is typical of the Sierra Nevada, with rugged mountains, meadows and prominent granite outcrops."
 
+# How do I load the dataset?
+
+The following tools are useful for interacting with this dataset. 
+## Python
+
+* pyfor / laspy
+* rasterio
+
+## R
+
+* lidR
+* raster
+# How can I add to this dataset?
+
+Anyone is welcome to add to this dataset by cloning this repo and labeling a new site in [rectlabel](https://rectlabel.com/). NEON data is available on the [NEON data server](http://data.neonscience.org/home). We used the NEON 2018 “classified LiDAR point cloud” data
+104 product (NEON ID: DP1.30003.001), and the “orthorectified camera mosaic” (NEON ID:
+105 DP1.30010.001). Please follow the current folder structure, with .laz and .tif files saved together in a single folder, with a unique name, as well as a single annotations folder for the rect label xml files. See /SJER for an example.
+
+
