@@ -10,7 +10,7 @@ Description: The NeonTreeEvaluation dataset is a set of bounding boxes drawn on 
 
 Each visible tree was annotated to create a bounding box that encompassed all portions of the vertical object. Fallen trees were not annotated. 
 
-<img src="figures/rectlabel.png", width="200")
+<img src="figures/rectlabel.png", width="200">
 
 For the point cloud annotations, the two dimensional bounding boxes were [draped](https://github.com/weecology/DeepLidar/blob/b3449f6bd4d0e00c24624ff82da5cfc0a018afc5/DeepForest/postprocessing.py#L13) over the point cloud, and all non-ground points (height < 2m) were excluded. Minor cosmetic cleanup was performed to include missing points. In general, the point cloud annotations should be seen as less thoroughly cleaned, given the tens of thousands of potential points in each image.
 
