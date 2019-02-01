@@ -1,0 +1,30 @@
+---
+title: "Loading the dataset in R"
+author: "Ben Weinstein"
+date: "2/1/2019"
+output: html_document
+---
+
+How to read and view xml annotations from the NEONTreeEvaluation benchmark dataset
+
+```{r setup, include=FALSE}
+library(lidR)
+library(raster)
+library(tidyverse,quietly = T)
+library(xml2)
+source("functions.R")
+```
+
+```{r}
+#Path to dataset
+xmls<-readTreeXML(path="../")
+
+#View one plot's annotations as polygons
+xml_polygons <- xml_to_spatial_polygons(xmls[xmls$filename %in% "TEAK_062.tif",])
+plot(xml_polygons)
+```
+# Overlay on imagery
+
+# Open LAS
+
+# View annotations
