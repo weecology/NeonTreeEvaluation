@@ -1,0 +1,36 @@
+<annotation>
+    <folder>samples</folder>
+    <filename>2018_SJER_3_254000_4105000_image_703.tif</filename>
+    <size>
+        <width>400</width>
+        <height>400</height>
+        <depth>3</depth>
+    </size>
+    <segmented>0</segmented>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>156</xmin>
+            <ymin>175</ymin>
+            <xmax>257</xmax>
+            <ymax>271</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>307</xmin>
+            <ymin>125</ymin>
+            <xmax>353</xmax>
+            <ymax>183</ymax>
+        </bndbox>
+    </object>
+</annotation>

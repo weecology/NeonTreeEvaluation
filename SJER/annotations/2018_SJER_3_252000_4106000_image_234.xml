@@ -1,0 +1,23 @@
+<annotation>
+    <folder>samples</folder>
+    <filename>2018_SJER_3_252000_4106000_image_234.tif</filename>
+    <size>
+        <width>400</width>
+        <height>400</height>
+        <depth>3</depth>
+    </size>
+    <segmented>0</segmented>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>92</xmin>
+            <ymin>158</ymin>
+            <xmax>174</xmax>
+            <ymax>233</ymax>
+        </bndbox>
+    </object>
+</annotation>
