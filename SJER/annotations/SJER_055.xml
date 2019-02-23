@@ -1,5 +1,5 @@
 <annotation>
-    <folder>SJER</folder>
+    <folder>plots</folder>
     <filename>SJER_055.tif</filename>
     <size>
         <width>400</width>
@@ -14,10 +14,36 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>266</xmin>
-            <ymin>109</ymin>
-            <xmax>311</xmax>
-            <ymax>158</ymax>
+            <xmin>1</xmin>
+            <ymin>327</ymin>
+            <xmax>36</xmax>
+            <ymax>400</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Tre</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>218</xmin>
+            <ymin>233</ymin>
+            <xmax>314</xmax>
+            <ymax>317</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Tre</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>170</xmin>
+            <ymin>116</ymin>
+            <xmax>307</xmax>
+            <ymax>239</ymax>
         </bndbox>
     </object>
     <object>
@@ -27,10 +53,36 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>140</xmin>
-            <ymin>349</ymin>
-            <xmax>177</xmax>
-            <ymax>392</ymax>
+            <xmin>205</xmin>
+            <ymin>370</ymin>
+            <xmax>240</xmax>
+            <ymax>400</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>122</xmin>
+            <ymin>369</ymin>
+            <xmax>153</xmax>
+            <ymax>400</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>287</xmin>
+            <ymin>44</ymin>
+            <xmax>337</xmax>
+            <ymax>103</ymax>
         </bndbox>
     </object>
     <object>
@@ -118,23 +170,10 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>290</xmin>
+            <xmin>321</xmin>
             <ymin>2</ymin>
-            <xmax>384</xmax>
-            <ymax>107</ymax>
-        </bndbox>
-    </object>
-    <object>
-        <name>Tree</name>
-        <pose>Unspecified</pose>
-        <truncated>0</truncated>
-        <occluded>0</occluded>
-        <difficult>0</difficult>
-        <bndbox>
-            <xmin>230</xmin>
-            <ymin>229</ymin>
-            <xmax>326</xmax>
-            <ymax>334</ymax>
+            <xmax>368</xmax>
+            <ymax>56</ymax>
         </bndbox>
     </object>
     <object>
@@ -157,49 +196,10 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>233</xmin>
-            <ymin>162</ymin>
-            <xmax>303</xmax>
-            <ymax>225</ymax>
-        </bndbox>
-    </object>
-    <object>
-        <name>Tree</name>
-        <pose>Unspecified</pose>
-        <truncated>0</truncated>
-        <occluded>0</occluded>
-        <difficult>0</difficult>
-        <bndbox>
-            <xmin>200</xmin>
-            <ymin>118</ymin>
-            <xmax>247</xmax>
-            <ymax>158</ymax>
-        </bndbox>
-    </object>
-    <object>
-        <name>Tree</name>
-        <pose>Unspecified</pose>
-        <truncated>0</truncated>
-        <occluded>0</occluded>
-        <difficult>0</difficult>
-        <bndbox>
-            <xmin>156</xmin>
-            <ymin>156</ymin>
-            <xmax>229</xmax>
-            <ymax>235</ymax>
-        </bndbox>
-    </object>
-    <object>
-        <name>Tree</name>
-        <pose>Unspecified</pose>
-        <truncated>0</truncated>
-        <occluded>0</occluded>
-        <difficult>0</difficult>
-        <bndbox>
-            <xmin>326</xmin>
+            <xmin>309</xmin>
             <ymin>116</ymin>
             <xmax>399</xmax>
-            <ymax>233</ymax>
+            <ymax>235</ymax>
         </bndbox>
     </object>
     <object>

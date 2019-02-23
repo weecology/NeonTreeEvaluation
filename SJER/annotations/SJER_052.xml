@@ -1,5 +1,5 @@
 <annotation>
-    <folder>SJER</folder>
+    <folder>plots</folder>
     <filename>SJER_052.tif</filename>
     <size>
         <width>400</width>
@@ -28,7 +28,7 @@
         <difficult>0</difficult>
         <bndbox>
             <xmin>212</xmin>
-            <ymin>26</ymin>
+            <ymin>3</ymin>
             <xmax>272</xmax>
             <ymax>78</ymax>
         </bndbox>
@@ -53,10 +53,10 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>295</xmin>
-            <ymin>9</ymin>
-            <xmax>360</xmax>
-            <ymax>66</ymax>
+            <xmin>274</xmin>
+            <ymin>1</ymin>
+            <xmax>376</xmax>
+            <ymax>69</ymax>
         </bndbox>
     </object>
     <object>

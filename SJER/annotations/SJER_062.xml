@@ -1,13 +1,31 @@
 <annotation>
-    <folder>SJER</folder>
+    <folder>plots</folder>
     <filename>SJER_062.tif</filename>
     <size>
         <width>370</width>
         <height>400</height>
+        <depth>3</depth>
     </size>
     <segmented>0</segmented>
     <object>
         <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>1</xmin>
+            <ymin>62</ymin>
+            <xmax>70</xmax>
+            <ymax>203</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
         <bndbox>
             <xmin>238</xmin>
             <ymin>201</ymin>
@@ -19,6 +37,7 @@
         <name>Tree</name>
         <pose>Unspecified</pose>
         <truncated>0</truncated>
+        <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
             <xmin>178</xmin>
@@ -31,6 +50,7 @@
         <name>Tree</name>
         <pose>Unspecified</pose>
         <truncated>0</truncated>
+        <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
             <xmin>30</xmin>
