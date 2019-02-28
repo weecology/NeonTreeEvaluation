@@ -66,8 +66,8 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>339</xmin>
-            <ymin>10</ymin>
+            <xmin>345</xmin>
+            <ymin>26</ymin>
             <xmax>400</xmax>
             <ymax>94</ymax>
         </bndbox>
