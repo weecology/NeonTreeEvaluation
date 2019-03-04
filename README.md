@@ -63,4 +63,7 @@ Anyone is welcome to add to this dataset by cloning this repo and labeling a new
 104 product (NEON ID: DP1.30003.001), and the “orthorectified camera mosaic” (NEON ID:
 105 DP1.30010.001). Please follow the current folder structure, with .laz and .tif files saved together in a single folder, with a unique name, as well as a single annotations folder for the rect label xml files. See /SJER for an example.
 
+## Additional info
+
+* Some files are too large to hold on the git repo. For example, full tiles are available directly from NEON. For example, the annotations that match SJER/annotations/2018_SJER_3_258000_4106000_image.xml should be in  SJER/training/2018_SJER_3_259000_4110000_image.tif, but are too large to be placed here. Instead, they can be directly downloaded from https://data.neonscience.org/home.
 
