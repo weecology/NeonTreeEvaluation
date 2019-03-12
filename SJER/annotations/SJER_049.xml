@@ -4,10 +4,15 @@
     <size>
         <width>400</width>
         <height>400</height>
+        <depth>3</depth>
     </size>
     <segmented>0</segmented>
     <object>
         <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
         <bndbox>
             <xmin>49</xmin>
             <ymin>326</ymin>
@@ -17,6 +22,10 @@
     </object>
     <object>
         <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
         <bndbox>
             <xmin>102</xmin>
             <ymin>1</ymin>
@@ -26,6 +35,10 @@
     </object>
     <object>
         <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
         <bndbox>
             <xmin>321</xmin>
             <ymin>139</ymin>
@@ -35,6 +48,10 @@
     </object>
     <object>
         <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
         <bndbox>
             <xmin>175</xmin>
             <ymin>274</ymin>
@@ -44,11 +61,15 @@
     </object>
     <object>
         <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
         <bndbox>
             <xmin>57</xmin>
             <ymin>149</ymin>
-            <xmax>166</xmax>
-            <ymax>255</ymax>
+            <xmax>156</xmax>
+            <ymax>243</ymax>
         </bndbox>
     </object>
 </annotation>
