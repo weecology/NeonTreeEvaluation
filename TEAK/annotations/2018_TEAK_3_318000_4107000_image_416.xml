@@ -14,6 +14,19 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
+            <xmin>376</xmin>
+            <ymin>296</ymin>
+            <xmax>400</xmax>
+            <ymax>351</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
             <xmin>128</xmin>
             <ymin>371</ymin>
             <xmax>153</xmax>
