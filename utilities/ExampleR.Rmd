@@ -28,5 +28,16 @@ plot(xml_polygons)
 # Overlay on imagery
 
 # Open LAS
+```{r}
+point_cloud<-readLAS("../SJER/plots/SJER_016.laz")
+```
+Tree annotations are stored in the UserData column. Each tree has a unique numeric ID
+
+```{r}
+plot(point_cloud)
+plot(point_cloud,color="UserData")
+tree_only<-lasfilter(point_cloud,!point_cloud@data$UserData)
+plot(tree_only,color="UserData")
+```
 
 # View annotations
