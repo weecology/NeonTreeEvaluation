@@ -2,9 +2,9 @@ import glob
 import os
 import Lidar
 
-path_to_rgb = "../SJER/plots/"
-path_to_laz = "../SJER/plots/"
-path_to_annotations = "../SJER/annotations/"
+path_to_rgb = "../TEAK/plots/"
+path_to_laz = "../TEAK/plots/"
+path_to_annotations = "../TEAK/annotations/"
 
 #For each .laz file in directory.
 laz_files = glob.glob(path_to_laz+"*.laz")
@@ -23,7 +23,7 @@ for laz in laz_files:
     annotations= Lidar.load_xml(xml_path, path_to_rgb, res=0.1)
     
     #Create boxes
-    boxes = Lidar.create_boxes()
+    boxes = Lidar.create_boxes(annotations)
 
     #Drape RGB bounding boxes over the point cloud
     point_cloud = Lidar.drape_boxes(boxes, point_cloud)

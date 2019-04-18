@@ -233,5 +233,14 @@ def load_xml(path, dirname, res):
     
     return(frame)
 
-def create_boxes():
-    pass
+def create_boxes(annotations):
+    """
+    input: annotation list
+    returns xmin, ymin, xmax, ymax as a numpy array
+    """
+    
+    boxes = annotations[["xmin","ymin","xmax","ymax"]].values.astype("float")
+    
+    return boxes
+
+    
