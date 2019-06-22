@@ -5,7 +5,7 @@ import os
 
 #Load RGB raster and get bounds
 h5_path = "/Users/ben/Downloads/2018 2/FullSite/D07/2018_MLBS_3/L3/Spectrometer/Reflectance/NEON_D07_MLBS_DP3_541000_4140000_reflectance.h5"
-rgb_filename = "../MLBS/training/2018_MLBS_3_541000_4140000_image_crop2.tif"
+rgb_filename = "../MLBS/training/2018_MLBS_3_541000_4140000_image_crop.tif"
 with rasterio.open(rgb_filename) as dataset:
     rgb_bounds = dataset.bounds   
     
