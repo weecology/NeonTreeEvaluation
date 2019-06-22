@@ -1,0 +1,9 @@
+TEAK/2018_TEAK_3_315000_4094000_image_crop.tif
+SJER/NEON_D17_SJER_DP1_257000_4110000_classified_point_cloud_colorized.laz
+SJER/training/NEON_D17_SJER_DP1_259000_4110000_classified_point_cloud_colorized.laz
+SJER/training/NEON_D17_SJER_DP1_258000_4106000_classified_point_cloud_colorized.laz
+TEAK/training/2018_TEAK_3_315000_4094000_image_crop.tif
+*.wpr
+*.wpu
+*.DS_Store
+*.Rhistory

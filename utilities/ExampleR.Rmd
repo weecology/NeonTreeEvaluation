@@ -1,0 +1,58 @@
+---
+title: "Loading the dataset in R"
+author: "Ben Weinstein"
+date: "2/1/2019"
+output: 
+  html_document: 
+    keep_md: yes
+---
+
+How to read and view xml annotations from the NEONTreeEvaluation benchmark dataset
+
+```{r setup, include=FALSE}
+library(lidR)
+library(raster)
+library(tidyverse,quietly = T)
+library(xml2)
+source("functions.R")
+```
+
+```{r}
+#Path to dataset
+xmls<-readTreeXML(path="../")
+
+#View one plot's annotations as polygons
+xml_polygons <- xml_to_spatial_polygons(xmls[xmls$filename %in% "TEAK_062.tif",])
+plot(xml_polygons)
+```
+# Overlay on imagery
+
+# Open LAS
+```{r}
+point_cloud<-readLAS("../SJER/plots/SJER_016.laz")
+```
+Tree annotations are stored in the UserData column. Each tree has a unique numeric ID
+
+```{r}
+plot(point_cloud)
+plot(point_cloud,color="UserData")
+tree_only<-lasfilter(point_cloud,!point_cloud@data$UserData)
+plot(tree_only,color="UserData")
+```
+
+```{r}
+las<-readLAS("/Users/Ben/Documents/DeepLidar/data/NIWO/plots/NIWO_042.laz")
+las <- lasnormalize(las = las,algorithm = knnidw(k = 8, p = 2))
+las<-lasfilter(las,Z < 40)
+plot(las)
+```
+
+## Compute Height Model
+
+```{r}
+chm <- lidR::grid_canopy(las, res = 0.5, lidR::pitfree(c(0,2,5,10,15), c(0, 1.5)))
+plot(chm)
+
+```
+
+# View annotations
