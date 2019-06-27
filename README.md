@@ -76,7 +76,9 @@ Anyone is welcome to add to this dataset by cloning this repo and labeling a new
 
 ## Additional info
 
-There is one ugly part of mantaining a benchmark on github. Some training files are too large to hold on the  repo. For example, full tiles are available directly from NEON. For example, the annotations that match SJER/annotations/2018_SJER_3_258000_4106000_image.xml should be in  SJER/training/2018_SJER_3_259000_4110000_image.tif, but are too large to be placed here. Instead, they can be directly downloaded from https://data.neonscience.org/home or are directly hosted by the mantainer below. 
+### Large Files
+
+There is one ugly part of mantaining a benchmark on github. Some training files are too large to hold on the repo. For example, full tiles are available directly from NEON. For example, the annotations that match SJER/annotations/2018_SJER_3_258000_4106000_image.xml should be in  SJER/training/2018_SJER_3_259000_4110000_image.tif, but are too large to be placed here. Instead, they can be directly downloaded from https://data.neonscience.org/home or are directly hosted by the mantainer below. 
 
 *TEAK training RGB tile*: https://www.dropbox.com/s/tzduobrzzpji8ps/2018_TEAK_3_315000_4094000_image_crop.tif?dl=1
 
@@ -102,8 +104,27 @@ then *rename* to drop the wget artifact.
 [b.weinstein@login3 training]$
 ```
 
-
 We recognize that this is not ideal, but worth the collaborative environment that git provides.
 
+### Lidar hand annotations
+
+To access the draped lidar hand annotations
+
+```
+
+```
+
+![](Figures/lidar_hand_annotations.png)
+
+We elected to keep all points, regardless of whether they correspond to tree annotation. Non-tree points have value 0. We highly recommend removing these points before predicting the point cloud. Since the annotations were made in the RGB and then draped on to the point cloud, there will naturally be some erroneous points at the borders of trees.
+
+### Hyperspectral Images
+For the convienance of future users, we have downloaded, cropped and selected reasonable three band combinations for NEON hyperspectral images. For the full tiles and bands, see the NEON Data Portal. For example, for the TEAK training file
+
+```
+TEAK/Training/2018_TEAK_3_315000_4094000_image_crop.tif
+```
+
+![](Figures/TEAK_Hyperspectral_download.png)
 
 
