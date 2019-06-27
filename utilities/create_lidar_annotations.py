@@ -2,7 +2,31 @@ import glob
 import os
 import Lidar
 import laspy
+        
+def write_label(point_cloud, path):
+    
+    #Create laspy object
+    inFile = laspy.file.File("/Users/Ben/Desktop/test.laz", header=point_cloud.data.header, mode="w")    
+    for dim in point_cloud.data.points:
+        setattr(inFile, dim, point_cloud.data.points[dim])
+    
+    #Create second laspy object
+    outFile1 = laspy.file.File(path, mode = "w",header = inFile.header)
 
+    outFile1.define_new_dimension(
+        name="label",
+        data_type=5,
+        description = "Integer Tree Label"
+     )
+    
+    # copy fields 
+    for dimension in inFile.point_format:
+        dat = inFile.reader.get_dimension(dimension.name)
+        outFile1.writer.set_dimension(dimension.name, dat)
+        
+    outFile1.label = point_cloud.data.points.user_data
+    outFile1.close()
+    
 #Training tiles
 def annotate_tile(laz_path, path_to_rgb, xml_path):
     annotations= Lidar.load_xml(xml_path, path_to_rgb, res=0.1)
@@ -15,16 +39,12 @@ def annotate_tile(laz_path, path_to_rgb, xml_path):
     #Drape RGB bounding boxes over the point cloud
     point_cloud = Lidar.drape_boxes(boxes, point_cloud)
         
-    #Write Laz
-    point_cloud.write(laz_path)
+    #Write Laz with label info
+    write_label(point_cloud, laz_path)
     
-    #write csv for merge
-    csv_path = os.path.splitext(os.path.basename(laz_path))[0] + ".csv"
-    point_cloud.data.points[["x","y","z","user_data"]].to_csv(csv_path)
-    
-annotate_tile(laz_path="../TEAK/training/NEON_D17_TEAK_DP1_315000_4094000_classified_point_cloud_colorized_crop.laz",
-              path_to_rgb="../TEAK/training/", 
-              xml_path= "../TEAK/annotations/2018_TEAK_3_315000_4094000_image_crop.xml")
+annotate_tile(laz_path="../MLBS/training/NEON_D07_MLBS_DP1_541000_4140000_classified_point_cloud_crop2.laz",
+              path_to_rgb="../MLBS/training/", 
+              xml_path= "../MLBS/annotations/2018_MLBS_3_541000_4140000_image_crop2.xml")
     
 def annotate_eval_plots(site):
     path_to_rgb = "../" + site +"/plots/"
