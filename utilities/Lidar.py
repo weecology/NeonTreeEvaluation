@@ -40,7 +40,7 @@ def load_lidar(laz_path, normalize=True):
     pc.filter(min = -1, max = 100 , dim = "z")    
     
     #Check dim
-    assert (not pc.data.points.shape[0] == 0), "Lidar tile is empty!"
+    #assert (not pc.data.points.shape[0] == 0), "Lidar tile is empty!"
     
     return pc
 
