@@ -110,7 +110,10 @@ TEAK/Training/2018_TEAK_3_315000_4094000_image_crop.tif
 
 There is one ugly part of mantaining a benchmark on github. Some training files are too large to hold on the repo. For example, full tiles are available directly from NEON. For example, the annotations that match SJER/annotations/2018_SJER_3_258000_4106000_image.xml should be in  SJER/training/2018_SJER_3_259000_4110000_image.tif, but are too large to be placed here. Instead, they can be directly downloaded from https://data.neonscience.org/home or are directly hosted by the mantainer below. 
 
-*TEAK training RGB tile*: https://www.dropbox.com/s/tzduobrzzpji8ps/2018_TEAK_3_315000_4094000_image_crop.tif?dl=1
+If you would prefer not to clone this repo, a static version of the benchmark is here: [insert url later]
+
+*TEAK training RGB and lidar tile*: https://www.dropbox.com/s/tzduobrzzpji8ps/2018_TEAK_3_315000_4094000_image_crop.tif?dl=1
+https://www.dropbox.com/s/5x629zfd7o3cv8g/NEON_D17_TEAK_DP1_315000_4094000_classified_point_cloud_colorized_crop.laz?dl=1
 
 *SJER training laz 1*: https://www.dropbox.com/s/i8edrp4derzxwtb/NEON_D17_SJER_DP1_259000_4110000_classified_point_cloud_colorized.laz?dl=1
 
