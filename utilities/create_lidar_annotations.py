@@ -42,14 +42,14 @@ def annotate_tile(laz_path, path_to_rgb, xml_path):
     #Write Laz with label info
     write_label(point_cloud, laz_path)
     
-annotate_tile(laz_path="../MLBS/training/NEON_D07_MLBS_DP1_541000_4140000_classified_point_cloud_crop2.laz",
-              path_to_rgb="../MLBS/training/", 
-              xml_path= "../MLBS/annotations/2018_MLBS_3_541000_4140000_image_crop2.xml")
+annotate_tile(laz_path="../SJER/training/NEON_D17_SJER_DP1_259000_4110000_classified_point_cloud_colorized.laz",
+              path_to_rgb="../SJER/training/", 
+              xml_path= "../SJER/annotations/2018_SJER_3_259000_4110000_image.xml")
     
 def annotate_eval_plots(site):
     path_to_rgb = "../" + site +"/plots/"
     path_to_laz = path_to_rgb
-    path_to_annotations = "../NIWO/annotations/"
+    path_to_annotations = "../" + site +"/annotations/"
     
     #For each .laz file in directory.
     laz_files = glob.glob(path_to_laz+"*.laz")
@@ -78,4 +78,9 @@ def annotate_eval_plots(site):
         point_cloud = Lidar.drape_boxes(boxes, point_cloud)
             
         #Write Laz
-        point_cloud.write(laz)
+        write_label(point_cloud, laz)
+
+sites = ["SJER","NIWO","TEAK","MLBS"]
+
+#for site in sites:
+    #annotate_eval_plots(site)

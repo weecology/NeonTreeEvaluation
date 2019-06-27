@@ -62,17 +62,47 @@ plot(laz)
 
 For more guidance on data loading, see /utilities.
 
-# Performance
-
-The following papers report statistics for performance at one or more sites.
-
-* https://www.biorxiv.org/content/10.1101/532952v1
 
 # How can I add to this dataset?
 
 Anyone is welcome to add to this dataset by cloning this repo and labeling a new site in [rectlabel](https://rectlabel.com/). NEON data is available on the [NEON data server](http://data.neonscience.org/home). We used the NEON 2018 “classified LiDAR point cloud” data
 104 product (NEON ID: DP1.30003.001), and the “orthorectified camera mosaic” (NEON ID:
 105 DP1.30010.001). Please follow the current folder structure, with .laz and .tif files saved together in a single folder, with a unique name, as well as a single annotations folder for the rect label xml files. See /SJER for an example.
+
+# Lidar
+
+To access the draped lidar hand annotations, use the "label" column. Each tree has a unique integer.
+
+```
+> r<-readLAS("TEAK/training/NEON_D17_TEAK_DP1_315000_4094000_classified_point_cloud_colorized_crop.laz")
+23424 points below 0 found.
+> trees<-lasfilter(r,!label==0)
+> plot(trees,color="label")
+```
+
+![](Figures/lidar_hand_annotations.png)
+
+We elected to keep all points, regardless of whether they correspond to tree annotation. Non-tree points have value 0. We highly recommend removing these points before predicting the point cloud. Since the annotations were made in the RGB and then draped on to the point cloud, there will naturally be some erroneous points at the borders of trees.
+
+# Hyperspectral 
+For the convienance of future users, we have downloaded, cropped and selected reasonable three band combinations for NEON hyperspectral images. 
+
+```
+> r<-stack("/Users/Ben/Documents/NeonTreeEvaluation/MLBS/training/2018_MLBS_3_541000_4140000_image_crop_false_color.tif")
+> nlayers(r)
+[1] 3
+> plotRGB(r,stretch="lin")
+```
+
+![](Figures/Hyperspec_example.png)
+
+For the full tiles and bands, see the NEON Data Portal. For example, for the TEAK training file
+
+```
+TEAK/Training/2018_TEAK_3_315000_4094000_image_crop.tif
+```
+
+![](Figures/TEAK_Hyperspectral_download.png)
 
 ## Additional info
 
@@ -106,25 +136,10 @@ then *rename* to drop the wget artifact.
 
 We recognize that this is not ideal, but worth the collaborative environment that git provides.
 
-### Lidar hand annotations
+# Performance
 
-To access the draped lidar hand annotations
+The following papers report statistics for performance at one or more sites.
 
-```
+Weinstein, Ben G., et al. "Individual tree-crown detection in RGB imagery using semi-supervised deep learning neural networks." Remote Sensing 11.11 (2019): 1309.
 
-```
-
-![](Figures/lidar_hand_annotations.png)
-
-We elected to keep all points, regardless of whether they correspond to tree annotation. Non-tree points have value 0. We highly recommend removing these points before predicting the point cloud. Since the annotations were made in the RGB and then draped on to the point cloud, there will naturally be some erroneous points at the borders of trees.
-
-### Hyperspectral Images
-For the convienance of future users, we have downloaded, cropped and selected reasonable three band combinations for NEON hyperspectral images. For the full tiles and bands, see the NEON Data Portal. For example, for the TEAK training file
-
-```
-TEAK/Training/2018_TEAK_3_315000_4094000_image_crop.tif
-```
-
-![](Figures/TEAK_Hyperspectral_download.png)
-
-
+* https://www.mdpi.com/2072-4292/11/11/1309
