@@ -42,9 +42,9 @@ def annotate_tile(laz_path, path_to_rgb, xml_path):
     #Write Laz with label info
     write_label(point_cloud, laz_path)
     
-annotate_tile(laz_path="../SJER/training/NEON_D17_SJER_DP1_259000_4110000_classified_point_cloud_colorized.laz",
-              path_to_rgb="../SJER/training/", 
-              xml_path= "../SJER/annotations/2018_SJER_3_259000_4110000_image.xml")
+#annotate_tile(laz_path="../SJER/training/NEON_D17_SJER_DP1_258000_4106000_classified_point_cloud_colorized.laz",
+              #path_to_rgb="../SJER/training/", 
+              #xml_path= "../SJER/annotations/2018_SJER_3_258000_4106000_image.xml")
     
 def annotate_eval_plots(site):
     path_to_rgb = "../" + site +"/plots/"
@@ -82,5 +82,5 @@ def annotate_eval_plots(site):
 
 sites = ["SJER","NIWO","TEAK","MLBS"]
 
-#for site in sites:
-    #annotate_eval_plots(site)
+for site in sites:
+    annotate_eval_plots(site)
