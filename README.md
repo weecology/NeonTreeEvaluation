@@ -69,6 +69,8 @@ Anyone is welcome to add to this dataset by cloning this repo and labeling a new
 104 product (NEON ID: DP1.30003.001), and the “orthorectified camera mosaic” (NEON ID:
 105 DP1.30010.001). Please follow the current folder structure, with .laz and .tif files saved together in a single folder, with a unique name, as well as a single annotations folder for the rect label xml files. See /SJER for an example.
 
+For ease of access, we have added one unlabeled site, [BART](https://www.neonscience.org/field-sites/field-sites-map/BART), and [UNDE](https://www.neonscience.org/field-sites/field-sites-map/UNDE), we encourage others to label this site, or predict into new, untested areas. 
+
 # Lidar
 
 To access the draped lidar hand annotations, use the "label" column. Each tree has a unique integer.
