@@ -106,16 +106,25 @@ TEAK/Training/2018_TEAK_3_315000_4094000_image_crop.tif
 
 ### Large Files
 
-There is one ugly part of mantaining a benchmark on github. Some training files are too large to hold on the repo. For example, full tiles are available directly from NEON. For example, the annotations that match SJER/annotations/2018_SJER_3_258000_4106000_image.xml should be in  SJER/training/2018_SJER_3_259000_4110000_image.tif, but are too large to be placed here. Instead, they can be directly downloaded from https://data.neonscience.org/home or are directly hosted by the mantainer below. 
+There is one ugly part of mantaining a benchmark on github. Some training files are too large to hold on the repo. For example, full tiles are available directly from NEON. For example, the annotations that match
+```
+SJER/annotations/2018_SJER_3_258000_4106000_image.xml 
+```
+should be 
+
+```
+SJER/training/2018_SJER_3_259000_4110000_image.tif, 
+```
+but are too large to be placed here. Instead, they can be directly downloaded from https://data.neonscience.org/home (see screenshot above) or are directly hosted by the mantainer below. 
 
 If you would prefer not to clone this repo, a static version of the benchmark is here: [insert url later]
 
-*TEAK training RGB and lidar tile*: https://www.dropbox.com/s/tzduobrzzpji8ps/2018_TEAK_3_315000_4094000_image_crop.tif?dl=1
+* TEAK training RGB and lidar tile https://www.dropbox.com/s/tzduobrzzpji8ps/2018_TEAK_3_315000_4094000_image_crop.tif?dl=1
 https://www.dropbox.com/s/5x629zfd7o3cv8g/NEON_D17_TEAK_DP1_315000_4094000_classified_point_cloud_colorized_crop.laz?dl=1
 
-*SJER training laz 1*: https://www.dropbox.com/s/i8edrp4derzxwtb/NEON_D17_SJER_DP1_259000_4110000_classified_point_cloud_colorized.laz?dl=1
+* SJER training laz 1 https://www.dropbox.com/s/i8edrp4derzxwtb/NEON_D17_SJER_DP1_259000_4110000_classified_point_cloud_colorized.laz?dl=1
 
-*SJER training laz 2*: https://www.dropbox.com/s/mn2sx4e1u5p4chx/NEON_D17_SJER_DP1_258000_4106000_classified_point_cloud_colorized.laz?dl=1
+* SJER training laz 2 https://www.dropbox.com/s/mn2sx4e1u5p4chx/NEON_D17_SJER_DP1_258000_4106000_classified_point_cloud_colorized.laz?dl=1
 
 Download using wget into the correct position for example
 ```
@@ -144,3 +153,5 @@ The following papers report statistics for performance at one or more sites.
 Weinstein, Ben G., et al. "Individual tree-crown detection in RGB imagery using semi-supervised deep learning neural networks." Remote Sensing 11.11 (2019): 1309.
 
 * https://www.mdpi.com/2072-4292/11/11/1309
+
+Please submit a pull request, or contact the mantainer if you use these data in analysis and would like the results to be shown here.
