@@ -80,7 +80,7 @@ To access the draped lidar hand annotations, use the "label" column. Each tree h
 > plot(trees,color="label")
 ```
 
-![](Figures/lidar_hand_annotations.png)
+<img src="figures/lidar_hand_annotations.png" height="300">
 
 We elected to keep all points, regardless of whether they correspond to tree annotation. Non-tree points have value 0. We highly recommend removing these points before predicting the point cloud. Since the annotations were made in the RGB and then draped on to the point cloud, there will naturally be some erroneous points at the borders of trees.
 
@@ -94,15 +94,14 @@ For the convienance of future users, we have downloaded, cropped and selected re
 > plotRGB(r,stretch="lin")
 ```
 
-![](Figures/Hyperspec_example.png)
+<img src="figures/Hyperspec_example.png" height="300">
 
 For the full tiles and bands, see the NEON Data Portal. For example, for the TEAK training file
 
 ```
 TEAK/Training/2018_TEAK_3_315000_4094000_image_crop.tif
 ```
-
-![](Figures/TEAK_Hyperspectral_download.png)
+<img src="figures/TEAK_Hyperspectral_download.png" height="300">
 
 ## Additional info
 
