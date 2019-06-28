@@ -101,7 +101,7 @@ For the full tiles and bands, see the NEON Data Portal. For example, for the TEA
 ```
 TEAK/Training/2018_TEAK_3_315000_4094000_image_crop.tif
 ```
-<img src="figures/TEAK_Hyperspectral_download.png" height="400" width="600">
+<img src="figures/TEAK_Hyperspectral_download.png" height="400" width="300">
 
 ## Additional info
 
