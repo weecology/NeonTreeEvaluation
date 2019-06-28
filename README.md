@@ -29,7 +29,7 @@ NIWO: The “alpine” site is Niwot Ridge Mountain Research State, Colorado (40
 
 MLBS: The “Eastern Deciduous” site is the Mountain Lake Biological Station. Here the dense canopy is dominated by Red Maple (Acer rubrum) and White Oak (Quercus alba). 
 
-* Add number of trees.
+* 1231 training trees,	489 test trees.
 
 # How do I load the dataset?
 
@@ -45,7 +45,6 @@ The following tools are useful for interacting with this dataset.
 * raster
 
 # Example
-
 ```
 library(raster)
 library(lidR)
@@ -56,12 +55,10 @@ plotRGB(rgb)
 laz<-readLAS("data/NeonTreeEvaluation/SJER/SJER_005.laz")
 plot(laz)
 ```
-
 <img src="figures/SJER_005.jpeg" height="300">
 <img src="figures/SJER_005_laz.png" height="300">
 
 For more guidance on data loading, see /utilities.
-
 
 # How can I add to this dataset?
 
@@ -69,7 +66,7 @@ Anyone is welcome to add to this dataset by cloning this repo and labeling a new
 104 product (NEON ID: DP1.30003.001), and the “orthorectified camera mosaic” (NEON ID:
 105 DP1.30010.001). Please follow the current folder structure, with .laz and .tif files saved together in a single folder, with a unique name, as well as a single annotations folder for the rect label xml files. See /SJER for an example.
 
-For ease of access, we have added one unlabeled site, [BART](https://www.neonscience.org/field-sites/field-sites-map/BART), and [UNDE](https://www.neonscience.org/field-sites/field-sites-map/UNDE), we encourage others to label this site, or predict into new, untested areas. 
+For ease of access, we have added two unlabeled sites, [BART](https://www.neonscience.org/field-sites/field-sites-map/BART), and [UNDE](https://www.neonscience.org/field-sites/field-sites-map/UNDE), we encourage others to label these sites, or use models from the labeled data to predict into new, untested, areas. 
 
 # Lidar
 
