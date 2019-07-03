@@ -1,6 +1,8 @@
 # A multi-sensor benchmark dataset for detecting individual trees in RGB and point clouds
 
-Individual tree detection is a central task in forestry and ecology. Very few papers analyze proposed methods across a wide geographic area. This limits the utility of tools and inhibits comparisons across methods. This benchmark dataset is the first dataset to have consistant annotation approach accross a variety of ecosystems. 
+Individual tree detection is a central task in forestry and ecology. Few papers analyze proposed methods across a wide geographic area. This limits the utility of tools and inhibits comparisons across methods. This benchmark dataset is the first dataset to have consistant annotation approach across a variety of ecosystems. 
+
+If you would prefer not to clone this repo, a static version of the benchmark is here: [insert url later]
 
 Mantainer: Ben Weinstein - University of Florida.
 
@@ -31,33 +33,6 @@ MLBS: The “Eastern Deciduous” site is the Mountain Lake Biological Station. 
 
 * 1231 training trees,	489 test trees.
 
-# How do I load the dataset?
-
-The following tools are useful for interacting with this dataset. 
-## Python
-
-* pyfor / laspy
-* rasterio
-
-## R
-
-* lidR
-* raster
-
-# Example
-```
-library(raster)
-library(lidR)
-
-rgb<-stack("data/NeonTreeEvaluation/SJER/SJER_005.tif")
-plotRGB(rgb)
-
-laz<-readLAS("data/NeonTreeEvaluation/SJER/SJER_005.laz")
-plot(laz)
-```
-<img src="figures/SJER_005.jpeg" height="300">
-<img src="figures/SJER_005_laz.png" height="300">
-
 For more guidance on data loading, see /utilities.
 
 # How can I add to this dataset?
@@ -67,6 +42,17 @@ Anyone is welcome to add to this dataset by cloning this repo and labeling a new
 105 DP1.30010.001). Please follow the current folder structure, with .laz and .tif files saved together in a single folder, with a unique name, as well as a single annotations folder for the rect label xml files. See /SJER for an example.
 
 For ease of access, we have added two unlabeled sites, [BART](https://www.neonscience.org/field-sites/field-sites-map/BART), and [UNDE](https://www.neonscience.org/field-sites/field-sites-map/UNDE), we encourage others to label these sites, or use models from the labeled data to predict into new, untested, areas. 
+
+# RGB
+
+```
+library(raster)
+rgb<-stack("data/NeonTreeEvaluation/SJER/SJER_005.tif")
+plotRGB(rgb)
+```
+<img src="figures/SJER_005.jpeg" height="300">
+
+**TODO: Example load and overlay annotations**
 
 # Lidar
 
@@ -102,6 +88,12 @@ TEAK/Training/2018_TEAK_3_315000_4094000_image_crop.tif
 ```
 <img src="figures/TEAK_Hyperspectral_download.png" height="400">
 
+For an evaluation tile (e.g. SJER_069.tif), we have provided an R script to lookup the correct geographic index.
+
+```
+ADD EXAMPLE
+```
+
 ## Additional info
 
 ### Large Files
@@ -116,8 +108,6 @@ should be
 SJER/training/2018_SJER_3_259000_4110000_image.tif, 
 ```
 but are too large to be placed here. Instead, they can be directly downloaded from https://data.neonscience.org/home (see screenshot above) or are directly hosted by the mantainer below. 
-
-If you would prefer not to clone this repo, a static version of the benchmark is here: [insert url later]
 
 * TEAK training RGB and lidar tile https://www.dropbox.com/s/tzduobrzzpji8ps/2018_TEAK_3_315000_4094000_image_crop.tif?dl=1
 https://www.dropbox.com/s/5x629zfd7o3cv8g/NEON_D17_TEAK_DP1_315000_4094000_classified_point_cloud_colorized_crop.laz?dl=1
@@ -148,10 +138,14 @@ We recognize that this is not ideal, but worth the collaborative environment tha
 
 # Performance
 
-The following papers report statistics for performance at one or more sites.
+To submit to this benchmark, please see evaluation.py. The primary evaluation statistic in average precision across sites (mAP). 
 
-Weinstein, Ben G., et al. "Individual tree-crown detection in RGB imagery using semi-supervised deep learning neural networks." Remote Sensing 11.11 (2019): 1309.
+| Authour  | mAP| Description
+| ------------- |------| ------------- |
+| Weinstein et al. 2017<sup>1</sup> | 0.58| SJER Only|
+| Weinstein et al. unpublished | X | all sites| 
 
-* https://www.mdpi.com/2072-4292/11/11/1309
+## Cited
+<sup>1</sup> Weinstein, Ben G., et al. "Individual tree-crown detection in RGB imagery using semi-supervised deep learning neural networks." Remote Sensing 11.11 (2019): 1309. https://www.mdpi.com/2072-4292/11/11/1309
 
 Please submit a pull request, or contact the mantainer if you use these data in analysis and would like the results to be shown here.
