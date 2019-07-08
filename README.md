@@ -86,13 +86,27 @@ For the full tiles and bands, see the NEON Data Portal. For example, for the TEA
 ```
 TEAK/Training/2018_TEAK_3_315000_4094000_image_crop.tif
 ```
-<img src="figures/TEAK_Hyperspectral_download.png" height="400">
+<img src="figures/TEAK_Hyperspectral_download.png" height="500">
 
-For an evaluation tile (e.g. SJER_069.tif), we have provided an R script to lookup the correct geographic index.
+For an evaluation tile (e.g. SJER_059.tif), we have provided an R script to lookup the correct geographic index.
 
 ```
-ADD EXAMPLE
+library(sf)
+plot_polygons<-read_sf("/All_NEON_TOS_Plots_V5/All_Neon_TOS_Polygons_V5.shp")
+
+#Look at one site
+SJER_plots<-plot_polygons[plot_polygons$siteID=="SJER",]
+
+#View plots
+plot(SJER_plots["siteID"],col="black")
+
+#Lookup plotname
+plot_record<-as.data.frame(SJER_plots[SJER_plots$plotID=="SJER_059",c("easting","northing")])
+geo_index = paste(trunc(plot_record$easting/1000)*1000,trunc(plot_record$northing/1000)*1000,sep="_")
+> geo_index
+[1] "257000_4109000"
 ```
+
 
 ## Additional info
 
