@@ -88,7 +88,7 @@ TEAK/Training/2018_TEAK_3_315000_4094000_image_crop.tif
 ```
 <img src="figures/TEAK_Hyperspectral_download.png" height="500">
 
-For an evaluation tile (e.g. SJER_059.tif), we have provided an R script to lookup the correct geographic index.
+Evaluation plots are named by NEON (e.g. SJER_059.tif). To find the 1km tile that contains this plot, we have provided an R script to lookup the correct geographic index.
 
 ```
 library(sf)
