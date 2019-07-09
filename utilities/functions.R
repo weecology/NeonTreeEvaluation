@@ -42,8 +42,6 @@ parser<-function(fil){
 
   df<-data.frame(filename=filename,xmin=as.numeric(xmin)*0.1,xmax=as.numeric(xmax)*0.1,ymin=as.numeric(ymin)*0.1,ymax=as.numeric(ymax)*0.1,name=names)
   
-  #TODO extract site
-  
   #characters not factors
   df$filename<-as.character(df$filename)
   df$name<-as.character(df$name)
@@ -51,19 +49,28 @@ parser<-function(fil){
   return(df)
 }
 
-#plot_data is a xml object returned by the parser above
-xml_to_spatial_polygons<-function(xml_data){
+#xml_data is a xml object returned by the parser above, raster_object is the projected RGB image
+xml_to_spatial_polygons<-function(xml_data,raster_object){
   
-  ground_truth<-list()
+  #Project 
+  projection_extent<-extent(raster_object)
+  
+  projected_polygons<-list()
   for(x in 1:nrow(xml_data)){
-    e<-extent(xml_data$xmin[x],xml_data$xmax[x],xml_data$ymin[x], xml_data$ymax[x])
-    ground_truth[[x]]<-as(e, 'SpatialPolygons')
-    ground_truth[[x]]@polygons[[1]]@ID<-as.character(x)
+    
+    e<-extent( projection_extent@xmin + xml_data$xmin[x],
+               projection_extent@xmin + xml_data$xmax[x], 
+               (projection_extent@ymax - xml_data$ymax[x]),
+               (projection_extent@ymax - xml_data$ymax[x]) + (xml_data$ymax[x] - xml_data$ymin[x]) )
+    projected_polygons[[x]]<-as(e, 'SpatialPolygons')
+    projected_polygons[[x]]@polygons[[1]]@ID<-as.character(x)
   }
   
-  ground_truth <- as(SpatialPolygons(lapply(ground_truth,
+  projected_polygons <- as(SpatialPolygons(lapply(projected_polygons,
                                             function(x) slot(x, "polygons")[[1]])),"SpatialPolygonsDataFrame")
   
-  ground_truth@data$crown_id=1:nrow(ground_truth)
-  return(ground_truth)
+  projected_polygons@data$crown_id=1:nrow(projected_polygons)
+  
+  proj4string(projected_polygons)<-projection(rgb)
+  return(projected_polygons)
 }

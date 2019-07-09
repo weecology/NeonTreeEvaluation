@@ -45,7 +45,7 @@ For ease of access, we have added two unlabeled sites, [BART](https://www.neonsc
 
 # RGB
 
-```
+```R
 library(raster)
 source("functions.R")
 
@@ -63,13 +63,13 @@ plotRGB(rgb)
 plot(xml_polygons,add=T)
 ```
 
-<img src="figures/SJER_005.jpeg" height="300">
+<img src="figures/RGB_annotations.png" height="300">
 
 # Lidar
 
 To access the draped lidar hand annotations, use the "label" column. Each tree has a unique integer.
 
-```
+```R
 > r<-readLAS("TEAK/training/NEON_D17_TEAK_DP1_315000_4094000_classified_point_cloud_colorized_crop.laz")
 23424 points below 0 found.
 > trees<-lasfilter(r,!label==0)
@@ -83,14 +83,14 @@ We elected to keep all points, regardless of whether they correspond to tree ann
 # Hyperspectral 
 For the convienance of future users, we have downloaded, cropped and selected reasonable three band combinations for NEON hyperspectral images. 
 
-```
+```R
 > r<-stack("/Users/Ben/Documents/NeonTreeEvaluation/MLBS/training/2018_MLBS_3_541000_4140000_image_crop_false_color.tif")
 > nlayers(r)
 [1] 3
 > plotRGB(r,stretch="lin")
 ```
 
-<img src="figures/Hyperspec_example.png" height="300">
+<img src="figures/Hyperspec_example.png" height="400">
 
 For the full tiles and bands, see the NEON Data Portal. For example, for the TEAK training file
 
@@ -101,7 +101,7 @@ TEAK/Training/2018_TEAK_3_315000_4094000_image_crop.tif
 
 Evaluation plots are named by NEON (e.g. SJER_059.tif). To find the 1km tile that contains this plot, we have provided an R script to lookup the correct geographic index.
 
-```
+```R
 library(sf)
 plot_polygons<-read_sf("/All_NEON_TOS_Plots_V5/All_Neon_TOS_Polygons_V5.shp")
 
@@ -118,10 +118,7 @@ geo_index = paste(trunc(plot_record$easting/1000)*1000,trunc(plot_record$northin
 [1] "257000_4109000"
 ```
 
-
-## Additional info
-
-### Large Files
+## Large Files
 
 There is one ugly part of mantaining a benchmark on github. Some training files are too large to hold on the repo. For example, full tiles are available directly from NEON. For example, the annotations that match
 ```

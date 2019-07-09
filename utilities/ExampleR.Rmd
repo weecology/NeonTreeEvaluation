@@ -5,25 +5,28 @@ date: "2/1/2019"
 output: 
   html_document: 
     keep_md: yes
+editor_options: 
+  chunk_output_type: console
 ---
 
 How to read and view xml annotations from the NEONTreeEvaluation benchmark dataset
 
-```{r setup, include=FALSE}
-library(lidR)
+```{r, include=FALSE}
 library(raster)
-library(tidyverse,quietly = T)
-library(xml2)
 source("functions.R")
-```
 
-```{r}
+#Read RGB image as projected raster
+rgb<-stack("../SJER/plots/SJER_021.tif")
+
 #Path to dataset
-xmls<-readTreeXML(path="../")
+xmls<-readTreeXML(path="../SJER/")
 
-#View one plot's annotations as polygons
-xml_polygons <- xml_to_spatial_polygons(xmls[xmls$filename %in% "TEAK_062.tif",])
-plot(xml_polygons)
+#View one plot's annotations as polygons, project into UTM
+#copy project utm zone (epsg), xml has no native projection metadata
+xml_polygons <- xml_to_spatial_polygons(xmls[xmls$filename %in% "SJER_021.tif",],rgb)
+
+plotRGB(rgb)
+plot(xml_polygons,add=T)
 ```
 # Overlay on imagery
 
