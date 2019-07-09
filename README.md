@@ -47,12 +47,23 @@ For ease of access, we have added two unlabeled sites, [BART](https://www.neonsc
 
 ```
 library(raster)
-rgb<-stack("data/NeonTreeEvaluation/SJER/SJER_005.tif")
-plotRGB(rgb)
-```
-<img src="figures/SJER_005.jpeg" height="300">
+source("functions.R")
 
-**TODO: Example load and overlay annotations**
+#Read RGB image as projected raster
+rgb<-stack("../SJER/plots/SJER_021.tif")
+
+#Path to dataset
+xmls<-readTreeXML(path="../SJER/")
+
+#View one plot's annotations as polygons, project into UTM
+#copy project utm zone (epsg), xml has no native projection metadata
+xml_polygons <- xml_to_spatial_polygons(xmls[xmls$filename %in% "SJER_021.tif",],rgb)
+
+plotRGB(rgb)
+plot(xml_polygons,add=T)
+```
+
+<img src="figures/SJER_005.jpeg" height="300">
 
 # Lidar
 
