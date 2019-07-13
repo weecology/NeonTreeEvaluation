@@ -31,7 +31,7 @@ NIWO: The “alpine” site is Niwot Ridge Mountain Research State, Colorado (40
 
 MLBS: The “Eastern Deciduous” site is the Mountain Lake Biological Station. Here the dense canopy is dominated by Red Maple (Acer rubrum) and White Oak (Quercus alba). 
 
-* 1231 training trees,	489 test trees.
+* 1231 training trees, 489 test trees.
 
 For more guidance on data loading, see /utilities.
 
