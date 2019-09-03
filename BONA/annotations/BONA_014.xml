@@ -1,5 +1,5 @@
 <annotation>
-    <folder>BONA</folder>
+    <folder>plots</folder>
     <filename>BONA_014.tif</filename>
     <size>
         <width>400</width>
@@ -7,6 +7,19 @@
         <depth>3</depth>
     </size>
     <segmented>0</segmented>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>153</xmin>
+            <ymin>21</ymin>
+            <xmax>180</xmax>
+            <ymax>47</ymax>
+        </bndbox>
+    </object>
     <object>
         <name>Tree</name>
         <pose>Unspecified</pose>
@@ -248,10 +261,10 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>179</xmin>
-            <ymin>251</ymin>
-            <xmax>228</xmax>
-            <ymax>297</ymax>
+            <xmin>178</xmin>
+            <ymin>255</ymin>
+            <xmax>220</xmax>
+            <ymax>292</ymax>
         </bndbox>
     </object>
     <object>
@@ -274,10 +287,10 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>284</xmin>
-            <ymin>142</ymin>
-            <xmax>339</xmax>
-            <ymax>204</ymax>
+            <xmin>287</xmin>
+            <ymin>150</ymin>
+            <xmax>332</xmax>
+            <ymax>196</ymax>
         </bndbox>
     </object>
     <object>
@@ -326,10 +339,10 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>279</xmin>
-            <ymin>204</ymin>
-            <xmax>343</xmax>
-            <ymax>256</ymax>
+            <xmin>283</xmin>
+            <ymin>210</ymin>
+            <xmax>334</xmax>
+            <ymax>248</ymax>
         </bndbox>
     </object>
     <object>
