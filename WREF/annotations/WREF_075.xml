@@ -1,5 +1,5 @@
 <annotation>
-    <folder>WREF</folder>
+    <folder>plots</folder>
     <filename>WREF_075.tif</filename>
     <size>
         <width>400</width>
@@ -14,10 +14,10 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>314</xmin>
-            <ymin>150</ymin>
-            <xmax>358</xmax>
-            <ymax>203</ymax>
+            <xmin>199</xmin>
+            <ymin>271</ymin>
+            <xmax>235</xmax>
+            <ymax>313</ymax>
         </bndbox>
     </object>
     <object>
@@ -27,10 +27,10 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>49</xmin>
-            <ymin>11</ymin>
-            <xmax>78</xmax>
-            <ymax>40</ymax>
+            <xmin>314</xmin>
+            <ymin>150</ymin>
+            <xmax>358</xmax>
+            <ymax>203</ymax>
         </bndbox>
     </object>
     <object>
@@ -66,23 +66,10 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>374</xmin>
-            <ymin>10</ymin>
+            <xmin>369</xmin>
+            <ymin>2</ymin>
             <xmax>400</xmax>
             <ymax>59</ymax>
-        </bndbox>
-    </object>
-    <object>
-        <name>Tree</name>
-        <pose>Unspecified</pose>
-        <truncated>0</truncated>
-        <occluded>0</occluded>
-        <difficult>0</difficult>
-        <bndbox>
-            <xmin>377</xmin>
-            <ymin>59</ymin>
-            <xmax>400</xmax>
-            <ymax>98</ymax>
         </bndbox>
     </object>
     <object>
@@ -170,10 +157,10 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>61</xmin>
+            <xmin>66</xmin>
             <ymin>35</ymin>
             <xmax>102</xmax>
-            <ymax>78</ymax>
+            <ymax>79</ymax>
         </bndbox>
     </object>
     <object>
@@ -197,9 +184,9 @@
         <difficult>0</difficult>
         <bndbox>
             <xmin>307</xmin>
-            <ymin>40</ymin>
-            <xmax>370</xmax>
-            <ymax>122</ymax>
+            <ymin>45</ymin>
+            <xmax>356</xmax>
+            <ymax>113</ymax>
         </bndbox>
     </object>
     <object>
@@ -210,9 +197,9 @@
         <difficult>0</difficult>
         <bndbox>
             <xmin>301</xmin>
-            <ymin>201</ymin>
-            <xmax>365</xmax>
-            <ymax>283</ymax>
+            <ymin>207</ymin>
+            <xmax>358</xmax>
+            <ymax>278</ymax>
         </bndbox>
     </object>
     <object>
@@ -482,10 +469,10 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>219</xmin>
-            <ymin>251</ymin>
+            <xmin>221</xmin>
+            <ymin>241</ymin>
             <xmax>263</xmax>
-            <ymax>299</ymax>
+            <ymax>283</ymax>
         </bndbox>
     </object>
     <object>
@@ -495,10 +482,10 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>156</xmin>
+            <xmin>160</xmin>
             <ymin>268</ymin>
             <xmax>199</xmax>
-            <ymax>317</ymax>
+            <ymax>309</ymax>
         </bndbox>
     </object>
     <object>
