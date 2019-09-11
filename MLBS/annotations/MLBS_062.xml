@@ -14,6 +14,32 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
+            <xmin>259</xmin>
+            <ymin>239</ymin>
+            <xmax>299</xmax>
+            <ymax>288</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>207</xmin>
+            <ymin>242</ymin>
+            <xmax>262</xmax>
+            <ymax>295</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
             <xmin>71</xmin>
             <ymin>215</ymin>
             <xmax>103</xmax>
@@ -250,8 +276,8 @@
         <bndbox>
             <xmin>21</xmin>
             <ymin>96</ymin>
-            <xmax>75</xmax>
-            <ymax>151</ymax>
+            <xmax>73</xmax>
+            <ymax>141</ymax>
         </bndbox>
     </object>
     <object>
@@ -313,36 +339,10 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>221</xmin>
-            <ymin>238</ymin>
-            <xmax>274</xmax>
-            <ymax>296</ymax>
-        </bndbox>
-    </object>
-    <object>
-        <name>Tree</name>
-        <pose>Unspecified</pose>
-        <truncated>0</truncated>
-        <occluded>0</occluded>
-        <difficult>0</difficult>
-        <bndbox>
             <xmin>140</xmin>
             <ymin>165</ymin>
             <xmax>187</xmax>
             <ymax>213</ymax>
-        </bndbox>
-    </object>
-    <object>
-        <name>Tree</name>
-        <pose>Unspecified</pose>
-        <truncated>0</truncated>
-        <occluded>0</occluded>
-        <difficult>0</difficult>
-        <bndbox>
-            <xmin>262</xmin>
-            <ymin>242</ymin>
-            <xmax>306</xmax>
-            <ymax>285</ymax>
         </bndbox>
     </object>
     <object>
