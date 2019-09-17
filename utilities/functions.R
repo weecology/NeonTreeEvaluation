@@ -74,3 +74,9 @@ xml_to_spatial_polygons<-function(xml_data,raster_object){
   proj4string(projected_polygons)<-projection(rgb)
   return(projected_polygons)
 }
+
+#Extract a bounding box from a spatial polygons dataframe
+extract_coordinates<-function(x){
+  b<-bbox(x)
+  data.frame(xmin=b[1,1],ymin=b[2,1],xmax=b[1,2],ymax=b[2,2])
+}
