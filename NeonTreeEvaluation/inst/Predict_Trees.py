@@ -35,7 +35,7 @@ if __name__=="__main__":
     model = utilities.read_model(config["model_path"], config) 
     
     #gather images
-    glob.glob("../../**/**/*.tif")
+    plots = glob.glob("../../**/**/*.tif")
     
     csv_path = utilities.prediction_wrapper(image_path="/Users/ben/Downloads/gettyimages-908-47-640x640.jpg")
     image = predict_image(image_path="/Users/ben/Downloads/gettyimages-908-47-640x640.jpg",model=model,return_plot=True)
