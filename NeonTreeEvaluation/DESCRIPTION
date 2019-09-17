@@ -13,3 +13,8 @@ RoxygenNote: 6.0.1
 Suggests: knitr,
     rmarkdown
 VignetteBuilder: knitr
+Imports: lidR,
+    raster,
+    sp,
+    dplyr,
+    xml2

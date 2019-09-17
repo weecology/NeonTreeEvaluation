@@ -1,5 +1,5 @@
 ---
-title: "Example Predictions and Evaluation"
+title: "Example Predictions and lidR Evaluation"
 author: "Ben Weinstein"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -8,6 +8,8 @@ vignette: >
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
+
+The goal of this vignette is to provide a small demonstration of how to work with the annotated data, visualize results and compute precision and recall for a single plot. For an example of evaluating a novel submission to the benchmark see the Evaluation vignette. 
 
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
@@ -26,7 +28,13 @@ library(dplyr)
 library(lidR)
 library(xml2)
 library(NeonTreeEvaluation)
+```
 
+## RGB 
+
+Let's load the RGB data and look at a set of ground truth annotations
+
+```{r}
 #Read RGB image as projected raster
 rgb<-stack("../../SJER/plots/SJER_052.tif")
 
@@ -35,13 +43,15 @@ xmls<-readTreeXML(siteID ="../../SJER/")
 
 #View one plot's annotations as polygons, project into UTM
 #copy project utm zone (epsg), xml has no native projection metadata
-xml_polygons <- xml_to_spatial_polygons(xmls[xmls$filename %in% "SJER_052.tif",],rgb)
+ground_truth <- xml_to_spatial_polygons(xmls[xmls$filename %in% "SJER_052.tif",],rgb)
 
 plotRGB(rgb)
-plot(xml_polygons,add=T)
+plot(ground_truth,add=T)
 ```
 
-# LiDAR
+## LiDAR
+
+Now let's load the corresponding LiDAR point cloud for this evaluation plot.
 
 ```{r}
 point_cloud<-readLAS("../../SJER/plots/SJER_052.laz")
@@ -57,6 +67,7 @@ plot(tree_only,color="label")
 
 ## Compute Height Model
 
+The liDR R package provides some nice tools for look at the point cloud as a raster grid.
 ```{r,fig.height=5,fig.width=7}
 chm <- lidR::grid_canopy(point_cloud, res = 0.5, lidR::pitfree(c(0,2,5,10,15), c(0, 1.5)))
 plot(chm)
@@ -64,11 +75,11 @@ plot(chm)
 
 ## Predict trees
 
-Using the lidR R package, we can perform individual tree prediction. Below we demonstrate how to predict trees and format the data for evaluation against the benchmark annotations.
+Using the lidR R package, we can perform individual tree prediction. Below we demonstrate how to predict trees and format the data for evaluation against the benchmark annotations. 
 
 ```{r}
 ttops <- tree_detection(chm, lmf(4, 2))
-point_cloud   <- lastrees(point_cloud, silva2016(chm, ttops,max_cr_factor = 0.9,exclusion = 0.4))
+point_cloud   <- lastrees(point_cloud, silva2016(chm, ttops,max_cr_factor = 0.5,exclusion = 0.3))
 ```
 
 The lidR package adds predicted labels into the treeID column
@@ -76,25 +87,17 @@ The lidR package adds predicted labels into the treeID column
 plot(point_cloud,color="treeID")
 ```
 
-## Format predictions
-
-The benchmark dataset evaluates annotations as bounding boxes, since LiDAR is only one of several ways to look at the task. Let's turn the point cloud annotations into boxes.
-
 ```{r}
-bboxes<-tree_hulls(point_cloud,"bbox")
+predictions<-tree_hulls(point_cloud,"bbox")
 plotRGB(rgb)
-plot(bboxes,add=T)
+plot(predictions,add=T)
 ```
+
+## Evaluate against benchmark annotations
+
+Now that we have ground truth and prediction polygon objects, what is the precision and recall for bounding boxes with interserction-over-union of freather than 0.5
 
 ```{r}
-#Use utility function to turn into dataframes
-predictions<-bind_rows(lapply(bboxes@polygons,extract_coordinates))
+evaluate_plot(ground_truth,predictions,threshold = 0.5)
 ```
 
-# Evaluate against benchmark annotations
-
-```{r,eval=FALSE}
-assignment<-assign_trees(ground_truth=ground_truth,prediction=predictions[[i]])
-
-statdf<-calc_jaccard(assignment=assignment,ground_truth = ground_truth,prediction=predictions[[i]]) %>% mutate(Method=names(predictions)[i])
-```
