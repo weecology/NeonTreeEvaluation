@@ -2,20 +2,16 @@
 % Please edit documentation in R/evaluate_plot.R
 \name{evaluate_plot}
 \alias{evaluate_plot}
-\title{Parse xml tree annotations from an XML file}
+\title{Compute evaluation statistics for one plot}
 \usage{
-evaluate_plot(predictions)
+evaluate_plot(submission, show = TRUE)
 }
 \arguments{
-\item{predictions}{SpatialPolygonDataFrame of prediction polygons}
-
-\item{ground_truth}{SpatialPolygonDataFrame of ground truth polygons}
-
-\item{threshold}{Intersection over Union threshold. default is 0.5}
+\item{submission}{A five column dataframe in the order plot_name, xmin, xmax, ymin, ymax. Each row is a predicted bounding box.}
 }
 \value{
 recall and precision scores for the plot
 }
 \description{
-Parse xml tree annotations from an XML file
+Compute evaluation statistics for one plot
 }

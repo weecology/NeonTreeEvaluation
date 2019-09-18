@@ -7,6 +7,7 @@
 #'
 load_ground_truth<-function(plot_name,show=TRUE){
 
+  print(getwd())
   #Load xml of annotations
   siteID = stringr::str_match(plot_name,"(\\w+)_")[,2]
   path_to_xml = paste("../",siteID,"/annotations/",plot_name,".xml",sep="")
@@ -24,11 +25,12 @@ load_ground_truth<-function(plot_name,show=TRUE){
 
   #View one plot's annotations as polygons, project into UTM
   #copy project utm zone (epsg), xml has no native projection metadata
-  ground_truth <- xml_to_spatial_polygons(xmls,rgb)
+  ground_truth <- boxes_to_spatial_polygons(xmls,rgb)
 
   if(show){
     plotRGB(rgb)
     plot(ground_truth,add=T)
   }
+  return(ground_truth)
 }
 

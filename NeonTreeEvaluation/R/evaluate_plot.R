@@ -1,18 +1,40 @@
-#' Parse xml tree annotations from an XML file
+#' Compute evaluation statistics for one plot
 #'
-#' @param ground_truth SpatialPolygonDataFrame of ground truth polygons
-#' @param predictions SpatialPolygonDataFrame of prediction polygons
-#' @param threshold Intersection over Union threshold. default is 0.5
+#' @param submission A five column dataframe in the order plot_name, xmin, xmax, ymin, ymax. Each row is a predicted bounding box.
 #' @return recall and precision scores for the plot
 #' @export
 #'
-evaluate_plot<-function(predictions){
+evaluate_plot<-function(submission, show=TRUE){
 
   #find ground truth file
-  ground_truth<-load_ground_truth()
+  plot_name <- unique(submission$plot_name)
+
+  if(!length(plot_name)==1){
+    stop(paste("There are",length(plot_name),"plot names. Please submit one plot of annotations to this function"))
+  }
+
+  ground_truth<-load_ground_truth(plot_name)
+  if(is.null(ground_truth)){
+    return(data.frame(NULL))
+  }
+
+  #Read RGB image as projected raster
+  siteID = stringr::str_match(plot_name,"(\\w+)_")[,2]
+  path_to_rgb = paste("../",siteID,"/plots/",plot_name,".tif",sep="")
+  print(path_to_rgb)
+  rgb<-stack(path_to_rgb)
+
+  #project boxes
+  predictions <- boxes_to_spatial_polygons(submission,rgb)
+
+  if(show){
+    plotRGB(rgb)
+    plot(ground_truth,border="black",add=T)
+    plot(predictions,border="red",add=T)
+  }
 
   #Create spatial polygons objects
-
-  compute_precision_recall(ground_truth,predicted_polygons)
+  result<-compute_precision_recall(ground_truth,predictions)
+  return(result)
 }
 

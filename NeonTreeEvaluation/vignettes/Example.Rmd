@@ -1,5 +1,5 @@
 ---
-title: "Example Predictions and lidR Evaluation"
+title: "Example Predictions and sample lidR Evaluation"
 author: "Ben Weinstein"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -43,7 +43,7 @@ xmls<-readTreeXML(siteID ="../../SJER/")
 
 #View one plot's annotations as polygons, project into UTM
 #copy project utm zone (epsg), xml has no native projection metadata
-ground_truth <- xml_to_spatial_polygons(xmls[xmls$filename %in% "SJER_052.tif",],rgb)
+ground_truth <- boxes_to_spatial_polygons(xmls[xmls$filename %in% "SJER_052.tif",],rgb)
 
 plotRGB(rgb)
 plot(ground_truth,add=T)

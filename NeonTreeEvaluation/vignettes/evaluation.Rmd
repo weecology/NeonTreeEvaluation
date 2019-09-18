@@ -9,12 +9,16 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>"
 )
+#TODO establish best practices relating to data location and how to reference in vignettes.
+#https://github.com/weecology/NeonTreeEvaluation/issues/12
 ```
+
 
 # Submission Format
 
@@ -32,6 +36,7 @@ Submissions should be placed in the /submissions folder
 ```{r}
 library(dplyr)
 library(NeonTreeEvaluation)
+
 submission<-read.csv(file = "../submissions/Weinstein2019.csv")
 head(submission)
 ```
@@ -40,8 +45,9 @@ head(submission)
 For each plot compute the precision and recall based on intersection-over-union of 0.5 between the ground truth bounding boxes and the predicted boxes.
 
 ```{r}
-submissions %>% group_by(plot_name) %>% do(evaluate_plot())
-evaluate_plot()
+sample<-split(submission,submission$plot_name)
+evaluate_plot(submission  = sample[[180]])
+submission %>% group_by(plot_name) %>% do(evaluate_plot(.))
 ```
 
 
