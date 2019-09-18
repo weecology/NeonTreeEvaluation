@@ -1,0 +1,38 @@
+---
+title: "Benchmark Evaluation"
+author: "Ben Weinstein"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+# Submission Format
+
+The format of the submission is as follows
+
+* A csv file
+* 5 columns: Plot, xmin, ymin, xmax, ymax
+
+The plot column should be named the same as the files in the dataset (e.g. SJER_021)
+
+```{r}
+
+```
+
+Submissions should be placed in the /submissions folder
+
+```{r}
+
+```
+
+
