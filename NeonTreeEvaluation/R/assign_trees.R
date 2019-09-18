@@ -12,10 +12,21 @@ assign_trees<-function(ground_truth,predictions){
   #Find overlap among polygons
   overlap<-polygon_overlap_all(ground_truth, predictions)
 
-  #Create adjacency matrix
+  #Create adjacency matrix, rows are ground truth, columns are predictions
   adj_matrix_overlap<-reshape2::acast(overlap,crown_id ~ prediction_id)
 
-  assignment<-clue::solve_LSAP(adj_matrix_overlap,maximum = T)
-  assignmentdf<-data.frame(crown_id=rownames(adj_matrix_overlap),prediction_id=as.integer(assignment))
+  rows = dim(adj_matrix_overlap)[1]
+  columns = dim(adj_matrix_overlap)[2]
+  if(rows < columns){
+    #match ground truth to predictions
+    assignment<-clue::solve_LSAP(adj_matrix_overlap,maximum = T)
+    assignmentdf<-data.frame(crown_id=rownames(adj_matrix_overlap),prediction_id=as.integer(assignment))
+  } else{
+    #transpose matrix to match predictions to ground truth
+    adj_matrix_overlap<-t(adj_matrix_overlap)
+    assignment<-clue::solve_LSAP(adj_matrix_overlap,maximum = T)
+    assignmentdf<-data.frame(crown_id=as.integer(assignment),prediction_id=rownames(adj_matrix_overlap))
+  }
+
   return(assignmentdf)
 }

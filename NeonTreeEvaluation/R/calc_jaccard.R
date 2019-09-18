@@ -10,16 +10,16 @@ calc_jaccard<-function(assignment,ground_truth,predictions){
   jaccard_stat<-list()
   for(i in 1:nrow(predictions)){
     polygon_row<-predictions[i,]
-    y<-predictions[predictions$treeID==polygon_row$treeID,]
+    y<-predictions[predictions$crown_id==polygon_row$crown_id,]
 
     #check assignment
-    polygon_assignment <-assignment[assignment$prediction_id==polygon_row$treeID,"crown_id"]
+    polygon_assignment <-assignment[assignment$prediction_id==polygon_row$crown_id,"crown_id"]
     if(length(polygon_assignment)==0){
-      jaccard_stat[[i]]<-data.frame(crown_id=as.character(polygon_row$treeID),prediction_id=NA,IoU=NA)
+      jaccard_stat[[i]]<-data.frame(crown_id=as.character(polygon_row$crown_id),prediction_id=NA,IoU=NA)
     } else{
     x<-ground_truth[ground_truth$crown_id==polygon_assignment,]
     #find interesection over union
-    jaccard_stat[[i]]<-data.frame(crown_id=as.character(polygon_assignment),prediction_id=as.character(polygon_row$treeID),IoU=IoU(x,y))
+    jaccard_stat[[i]]<-data.frame(crown_id=as.character(polygon_assignment),prediction_id=as.character(polygon_row$crown_id),IoU=IoU(x,y))
   }}
 
   statdf<-dplyr::bind_rows(jaccard_stat)

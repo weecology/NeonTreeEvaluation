@@ -39,7 +39,7 @@ xml_parse<-function(fil){
   recs <- xml_find_all(pg, "//filename")
   filename <- trimws(xml_text(recs))
 
-  df<-data.frame(filename=filename,xmin=as.numeric(xmin)*0.1,xmax=as.numeric(xmax)*0.1,ymin=as.numeric(ymin)*0.1,ymax=as.numeric(ymax)*0.1,name=names)
+  df<-data.frame(filename=filename,xmin=as.numeric(xmin),xmax=as.numeric(xmax),ymin=as.numeric(ymin),ymax=as.numeric(ymax),name=names)
 
   #characters not factors
   df$filename<-as.character(df$filename)

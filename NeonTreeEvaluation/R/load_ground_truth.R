@@ -7,10 +7,9 @@
 #'
 load_ground_truth<-function(plot_name,show=TRUE){
 
-  print(getwd())
   #Load xml of annotations
   siteID = stringr::str_match(plot_name,"(\\w+)_")[,2]
-  path_to_xml = paste("../",siteID,"/annotations/",plot_name,".xml",sep="")
+  path_to_xml = paste("/Users/Ben/Documents/NeonTreeEvaluation/",siteID,"/annotations/",plot_name,".xml",sep="")
   if(!file.exists(path_to_xml)){
     print(paste("There are no annotations for file",path_to_xml,"skipping..."))
     return(NULL)
@@ -18,17 +17,17 @@ load_ground_truth<-function(plot_name,show=TRUE){
   xmls <- xml_parse(path_to_xml)
 
   #load rgb
-  path_to_rgb = paste("../",siteID,"/plots/",plot_name,".tif",sep="")
+  path_to_rgb = paste("/Users/Ben/Documents/NeonTreeEvaluation/",siteID,"/plots/",plot_name,".tif",sep="")
 
   #Read RGB image as projected raster
-  rgb<-stack(path_to_rgb)
+  rgb<-raster::stack(path_to_rgb)
 
   #View one plot's annotations as polygons, project into UTM
   #copy project utm zone (epsg), xml has no native projection metadata
   ground_truth <- boxes_to_spatial_polygons(xmls,rgb)
 
   if(show){
-    plotRGB(rgb)
+    raster::plotRGB(rgb)
     plot(ground_truth,add=T)
   }
   return(ground_truth)

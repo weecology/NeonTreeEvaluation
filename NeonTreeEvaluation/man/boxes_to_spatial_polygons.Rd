@@ -3,12 +3,12 @@
 \name{boxes_to_spatial_polygons}
 \alias{boxes_to_spatial_polygons}
 \title{Convert xml annotations into projected bounding boxes.
-In order to plot the annotations, they need to be projected and overlayed on RGB data}
+In order to plot the annotations, they need to be projected and overlayed on RGB boxes}
 \usage{
-boxes_to_spatial_polygons(data, raster_object)
+boxes_to_spatial_polygons(boxes, raster_object)
 }
 \arguments{
-\item{data}{a dataframe with xmin, xmax, ymin, ymax columns. Each row is a tree bounding box}
+\item{boxes}{a boxesframe with xmin, xmax, ymin, ymax columns. Each row is a tree bounding box}
 
 \item{raster_object}{a rgb raster::stack to overlay annotations}
 }
@@ -17,5 +17,5 @@ SpatialPolygons object of annotations
 }
 \description{
 Convert xml annotations into projected bounding boxes.
-In order to plot the annotations, they need to be projected and overlayed on RGB data
+In order to plot the annotations, they need to be projected and overlayed on RGB boxes
 }
