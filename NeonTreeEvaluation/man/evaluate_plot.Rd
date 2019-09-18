@@ -4,12 +4,12 @@
 \alias{evaluate_plot}
 \title{Parse xml tree annotations from an XML file}
 \usage{
-evaluate_plot(ground_truth, predictions, threshold = 0.5)
+evaluate_plot(predictions)
 }
 \arguments{
-\item{ground_truth}{SpatialPolygonDataFrame of ground truth polygons}
-
 \item{predictions}{SpatialPolygonDataFrame of prediction polygons}
+
+\item{ground_truth}{SpatialPolygonDataFrame of ground truth polygons}
 
 \item{threshold}{Intersection over Union threshold. default is 0.5}
 }

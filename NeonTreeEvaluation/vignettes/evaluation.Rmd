@@ -21,18 +21,27 @@ knitr::opts_chunk$set(
 The format of the submission is as follows
 
 * A csv file
-* 5 columns: Plot, xmin, ymin, xmax, ymax
+* 5 columns: Plot Name, xmin, ymin, xmax, ymax
+
+Each row contains information for one predicted bounding box.
 
 The plot column should be named the same as the files in the dataset (e.g. SJER_021)
-
-```{r}
-
-```
 
 Submissions should be placed in the /submissions folder
 
 ```{r}
+library(dplyr)
+library(NeonTreeEvaluation)
+submission<-read.csv(file = "../submissions/Weinstein2019.csv")
+head(submission)
+```
+# Evaluation
 
+For each plot compute the precision and recall based on intersection-over-union of 0.5 between the ground truth bounding boxes and the predicted boxes.
+
+```{r}
+submissions %>% group_by(plot_name) %>% do(evaluate_plot())
+evaluate_plot()
 ```
 
 

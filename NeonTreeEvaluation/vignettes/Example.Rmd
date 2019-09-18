@@ -98,6 +98,6 @@ plot(predictions,add=T)
 Now that we have ground truth and prediction polygon objects, what is the precision and recall for bounding boxes with interserction-over-union of freather than 0.5
 
 ```{r}
-evaluate_plot(ground_truth,predictions,threshold = 0.5)
+compute_precision_recall(ground_truth,predictions,threshold = 0.5)
 ```
 
