@@ -22,7 +22,6 @@ knitr::opts_chunk$set(
 #https://github.com/weecology/NeonTreeEvaluation/issues/12
 ```
 
-
 # Submission Format
 
 The format of the submission is as follows
@@ -33,8 +32,6 @@ The format of the submission is as follows
 Each row contains information for one predicted bounding box.
 
 The plot column should be named the same as the files in the dataset (e.g. SJER_021)
-
-Submissions should be placed in the /submissions folder
 
 ```{r}
 library(dplyr)

@@ -1,0 +1,48 @@
+---
+output:
+  md_document:
+    variant: markdown_github
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-",
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+# NeonTreeEvaluation
+
+[![Travis-CI Build Status](https://travis-ci.org/<USERNAME>/<REPO>.svg?branch=master)](https://travis-ci.org/<USERNAME>/<REPO>)
+
+The goal of NeonTreeEvaluation is to automate testing against the NEON Tree Detection Benchmark
+
+# Submission Format
+
+The format of the submission is as follows
+
+* A csv file
+* 5 columns: Plot Name, xmin, ymin, xmax, ymax
+
+Each row contains information for one predicted bounding box.
+
+The plot column should be named the same as the files in the dataset (e.g. SJER_021)
+
+```{r}
+library(NeonTreeEvaluation)
+library(dplyr)
+submission<-read.csv(system.file("extdata", "Weinstein2019.csv",package = "NeonTreeEvaluation"))
+head(submission)
+```
+
+Evalute just one plot
+
+```{r}
+df<-submission %>% filter(plot_name=="SJER_052")
+evaluate_plot(df)
+```

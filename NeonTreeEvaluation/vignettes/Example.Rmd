@@ -36,10 +36,11 @@ Let's load the RGB data and look at a set of ground truth annotations
 
 ```{r}
 #Read RGB image as projected raster
-rgb<-stack("SJER_052.tif")
+
+rgb<-stack(system.file("extdata","SJER_052.tif",package="NeonTreeEvaluation"))
 
 #Path to dataset
-xmls<-xml_parse("SJER_052.xml")
+xmls<-xml_parse(system.file("extdata","SJER_052.xml",package="NeonTreeEvaluation"))
 
 #View one plot's annotations as polygons, project into UTM
 #copy project utm zone (epsg), xml has no native projection metadata
@@ -54,7 +55,7 @@ plot(ground_truth,add=T)
 Now let's load the corresponding LiDAR point cloud for this evaluation plot.
 
 ```{r}
-point_cloud<-readLAS("SJER_052.laz")
+point_cloud<-readLAS(system.file("extdata","SJER_052.laz",package="NeonTreeEvaluation"))
 ```
 Tree annotations are stored in the UserData column. Each tree has a unique numeric ID
 
