@@ -2,8 +2,7 @@
 % Please edit documentation in R/compute_precision_recall.R
 \name{compute_precision_recall}
 \alias{compute_precision_recall}
-\title{Compute precision and recall statistics between predicted tree boxes and ground truth data
-For a single plot}
+\title{Compute precision and recall statistics between predicted tree boxes and ground truth data}
 \usage{
 compute_precision_recall(ground_truth, predictions, threshold = 0.5)
 }
@@ -19,5 +18,7 @@ recall and precision scores for the plot
 }
 \description{
 Compute precision and recall statistics between predicted tree boxes and ground truth data
-For a single plot
+}
+\details{
+The numeric identity of the crown is stored in a column named crown_ID. An error will be raised if this column does not exist.
 }

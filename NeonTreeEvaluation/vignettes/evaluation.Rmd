@@ -40,20 +40,21 @@ Submissions should be placed in the /submissions folder
 library(dplyr)
 library(NeonTreeEvaluation)
 library(reshape2)
+library(ggplot2)
 
-submission<-read.csv(file = "../submissions/Weinstein2019.csv")
+submission<-read.csv(system.file("extdata", "Weinstein2019.csv",package = "NeonTreeEvaluation"))
 head(submission)
 ```
 # Evaluation
 
-For each plot compute the precision and recall based on intersection-over-union of 0.5 between the ground truth bounding boxes and the predicted boxes.
+For each plot compute the precision and recall based on intersection-over-union of 0.5 between the ground truth bounding boxes and the predicted boxes. For the sake of computation in this small vignette, let's select just 3 sites.
 
 ```{r,include=FALSE}
-results<-submission %>% group_by(plot_name) %>% do(evaluate_plot(.))
+results<-submission %>% filter(plot_name %in% sample(plot_name,5)) %>% group_by(plot_name) %>% do(evaluate_plot(.))
 ```
 
 ```{r}
 df<-melt(results)
-ggplot(df,aes(x=value)) + geom_histogram() + facet_wrap(~variable)
+ggplot(df,aes(y=value,x=variable)) + geom_boxplot()
 ```
 
