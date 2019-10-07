@@ -8,6 +8,12 @@ Mantainer: Ben Weinstein - University of Florida.
 
 Description: The NeonTreeEvaluation dataset is a set of bounding boxes drawn on RGB imagery from the National Ecological Observation Network (NEON). NEON is a set of 45 sites (e.g. [TEAK](https://www.neonscience.org/field-sites/field-sites-map/TEAK)) that cover the dominant ecosystems in the US.
 
+# How do I evaluate against the benchmark?
+
+We have built an R package for easy evaluation and interacting with the benchmark evaluation data.
+
+See https://github.com/weecology/NeonTreeEvaluation_package
+
 # How were images annotated?
 
 Each visible tree was annotated to create a bounding box that encompassed all portions of the vertical object. Fallen trees were not annotated. Visible standing stags were annotated. Trees which were judged to have less than 50% of biomass in the image edge were ignored.
@@ -50,7 +56,7 @@ library(raster)
 source("functions.R")
 
 #Read RGB image as projected raster
-rgb<-stack("../SJER/plots/SJER_021.tif")
+rgb<-stack("../SJER/RGB/SJER_021.tif")
 
 #Path to dataset
 xmls<-readTreeXML(path="../SJER/")
@@ -92,80 +98,22 @@ For the convienance of future users, we have downloaded, cropped and selected re
 
 <img src="figures/Hyperspec_example.png" height="400">
 
-For the full tiles and bands, see the NEON Data Portal. For example, for the TEAK training file
+## Training Tiles
 
-```
-TEAK/Training/2018_TEAK_3_315000_4094000_image_crop.tif
-```
-<img src="figures/TEAK_Hyperspectral_download.png" height="500">
+We have uploaded the large training tiles to Zenodo for download. This includes
 
-Evaluation plots are named by NEON (e.g. SJER_059.tif). To find the 1km tile that contains this plot, we have provided an R script to lookup the correct geographic index.
+* The annotated trainings tiles (optionall cropped) for the NIWO, MLBS, SJER, and TEAK sites.
+* Unannotated training tiles for the 15 additional sites. Training tiles do not overlap with evaluation plots.
 
-```R
-library(sf)
-plot_polygons<-read_sf("/All_NEON_TOS_Plots_V5/All_Neon_TOS_Polygons_V5.shp")
-
-#Look at one site
-SJER_plots<-plot_polygons[plot_polygons$siteID=="SJER",]
-
-#View plots
-plot(SJER_plots["siteID"],col="black")
-
-#Lookup plotname
-plot_record<-as.data.frame(SJER_plots[SJER_plots$plotID=="SJER_059",c("easting","northing")])
-geo_index = paste(trunc(plot_record$easting/1000)*1000,trunc(plot_record$northing/1000)*1000,sep="_")
-> geo_index
-[1] "257000_4109000"
-```
-
-## Large Files
-
-There is one ugly part of mantaining a benchmark on github. Some training files are too large to hold on the repo. For example, full tiles are available directly from NEON. For example, the annotations that match
-```
-SJER/annotations/2018_SJER_3_258000_4106000_image.xml 
-```
-should be 
-
-```
-SJER/training/2018_SJER_3_259000_4110000_image.tif, 
-```
-but are too large to be placed here. Instead, they can be directly downloaded from https://data.neonscience.org/home (see screenshot above) or are directly hosted by the mantainer below. 
-
-* TEAK training RGB and lidar tile https://www.dropbox.com/s/tzduobrzzpji8ps/2018_TEAK_3_315000_4094000_image_crop.tif?dl=1
-https://www.dropbox.com/s/5x629zfd7o3cv8g/NEON_D17_TEAK_DP1_315000_4094000_classified_point_cloud_colorized_crop.laz?dl=1
-
-* SJER training laz 1 https://www.dropbox.com/s/i8edrp4derzxwtb/NEON_D17_SJER_DP1_259000_4110000_classified_point_cloud_colorized.laz?dl=1
-
-* SJER training laz 2 https://www.dropbox.com/s/mn2sx4e1u5p4chx/NEON_D17_SJER_DP1_258000_4106000_classified_point_cloud_colorized.laz?dl=1
-
-Download using wget into the correct position for example
-```
-[b.weinstein@login3 training]$ pwd
-/home/b.weinstein/DeepLidar/data/TEAK/training
-[b.weinstein@login3 training]$ ls
-2018_TEAK_3_315000_4094000_image_crop.tif?dl=1
-NEON_D17_TEAK_DP1_315000_4094000_classified_point_cloud_colorized_crop.laz
-```
-
-then *rename* to drop the wget artifact. 
-
-```
-[b.weinstein@login3 training]$ mv 2018_TEAK_3_315000_4094000_image_crop.tif?dl=1 2018_TEAK_3_315000_4094000_image_crop.tif
-[b.weinstein@login3 training]$ ls
-2018_TEAK_3_315000_4094000_image_crop.tif  NEON_D17_TEAK_DP1_315000_4094000_classified_point_cloud_colorized_crop.laz
-[b.weinstein@login3 training]$
-```
-
-We recognize that this is not ideal, but worth the collaborative environment that git provides.
+TODO add zenodo link.
 
 # Performance
 
-To submit to this benchmark, please see evaluation.py. The primary evaluation statistic in average precision across sites (mAP). 
+To submit to this benchmark, please see evaluation.py. The primary evaluation statistic is precision and recall across all sites. It is up to the authors to choose the best probability threshold if appropriate. 
 
-| Authour  | mAP| Description
+| Authour  | Precision| Recall| Description
 | ------------- |------| ------------- |
-| Weinstein et al. 2017<sup>1</sup> | 0.58| SJER Only|
-| Weinstein et al. unpublished | X | all sites| 
+| Weinstein et al. 2019<sup>1</sup> | 0.65| 0.55| |
 
 ## Cited
 <sup>1</sup> Weinstein, Ben G., et al. "Individual tree-crown detection in RGB imagery using semi-supervised deep learning neural networks." Remote Sensing 11.11 (2019): 1309. https://www.mdpi.com/2072-4292/11/11/1309
