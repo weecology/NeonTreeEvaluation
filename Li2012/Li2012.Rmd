@@ -1,5 +1,5 @@
 ---
-title: "Silva2016"
+title: "Li et al. 2012"
 author: "Ben Weinstein"
 date: "10/7/2019"
 output: 
@@ -10,12 +10,12 @@ editor_options:
   chunk_output_type: console
 ---
 
-# Silva et al. 2016 
+# Li et al. 2016 
 
-Carlos A. Silva, Andrew T. Hudak, Lee A. Vierling, E. Louise Loudermilk, Joseph J. O’Brien, J. Kevin Hiers, Steve B. Jack, Carlos Gonzalez-Benecke, Heezin Lee, Michael J. Falkowski & Anahita Khosravipour (2016) Imputation of Individual Longleaf Pine (Pinus palustris Mill.) Tree Attributes from Field and LiDAR Data, Canadian Journal of Remote Sensing, 42:5, 554-573, DOI: 10.1080/07038992.2016.1196582
-
+Li, W., Guo, Q., Jakubowski, M. K., & Kelly, M. (2012). A new method for segmenting individual trees from the lidar point cloud. Photogrammetric Engineering & Remote Sensing, 78(1), 75-84.
 
 Using the lidR implementation, see ?lidR::lastrees
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
@@ -27,22 +27,13 @@ library(lidR)
 library(dplyr)
 library(raster)
 library(stringr)
-#path to evaluation data, assuming Silva2016 folder is the working dir
+#path to evaluation data, assuming Liet2016 folder is the working dir
 lidar_tiles<-list.files(full.names=TRUE,"../evaluation/LiDAR/",pattern=".laz")
 results<-list()
 for(r in lidar_tiles){
   #read file
   las<-readLAS(r)
-  
-  #Canopy height model
-  chm <- grid_canopy(las, res = 0.5, p2r(0.3))
-  ker <- matrix(1,3,3)
-  chm <- focal(chm, w = ker, fun = mean, na.rm = TRUE)
-  
-  #Tree top detection 
-  ## If there are no trees, this will fail, catch error.
-  try( ttops <- tree_detection(chm, lmf(4, 2)), next)
-  las   <- lastrees(las, silva2016(chm, ttops))
+  las   <- lastrees(las, li2012())
   
   #extract bounding boxes
   tree_polygons<- tree_hulls(las,type="bbox")
@@ -70,6 +61,6 @@ for(r in lidar_tiles){
 #format for submission by adding
 results<-bind_rows(results)
 head(results)
-write.csv(results,"Silva2016.csv",row.names = FALSE)
+write.csv(results,"Li2012.csv",row.names = FALSE)
 ```
 

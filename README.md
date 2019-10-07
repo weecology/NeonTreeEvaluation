@@ -111,9 +111,11 @@ TODO add zenodo link.
 
 To submit to this benchmark, please see evaluation.py. The primary evaluation statistic is precision and recall across all sites. It is up to the authors to choose the best probability threshold if appropriate. 
 
-| Authour  | Precision| Recall| Description
-| ------------- |------| ------------- |
-| Weinstein et al. 2019<sup>1</sup> | 0.65| 0.55| |
+| Author                | Precision | Recall | Description                              |   |
+|-----------------------|-----------|--------|------------------------------------------|---|
+| Weinstein et al. 2019 <sup>1</sup> | 0.55      | 0.65   | Semi-supervised RGB Deep Learning        |   |
+| Silva et al. 2016     |           |        | Unsupervised Lidar (lidR implementation) |   |
+| Dalponte et al 2016   |           |        |                                          |   |
 
 ## Cited
 <sup>1</sup> Weinstein, Ben G., et al. "Individual tree-crown detection in RGB imagery using semi-supervised deep learning neural networks." Remote Sensing 11.11 (2019): 1309. https://www.mdpi.com/2072-4292/11/11/1309

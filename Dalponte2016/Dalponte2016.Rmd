@@ -1,5 +1,5 @@
 ---
-title: "Silva2016"
+title: "Dalponte et al. 2016"
 author: "Ben Weinstein"
 date: "10/7/2019"
 output: 
@@ -10,10 +10,9 @@ editor_options:
   chunk_output_type: console
 ---
 
-# Silva et al. 2016 
+# Dalponte et al. 2016 
 
-Carlos A. Silva, Andrew T. Hudak, Lee A. Vierling, E. Louise Loudermilk, Joseph J. O’Brien, J. Kevin Hiers, Steve B. Jack, Carlos Gonzalez-Benecke, Heezin Lee, Michael J. Falkowski & Anahita Khosravipour (2016) Imputation of Individual Longleaf Pine (Pinus palustris Mill.) Tree Attributes from Field and LiDAR Data, Canadian Journal of Remote Sensing, 42:5, 554-573, DOI: 10.1080/07038992.2016.1196582
-
+Dalponte, M. and Coomes, D. A. (2016), Tree-centric mapping of forest carbon density from airborne laser scanning and hyperspectral data. Methods Ecol Evol, 7: 1236–1245. doi:10.1111/2041-210X.12575.
 
 Using the lidR implementation, see ?lidR::lastrees
 ```{r setup, include=FALSE}
@@ -24,10 +23,10 @@ Start with default parameters for crown allometry and height. 0.5m canopy height
 
 ```{r}
 library(lidR)
-library(dplyr)
 library(raster)
+library(dplyr)
 library(stringr)
-#path to evaluation data, assuming Silva2016 folder is the working dir
+#path to evaluation data, assuming Dalponte2016 folder is the working dir
 lidar_tiles<-list.files(full.names=TRUE,"../evaluation/LiDAR/",pattern=".laz")
 results<-list()
 for(r in lidar_tiles){
@@ -42,7 +41,7 @@ for(r in lidar_tiles){
   #Tree top detection 
   ## If there are no trees, this will fail, catch error.
   try( ttops <- tree_detection(chm, lmf(4, 2)), next)
-  las   <- lastrees(las, silva2016(chm, ttops))
+  las   <- lastrees(las, dalponte2016(chm, ttops))
   
   #extract bounding boxes
   tree_polygons<- tree_hulls(las,type="bbox")
@@ -70,6 +69,6 @@ for(r in lidar_tiles){
 #format for submission by adding
 results<-bind_rows(results)
 head(results)
-write.csv(results,"Silva2016.csv",row.names = FALSE)
+write.csv(results,"Dalponte2016.csv",row.names = FALSE)
 ```
 
