@@ -114,10 +114,12 @@ To submit to this benchmark, please see evaluation.py. The primary evaluation st
 | Author                | Precision | Recall | Description                              |   |
 |-----------------------|-----------|--------|------------------------------------------|---|
 | Weinstein et al. 2019 <sup>1</sup> | 0.55      | 0.65   | Semi-supervised RGB Deep Learning        |   |
-| Silva et al. 2016     |           |        | Unsupervised Lidar (lidR implementation) |   |
-| Dalponte et al 2016   |           |        |                                          |   |
+| Silva et al. 2016     |       0.09    | 0.23        | Unsupervised LiDAR raster  |   |
+| Dalponte et al 2016   |           |        | Unsupervised LidAR raster  |   |                      |   |
+| Li et al. 2012        |           |        | Unsupervised LiDAR point cloud|                      |   |
 
 ## Cited
 <sup>1</sup> Weinstein, Ben G., et al. "Individual tree-crown detection in RGB imagery using semi-supervised deep learning neural networks." Remote Sensing 11.11 (2019): 1309. https://www.mdpi.com/2072-4292/11/11/1309
+Thanks to the lidR R package for making algorithms accessible for comparison.
 
 Please submit a pull request, or contact the mantainer if you use these data in analysis and would like the results to be shown here.
