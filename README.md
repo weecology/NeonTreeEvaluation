@@ -118,6 +118,8 @@ To submit to this benchmark, please see evaluation.py. The primary evaluation st
 | Dalponte et al 2016   |           |        | Unsupervised LidAR raster  |   |                      |   |
 | Li et al. 2012        |           |        | Unsupervised LiDAR point cloud|                      |   |
 
+To reproduce the analysis for the benchmark comparison see https://github.com/weecology/NeonTreeEvaluation_analysis
+
 ## Cited
 <sup>1</sup> Weinstein, Ben G., et al. "Individual tree-crown detection in RGB imagery using semi-supervised deep learning neural networks." Remote Sensing 11.11 (2019): 1309. https://www.mdpi.com/2072-4292/11/11/1309
 Thanks to the lidR R package for making algorithms accessible for comparison.
