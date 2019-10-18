@@ -1,5 +1,5 @@
 <annotation>
-    <folder>plots</folder>
+    <folder>RGB</folder>
     <filename>BART_050.tif</filename>
     <size>
         <width>400</width>
@@ -21,7 +21,7 @@
         </bndbox>
     </object>
     <object>
-        <name></name>
+        <name>Tree</name>
         <pose>Unspecified</pose>
         <truncated>0</truncated>
         <occluded>0</occluded>
@@ -34,7 +34,7 @@
         </bndbox>
     </object>
     <object>
-        <name></name>
+        <name>Tree</name>
         <pose>Unspecified</pose>
         <truncated>0</truncated>
         <occluded>0</occluded>
