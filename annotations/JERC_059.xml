@@ -1,5 +1,5 @@
 <annotation>
-    <folder>plots</folder>
+    <folder>RGB</folder>
     <filename>JERC_059.tif</filename>
     <size>
         <width>400</width>
@@ -7,6 +7,19 @@
         <depth>3</depth>
     </size>
     <segmented>0</segmented>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>238</xmin>
+            <ymin>55</ymin>
+            <xmax>273</xmax>
+            <ymax>94</ymax>
+        </bndbox>
+    </object>
     <object>
         <name>Tree</name>
         <pose>Unspecified</pose>
@@ -197,8 +210,8 @@
         <difficult>0</difficult>
         <bndbox>
             <xmin>157</xmin>
-            <ymin>53</ymin>
-            <xmax>265</xmax>
+            <ymin>58</ymin>
+            <xmax>242</xmax>
             <ymax>167</ymax>
         </bndbox>
     </object>
