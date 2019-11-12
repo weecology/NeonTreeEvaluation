@@ -1,5 +1,5 @@
 <annotation>
-    <folder>plots</folder>
+    <folder>RGB</folder>
     <filename>TALL_017.tif</filename>
     <size>
         <width>400</width>
@@ -190,7 +190,7 @@
         </bndbox>
     </object>
     <object>
-        <name>Tree</name>
+        <name>Tree-Low</name>
         <pose>Unspecified</pose>
         <truncated>0</truncated>
         <occluded>0</occluded>
@@ -198,12 +198,12 @@
         <bndbox>
             <xmin>128</xmin>
             <ymin>129</ymin>
-            <xmax>195</xmax>
-            <ymax>209</ymax>
+            <xmax>190</xmax>
+            <ymax>188</ymax>
         </bndbox>
     </object>
     <object>
-        <name>Tree</name>
+        <name>Tree-High</name>
         <pose>Unspecified</pose>
         <truncated>0</truncated>
         <occluded>0</occluded>
@@ -320,41 +320,41 @@
         </bndbox>
     </object>
     <object>
-        <name>Tree</name>
+        <name>Tree-Low</name>
         <pose>Unspecified</pose>
         <truncated>0</truncated>
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>253</xmin>
+            <xmin>260</xmin>
             <ymin>235</ymin>
             <xmax>324</xmax>
-            <ymax>315</ymax>
+            <ymax>304</ymax>
         </bndbox>
     </object>
     <object>
-        <name>Tree</name>
+        <name>Tree-Low</name>
         <pose>Unspecified</pose>
         <truncated>0</truncated>
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
             <xmin>103</xmin>
-            <ymin>318</ymin>
-            <xmax>180</xmax>
-            <ymax>387</ymax>
+            <ymin>304</ymin>
+            <xmax>179</xmax>
+            <ymax>384</ymax>
         </bndbox>
     </object>
     <object>
-        <name>Tree</name>
+        <name>Tree-Low</name>
         <pose>Unspecified</pose>
         <truncated>0</truncated>
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
             <xmin>126</xmin>
-            <ymin>210</ymin>
-            <xmax>198</xmax>
+            <ymin>191</ymin>
+            <xmax>202</xmax>
             <ymax>291</ymax>
         </bndbox>
     </object>
