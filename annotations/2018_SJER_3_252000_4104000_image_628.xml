@@ -1,5 +1,5 @@
 <annotation>
-    <folder>samples</folder>
+    <folder>RGB</folder>
     <filename>2018_SJER_3_252000_4104000_image_628.tif</filename>
     <size>
         <width>400</width>
@@ -10,7 +10,7 @@
     <object>
         <name>Tree</name>
         <pose>Unspecified</pose>
-        <truncated>0</truncated>
+        <truncated>1</truncated>
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>

@@ -1,5 +1,5 @@
 <annotation>
-    <folder>plots</folder>
+    <folder>RGB</folder>
     <filename>SJER_051.tif</filename>
     <size>
         <width>400</width>
@@ -166,7 +166,7 @@
     <object>
         <name>Tree</name>
         <pose>Unspecified</pose>
-        <truncated>0</truncated>
+        <truncated>1</truncated>
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>

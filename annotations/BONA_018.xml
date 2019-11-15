@@ -1,5 +1,5 @@
 <annotation>
-    <folder>plots</folder>
+    <folder>RGB</folder>
     <filename>BONA_018.tif</filename>
     <size>
         <width>400</width>
@@ -11,6 +11,19 @@
         <name>Tree</name>
         <pose>Unspecified</pose>
         <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>117</xmin>
+            <ymin>97</ymin>
+            <xmax>146</xmax>
+            <ymax>124</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>1</truncated>
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>

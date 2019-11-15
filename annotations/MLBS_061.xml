@@ -1,5 +1,5 @@
 <annotation>
-    <folder>plots</folder>
+    <folder>RGB</folder>
     <filename>MLBS_061.tif</filename>
     <size>
         <width>400</width>
@@ -62,7 +62,7 @@
     <object>
         <name>Tree</name>
         <pose>Unspecified</pose>
-        <truncated>0</truncated>
+        <truncated>1</truncated>
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
@@ -101,7 +101,7 @@
     <object>
         <name>Tree</name>
         <pose>Unspecified</pose>
-        <truncated>0</truncated>
+        <truncated>1</truncated>
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
@@ -114,7 +114,7 @@
     <object>
         <name>Tree</name>
         <pose>Unspecified</pose>
-        <truncated>0</truncated>
+        <truncated>1</truncated>
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
@@ -153,20 +153,7 @@
     <object>
         <name>Tree</name>
         <pose>Unspecified</pose>
-        <truncated>0</truncated>
-        <occluded>0</occluded>
-        <difficult>0</difficult>
-        <bndbox>
-            <xmin>354</xmin>
-            <ymin>314</ymin>
-            <xmax>400</xmax>
-            <ymax>358</ymax>
-        </bndbox>
-    </object>
-    <object>
-        <name>Tree</name>
-        <pose>Unspecified</pose>
-        <truncated>0</truncated>
+        <truncated>1</truncated>
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
@@ -231,7 +218,7 @@
     <object>
         <name>Tree</name>
         <pose>Unspecified</pose>
-        <truncated>0</truncated>
+        <truncated>1</truncated>
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
@@ -246,7 +233,7 @@
         <pose>Unspecified</pose>
         <truncated>0</truncated>
         <occluded>0</occluded>
-        <difficult>0</difficult>
+        <difficult>1</difficult>
         <bndbox>
             <xmin>221</xmin>
             <ymin>244</ymin>
@@ -337,7 +324,7 @@
         <pose>Unspecified</pose>
         <truncated>0</truncated>
         <occluded>0</occluded>
-        <difficult>0</difficult>
+        <difficult>1</difficult>
         <bndbox>
             <xmin>373</xmin>
             <ymin>69</ymin>
@@ -367,8 +354,8 @@
         <bndbox>
             <xmin>341</xmin>
             <ymin>262</ymin>
-            <xmax>390</xmax>
-            <ymax>316</ymax>
+            <xmax>400</xmax>
+            <ymax>323</ymax>
         </bndbox>
     </object>
     <object>
@@ -480,7 +467,7 @@
         <pose>Unspecified</pose>
         <truncated>0</truncated>
         <occluded>0</occluded>
-        <difficult>0</difficult>
+        <difficult>1</difficult>
         <bndbox>
             <xmin>53</xmin>
             <ymin>267</ymin>
@@ -491,7 +478,7 @@
     <object>
         <name>Tree</name>
         <pose>Unspecified</pose>
-        <truncated>0</truncated>
+        <truncated>1</truncated>
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
@@ -595,7 +582,7 @@
     <object>
         <name>Tree</name>
         <pose>Unspecified</pose>
-        <truncated>0</truncated>
+        <truncated>1</truncated>
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
@@ -701,7 +688,7 @@
         <pose>Unspecified</pose>
         <truncated>0</truncated>
         <occluded>0</occluded>
-        <difficult>0</difficult>
+        <difficult>1</difficult>
         <bndbox>
             <xmin>331</xmin>
             <ymin>341</ymin>
@@ -790,7 +777,7 @@
     <object>
         <name>Tree</name>
         <pose>Unspecified</pose>
-        <truncated>0</truncated>
+        <truncated>1</truncated>
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
@@ -842,7 +829,7 @@
     <object>
         <name>Tree</name>
         <pose>Unspecified</pose>
-        <truncated>0</truncated>
+        <truncated>1</truncated>
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
@@ -974,7 +961,7 @@
         <pose>Unspecified</pose>
         <truncated>0</truncated>
         <occluded>0</occluded>
-        <difficult>0</difficult>
+        <difficult>1</difficult>
         <bndbox>
             <xmin>208</xmin>
             <ymin>148</ymin>

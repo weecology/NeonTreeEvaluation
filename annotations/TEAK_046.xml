@@ -1,5 +1,5 @@
 <annotation>
-    <folder>plots</folder>
+    <folder>RGB</folder>
     <filename>TEAK_046.tif</filename>
     <size>
         <width>400</width>
@@ -40,10 +40,10 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>248</xmin>
+            <xmin>251</xmin>
             <ymin>119</ymin>
-            <xmax>296</xmax>
-            <ymax>176</ymax>
+            <xmax>282</xmax>
+            <ymax>158</ymax>
         </bndbox>
     </object>
     <object>

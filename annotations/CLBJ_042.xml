@@ -1,5 +1,5 @@
 <annotation>
-    <folder>plots</folder>
+    <folder>RGB</folder>
     <filename>CLBJ_042.tif</filename>
     <size>
         <width>400</width>
@@ -298,7 +298,7 @@
         <pose>Unspecified</pose>
         <truncated>0</truncated>
         <occluded>0</occluded>
-        <difficult>0</difficult>
+        <difficult>1</difficult>
         <bndbox>
             <xmin>235</xmin>
             <ymin>317</ymin>
@@ -491,7 +491,7 @@
     <object>
         <name>Tree</name>
         <pose>Unspecified</pose>
-        <truncated>0</truncated>
+        <truncated>1</truncated>
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
@@ -504,7 +504,7 @@
     <object>
         <name>Tree</name>
         <pose>Unspecified</pose>
-        <truncated>0</truncated>
+        <truncated>1</truncated>
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
@@ -725,7 +725,7 @@
     <object>
         <name>Tree</name>
         <pose>Unspecified</pose>
-        <truncated>0</truncated>
+        <truncated>1</truncated>
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>

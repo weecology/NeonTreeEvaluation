@@ -1,5 +1,5 @@
 <annotation>
-    <folder>plots</folder>
+    <folder>RGB</folder>
     <filename>DSNY_025.tif</filename>
     <size>
         <width>400</width>
@@ -10,7 +10,7 @@
     <object>
         <name>Tree</name>
         <pose>Unspecified</pose>
-        <truncated>0</truncated>
+        <truncated>1</truncated>
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
@@ -44,19 +44,6 @@
             <ymin>12</ymin>
             <xmax>181</xmax>
             <ymax>31</ymax>
-        </bndbox>
-    </object>
-    <object>
-        <name>Tree</name>
-        <pose>Unspecified</pose>
-        <truncated>0</truncated>
-        <occluded>0</occluded>
-        <difficult>0</difficult>
-        <bndbox>
-            <xmin>380</xmin>
-            <ymin>1</ymin>
-            <xmax>400</xmax>
-            <ymax>28</ymax>
         </bndbox>
     </object>
     <object>

@@ -1,5 +1,5 @@
 <annotation>
-    <folder>plots</folder>
+    <folder>RGB</folder>
     <filename>BLAN_009.tif</filename>
     <size>
         <width>400</width>
@@ -27,19 +27,6 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>325</xmin>
-            <ymin>56</ymin>
-            <xmax>393</xmax>
-            <ymax>158</ymax>
-        </bndbox>
-    </object>
-    <object>
-        <name>Tree</name>
-        <pose>Unspecified</pose>
-        <truncated>0</truncated>
-        <occluded>0</occluded>
-        <difficult>0</difficult>
-        <bndbox>
             <xmin>223</xmin>
             <ymin>2</ymin>
             <xmax>279</xmax>
@@ -55,8 +42,8 @@
         <bndbox>
             <xmin>222</xmin>
             <ymin>65</ymin>
-            <xmax>329</xmax>
-            <ymax>176</ymax>
+            <xmax>361</xmax>
+            <ymax>170</ymax>
         </bndbox>
     </object>
     <object>

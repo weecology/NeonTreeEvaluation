@@ -1,5 +1,5 @@
 <annotation>
-    <folder>plots</folder>
+    <folder>RGB</folder>
     <filename>TEAK_045.tif</filename>
     <size>
         <width>400</width>
@@ -12,7 +12,20 @@
         <pose>Unspecified</pose>
         <truncated>0</truncated>
         <occluded>0</occluded>
-        <difficult>0</difficult>
+        <difficult>1</difficult>
+        <bndbox>
+            <xmin>329</xmin>
+            <ymin>91</ymin>
+            <xmax>365</xmax>
+            <ymax>125</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>1</difficult>
         <bndbox>
             <xmin>222</xmin>
             <ymin>104</ymin>
@@ -40,36 +53,10 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>59</xmin>
-            <ymin>380</ymin>
-            <xmax>119</xmax>
-            <ymax>400</ymax>
-        </bndbox>
-    </object>
-    <object>
-        <name>Tree</name>
-        <pose>Unspecified</pose>
-        <truncated>0</truncated>
-        <occluded>0</occluded>
-        <difficult>0</difficult>
-        <bndbox>
             <xmin>1</xmin>
             <ymin>282</ymin>
             <xmax>16</xmax>
             <ymax>324</ymax>
-        </bndbox>
-    </object>
-    <object>
-        <name>Tree</name>
-        <pose>Unspecified</pose>
-        <truncated>0</truncated>
-        <occluded>0</occluded>
-        <difficult>0</difficult>
-        <bndbox>
-            <xmin>77</xmin>
-            <ymin>32</ymin>
-            <xmax>102</xmax>
-            <ymax>62</ymax>
         </bndbox>
     </object>
     <object>
@@ -353,8 +340,8 @@
         <difficult>0</difficult>
         <bndbox>
             <xmin>286</xmin>
-            <ymin>92</ymin>
-            <xmax>356</xmax>
+            <ymin>113</ymin>
+            <xmax>335</xmax>
             <ymax>153</ymax>
         </bndbox>
     </object>
