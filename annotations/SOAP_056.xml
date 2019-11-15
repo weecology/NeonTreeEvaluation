@@ -8,7 +8,7 @@
     </size>
     <segmented>0</segmented>
     <object>
-        <name>Tree-Low</name>
+        <name>Tree</name>
         <pose>Unspecified</pose>
         <truncated>0</truncated>
         <occluded>0</occluded>
@@ -21,7 +21,7 @@
         </bndbox>
     </object>
     <object>
-        <name>Tree-Low</name>
+        <name>Tree</name>
         <pose>Unspecified</pose>
         <truncated>0</truncated>
         <occluded>0</occluded>
@@ -34,7 +34,7 @@
         </bndbox>
     </object>
     <object>
-        <name>Tree-Low</name>
+        <name>Tree</name>
         <pose>Unspecified</pose>
         <truncated>0</truncated>
         <occluded>0</occluded>
@@ -47,7 +47,7 @@
         </bndbox>
     </object>
     <object>
-        <name>Tree-High</name>
+        <name>Tree</name>
         <pose>Unspecified</pose>
         <truncated>0</truncated>
         <occluded>0</occluded>
@@ -60,7 +60,7 @@
         </bndbox>
     </object>
     <object>
-        <name>Tree-High</name>
+        <name>Tree</name>
         <pose>Unspecified</pose>
         <truncated>0</truncated>
         <occluded>0</occluded>
@@ -138,7 +138,7 @@
         </bndbox>
     </object>
     <object>
-        <name>Tree-Low</name>
+        <name>Tree</name>
         <pose>Unspecified</pose>
         <truncated>0</truncated>
         <occluded>0</occluded>
@@ -177,7 +177,7 @@
         </bndbox>
     </object>
     <object>
-        <name>Tree-Low</name>
+        <name>Tree</name>
         <pose>Unspecified</pose>
         <truncated>0</truncated>
         <occluded>0</occluded>
@@ -437,7 +437,7 @@
         </bndbox>
     </object>
     <object>
-        <name>Tree-Low</name>
+        <name>Tree</name>
         <pose>Unspecified</pose>
         <truncated>0</truncated>
         <occluded>0</occluded>
@@ -450,7 +450,7 @@
         </bndbox>
     </object>
     <object>
-        <name>Tree-High</name>
+        <name>Tree</name>
         <pose>Unspecified</pose>
         <truncated>0</truncated>
         <occluded>0</occluded>
