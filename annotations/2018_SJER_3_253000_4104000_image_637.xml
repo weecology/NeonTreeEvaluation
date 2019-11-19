@@ -1,5 +1,5 @@
 <annotation>
-    <folder>samples</folder>
+    <folder>RGB</folder>
     <filename>2018_SJER_3_253000_4104000_image_637.tif</filename>
     <size>
         <width>400</width>
@@ -8,68 +8,68 @@
     </size>
     <segmented>0</segmented>
     <object>
-        <name>Tree</name>
+        <name>tree</name>
         <pose>Unspecified</pose>
         <truncated>0</truncated>
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>1</xmin>
-            <ymin>291</ymin>
-            <xmax>69</xmax>
-            <ymax>399</ymax>
+            <xmin>2</xmin>
+            <ymin>379</ymin>
+            <xmax>19</xmax>
+            <ymax>400</ymax>
         </bndbox>
     </object>
     <object>
-        <name>Tree</name>
+        <name>tree</name>
         <pose>Unspecified</pose>
         <truncated>0</truncated>
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>230</xmin>
-            <ymin>1</ymin>
-            <xmax>342</xmax>
-            <ymax>101</ymax>
+            <xmin>117</xmin>
+            <ymin>270</ymin>
+            <xmax>244</xmax>
+            <ymax>400</ymax>
         </bndbox>
     </object>
     <object>
-        <name>Tree</name>
+        <name>tree</name>
         <pose>Unspecified</pose>
         <truncated>0</truncated>
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>211</xmin>
-            <ymin>144</ymin>
-            <xmax>327</xmax>
-            <ymax>264</ymax>
+            <xmin>39</xmin>
+            <ymin>225</ymin>
+            <xmax>106</xmax>
+            <ymax>313</ymax>
         </bndbox>
     </object>
     <object>
-        <name>Tree</name>
+        <name>tree</name>
         <pose>Unspecified</pose>
         <truncated>0</truncated>
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>133</xmin>
-            <ymin>276</ymin>
-            <xmax>254</xmax>
-            <ymax>392</ymax>
+            <xmin>223</xmin>
+            <ymin>2</ymin>
+            <xmax>344</xmax>
+            <ymax>105</ymax>
         </bndbox>
     </object>
     <object>
-        <name>Tree</name>
+        <name>tree</name>
         <pose>Unspecified</pose>
         <truncated>0</truncated>
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>42</xmin>
-            <ymin>217</ymin>
-            <xmax>120</xmax>
-            <ymax>315</ymax>
+            <xmin>192</xmin>
+            <ymin>147</ymin>
+            <xmax>312</xmax>
+            <ymax>278</ymax>
         </bndbox>
     </object>
 </annotation>

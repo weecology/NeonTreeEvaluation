@@ -8,16 +8,16 @@
     </size>
     <segmented>0</segmented>
     <object>
-        <name>Tree</name>
+        <name>tree</name>
         <pose>Unspecified</pose>
-        <truncated>1</truncated>
+        <truncated>0</truncated>
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>353</xmin>
-            <ymin>3</ymin>
+            <xmin>349</xmin>
+            <ymin>1</ymin>
             <xmax>400</xmax>
-            <ymax>89</ymax>
+            <ymax>111</ymax>
         </bndbox>
     </object>
 </annotation>

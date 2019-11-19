@@ -1,5 +1,5 @@
 <annotation>
-    <folder>samples</folder>
+    <folder>RGB</folder>
     <filename>2018_SJER_3_252000_4106000_image_234.tif</filename>
     <size>
         <width>400</width>
@@ -8,16 +8,29 @@
     </size>
     <segmented>0</segmented>
     <object>
-        <name>Tree</name>
+        <name>tree</name>
         <pose>Unspecified</pose>
         <truncated>0</truncated>
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>92</xmin>
-            <ymin>158</ymin>
-            <xmax>174</xmax>
-            <ymax>233</ymax>
+            <xmin>301</xmin>
+            <ymin>129</ymin>
+            <xmax>400</xmax>
+            <ymax>218</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>79</xmin>
+            <ymin>151</ymin>
+            <xmax>171</xmax>
+            <ymax>246</ymax>
         </bndbox>
     </object>
 </annotation>
