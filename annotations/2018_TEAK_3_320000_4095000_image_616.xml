@@ -1,5 +1,5 @@
 <annotation>
-    <folder>samples</folder>
+    <folder>RGB</folder>
     <filename>2018_TEAK_3_320000_4095000_image_616.tif</filename>
     <size>
         <width>400</width>
@@ -7,6 +7,45 @@
         <depth>3</depth>
     </size>
     <segmented>0</segmented>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>44</xmin>
+            <ymin>1</ymin>
+            <xmax>77</xmax>
+            <ymax>25</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>132</xmin>
+            <ymin>61</ymin>
+            <xmax>156</xmax>
+            <ymax>85</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>82</xmin>
+            <ymin>361</ymin>
+            <xmax>108</xmax>
+            <ymax>379</ymax>
+        </bndbox>
+    </object>
     <object>
         <name>Tree</name>
         <pose>Unspecified</pose>
@@ -80,8 +119,8 @@
         <difficult>0</difficult>
         <bndbox>
             <xmin>3</xmin>
-            <ymin>27</ymin>
-            <xmax>52</xmax>
+            <ymin>40</ymin>
+            <xmax>45</xmax>
             <ymax>81</ymax>
         </bndbox>
     </object>

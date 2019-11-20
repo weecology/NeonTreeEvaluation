@@ -1,5 +1,5 @@
 <annotation>
-    <folder>plots</folder>
+    <folder>RGB</folder>
     <filename>HARV_037.tif</filename>
     <size>
         <width>400</width>
@@ -7,6 +7,19 @@
         <depth>3</depth>
     </size>
     <segmented>0</segmented>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>163</xmin>
+            <ymin>160</ymin>
+            <xmax>189</xmax>
+            <ymax>195</ymax>
+        </bndbox>
+    </object>
     <object>
         <name>Tree</name>
         <pose>Unspecified</pose>
@@ -145,7 +158,7 @@
         <difficult>0</difficult>
         <bndbox>
             <xmin>369</xmin>
-            <ymin>122</ymin>
+            <ymin>129</ymin>
             <xmax>400</xmax>
             <ymax>187</ymax>
         </bndbox>
@@ -510,8 +523,8 @@
         <bndbox>
             <xmin>113</xmin>
             <ymin>151</ymin>
-            <xmax>172</xmax>
-            <ymax>197</ymax>
+            <xmax>162</xmax>
+            <ymax>193</ymax>
         </bndbox>
     </object>
     <object>
@@ -652,9 +665,9 @@
         <difficult>0</difficult>
         <bndbox>
             <xmin>38</xmin>
-            <ymin>133</ymin>
-            <xmax>71</xmax>
-            <ymax>190</ymax>
+            <ymin>139</ymin>
+            <xmax>72</xmax>
+            <ymax>182</ymax>
         </bndbox>
     </object>
     <object>

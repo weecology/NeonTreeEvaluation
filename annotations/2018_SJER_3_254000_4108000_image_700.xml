@@ -1,5 +1,5 @@
 <annotation>
-    <folder>samples</folder>
+    <folder>RGB</folder>
     <filename>2018_SJER_3_254000_4108000_image_700.tif</filename>
     <size>
         <width>400</width>
@@ -41,9 +41,9 @@
         <difficult>0</difficult>
         <bndbox>
             <xmin>47</xmin>
-            <ymin>256</ymin>
-            <xmax>143</xmax>
-            <ymax>336</ymax>
+            <ymin>243</ymin>
+            <xmax>154</xmax>
+            <ymax>371</ymax>
         </bndbox>
     </object>
     <object>
