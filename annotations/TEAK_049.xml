@@ -1,5 +1,5 @@
 <annotation>
-    <folder>plots</folder>
+    <folder>RGB</folder>
     <filename>TEAK_049.tif</filename>
     <size>
         <width>400</width>
@@ -7,6 +7,19 @@
         <depth>3</depth>
     </size>
     <segmented>0</segmented>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>239</xmin>
+            <ymin>139</ymin>
+            <xmax>259</xmax>
+            <ymax>163</ymax>
+        </bndbox>
+    </object>
     <object>
         <name>Tree</name>
         <pose>Unspecified</pose>
@@ -27,10 +40,10 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>256</xmin>
-            <ymin>99</ymin>
-            <xmax>301</xmax>
-            <ymax>147</ymax>
+            <xmin>251</xmin>
+            <ymin>97</ymin>
+            <xmax>305</xmax>
+            <ymax>152</ymax>
         </bndbox>
     </object>
     <object>
