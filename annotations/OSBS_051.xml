@@ -1,5 +1,5 @@
 <annotation>
-    <folder>plots</folder>
+    <folder>RGB</folder>
     <filename>OSBS_051.tif</filename>
     <size>
         <width>400</width>
@@ -7,6 +7,32 @@
         <depth>3</depth>
     </size>
     <segmented>0</segmented>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>302</xmin>
+            <ymin>110</ymin>
+            <xmax>328</xmax>
+            <ymax>136</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>132</xmin>
+            <ymin>101</ymin>
+            <xmax>163</xmax>
+            <ymax>129</ymax>
+        </bndbox>
+    </object>
     <object>
         <name>Tree</name>
         <pose>Unspecified</pose>
@@ -27,10 +53,10 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>190</xmin>
+            <xmin>191</xmin>
             <ymin>18</ymin>
-            <xmax>279</xmax>
-            <ymax>125</ymax>
+            <xmax>269</xmax>
+            <ymax>130</ymax>
         </bndbox>
     </object>
     <object>
@@ -40,10 +66,10 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>262</xmin>
-            <ymin>88</ymin>
-            <xmax>329</xmax>
-            <ymax>147</ymax>
+            <xmin>256</xmin>
+            <ymin>101</ymin>
+            <xmax>298</xmax>
+            <ymax>142</ymax>
         </bndbox>
     </object>
     <object>

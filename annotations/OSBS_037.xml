@@ -1,5 +1,5 @@
 <annotation>
-    <folder>plots</folder>
+    <folder>RGB</folder>
     <filename>OSBS_037.tif</filename>
     <size>
         <width>400</width>
@@ -41,8 +41,8 @@
         <difficult>0</difficult>
         <bndbox>
             <xmin>1</xmin>
-            <ymin>80</ymin>
-            <xmax>29</xmax>
+            <ymin>92</ymin>
+            <xmax>19</xmax>
             <ymax>138</ymax>
         </bndbox>
     </object>
@@ -55,7 +55,7 @@
         <bndbox>
             <xmin>1</xmin>
             <ymin>304</ymin>
-            <xmax>48</xmax>
+            <xmax>34</xmax>
             <ymax>353</ymax>
         </bndbox>
     </object>
@@ -184,8 +184,8 @@
         <difficult>0</difficult>
         <bndbox>
             <xmin>332</xmin>
-            <ymin>215</ymin>
-            <xmax>394</xmax>
+            <ymin>223</ymin>
+            <xmax>389</xmax>
             <ymax>286</ymax>
         </bndbox>
     </object>
