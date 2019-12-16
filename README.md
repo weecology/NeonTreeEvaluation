@@ -1,20 +1,23 @@
 # A multi-sensor benchmark dataset for detecting individual trees in airborne RGB, Hyperspectral and LIDAR point clouds
 
-Individual tree detection is a central task in forestry and ecology. Few papers analyze proposed methods across a wide geographic area. This limits the utility of tools and inhibits comparisons across methods. This benchmark dataset is the first dataset to have consistant annotation approach across a variety of ecosystems. 
+Individual tree detection is a central task in forestry and ecology. Few papers analyze proposed methods across a wide geographic area. The NeonTreeEvaluation dataset is a set of bounding boxes drawn on RGB imagery for 22 sites in the National Ecological Observation Network (NEON). Each site covers a different forest type(e.g. [TEAK](https://www.neonscience.org/field-sites/field-sites-map/TEAK)). This dataset is the first to have consistant annotations across a variety of ecosystems for co-registered RGB, LiDAR and hyperspectral imagery.
+
+Evaluation images are included in this repo under /evaluation folder.
+Annotation files (.xml) are included in this repo under /annotations/
+
+For the larger annotated training tiles, as well as unannotated  training tiles for additional sites, see zenodo [archive]()
 
 Mantainer: Ben Weinstein - University of Florida.
-
-Description: The NeonTreeEvaluation dataset is a set of bounding boxes drawn on RGB imagery from the National Ecological Observation Network (NEON). NEON is a set of 45 sites (e.g. [TEAK](https://www.neonscience.org/field-sites/field-sites-map/TEAK)) that cover the dominant ecosystems in the US.
 
 # How do I evaluate against the benchmark?
 
 We have built an R package for easy evaluation and interacting with the benchmark evaluation data.
 
-See https://github.com/weecology/NeonTreeEvaluation_package. See that repo for installation instructions.
+https://github.com/weecology/NeonTreeEvaluation_package
 
 # How were images annotated?
 
-Each visible tree was annotated to create a bounding box that encompassed all portions of the vertical object. Fallen trees were not annotated. Visible standing stags were annotated. Trees which were judged to have less than 50% of biomass in the image edge were ignored.
+Each visible tree was annotated to create a bounding box that encompassed all portions of the vertical object. Fallen trees were not annotated. Visible standing stags were annotated. 
 
 <img src="figures/rectlabel.png" height="400">
 
@@ -22,22 +25,11 @@ For the point cloud annotations, the two dimensional bounding boxes were [draped
 
 # Sites ([NEON locations](https://www.neonscience.org/field-sites/field-sites-map/list))
 
-SJER: "Located at The San Joaquin Experimental Range, in the western foothills of the Sierra Nevada, this 18.2 kilometer terrestrial field site is a mix of open woodlands, shrubs and grasslands with low density cattle grazing." 
-* 2533 training trees,	293 test trees
-
-TEAK: "The site encompasses 5,138 hectares (12,696 acres) of mixed conifer and red fir forest, ranging in elevation from 1,990 to 2,807 m (6,529 – 9,209ft). The varied terrain is typical of the Sierra Nevada, with rugged mountains, meadows and prominent granite outcrops." 
-
-* 3405 training tees,	747 test trees.
-
-NIWO: The “alpine” site is Niwot Ridge Mountain Research State, Colorado (40.05425, -105.58237). This high elevation site (3000m) is near treeline with clusters of Subalpine Fir (Abies lasciocarpa) and Englemann Spruce (Picea engelmanii). Trees are very small compared to the others sites.
-
-* 9730 training trees, 1699 test trees.
-
-MLBS: The “Eastern Deciduous” site is the Mountain Lake Biological Station. Here the dense canopy is dominated by Red Maple (Acer rubrum) and White Oak (Quercus alba). 
-
-* 1231 training trees, 489 test trees.
-
-For more guidance on data loading, see /utilities.
+| siteID, State  | Forest Description | Evaluation Annotations  |Training Annotations  |
+|---|---|---|---|
+|  SJER, CA |   Oak Savannah| 293   | 2533  |
+|  TEAK, CA |   |   |   |
+|   NIWO, CO|   |   |   |
 
 # How can I add to this dataset?
 
@@ -45,23 +37,24 @@ Anyone is welcome to add to this dataset by cloning this repo and labeling a new
 104 product (NEON ID: DP1.30003.001), and the “orthorectified camera mosaic” (NEON ID:
 105 DP1.30010.001). Please follow the current folder structure, with .laz and .tif files saved together in a single folder, with a unique name, as well as a single annotations folder for the rect label xml files. See /SJER for an example.
 
-For ease of access, we have added two unlabeled sites, [BART](https://www.neonscience.org/field-sites/field-sites-map/BART), and [UNDE](https://www.neonscience.org/field-sites/field-sites-map/UNDE), we encourage others to label these sites, or use models from the labeled data to predict into new, untested, areas. 
+For ease of access, we have added two unlabeled sites, [BART](https://www.neonscience.org/field-sites/field-sites-map/BART), and [UNDE](https://www.neonscience.org/field-sites/field-sites-map/UNDE), we encourage others to label these sites, or use models from the labeled data to predict into new, untested, areas.
 
 # RGB
 
 ```R
+library(raster)
 library(NeonTreeEvaluation)
-path<-system.file("extdata", "SJER_021.tif",package = "NeonTreeEvaluation")
 
-#Read RGB image as projected raster, the get_data
-rgb<-stack("../SJER/RGB/SJER_021.tif")
+#Read RGB image as projected raster
+rgb_path<-get_data(plot_name = "SJER_021",sensor="rgb")
+rgb<-stack(rgb_path)
 
 #Path to dataset
-xmls<-readTreeXML(path="../SJER/")
+xmls<-readTreeXML(siteID="SJER")
 
 #View one plot's annotations as polygons, project into UTM
 #copy project utm zone (epsg), xml has no native projection metadata
-xml_polygons <- xml_to_spatial_polygons(xmls[xmls$filename %in% "SJER_021.tif",],rgb)
+xml_polygons <- boxes_to_spatial_polygons(xmls[xmls$filename %in% "SJER_021.tif",],rgb)
 
 plotRGB(rgb)
 plot(xml_polygons,add=T)
@@ -74,40 +67,59 @@ plot(xml_polygons,add=T)
 To access the draped lidar hand annotations, use the "label" column. Each tree has a unique integer.
 
 ```R
-> r<-readLAS("TEAK/training/NEON_D17_TEAK_DP1_315000_4094000_classified_point_cloud_colorized_crop.laz")
-23424 points below 0 found.
-> trees<-lasfilter(r,!label==0)
-> plot(trees,color="label")
+library(lidR)
+path<-get_data("TEAK_052",sensor="lidar")
+r<-readLAS(path)
+trees<-lasfilter(r,!label==0)
+plot(trees,color="label")
 ```
 
-<img src="figures/lidar_hand_annotations.png" height="300">
+<img src=www/lidar_annotation_example.png height="200">
 
-We elected to keep all points, regardless of whether they correspond to tree annotation. Non-tree points have value 0. We highly recommend removing these points before predicting the point cloud. Since the annotations were made in the RGB and then draped on to the point cloud, there will naturally be some erroneous points at the borders of trees.
+The same is true for the training tiles (see below)
+
+<img src=www/lidar_hand_annotations.png height="300">
+
+We elected to keep all points, regardless of whether they correspond to tree annotation. Non-tree points have value 0. We  recommend removing these points before evaluating the point cloud. Since the annotations were made in the RGB and then draped on to the point cloud, there will be some erroneous points at the borders of trees.
 
 # Hyperspectral 
-For the convienance of future users, we have downloaded, cropped and selected reasonable three band combinations for NEON hyperspectral images. 
 
 ```R
-> r<-stack("/Users/Ben/Documents/NeonTreeEvaluation/MLBS/training/2018_MLBS_3_541000_4140000_image_crop_false_color.tif")
-> nlayers(r)
+path<-get_data("MLBS_071",sensor="hyperspectral")
+g<-stack(path)
+nlayers(g)
+[1] 426
+#Grab a three band combination to view as false color
+g<-g[[c(17,55,113)]]
+nlayers(g)
 [1] 3
-> plotRGB(r,stretch="lin")
+plotRGB(g,stretch="lin")
 ```
+<img src="www/MLBS_3band.png" height="200">
 
-<img src="figures/Hyperspec_example.png" height="400">
+And in the training data:
+
+<img src="www/Hyperspec_example.png" height="400">
 
 ## Training Tiles
 
-We have uploaded the large training tiles to Zenodo for download. This includes
+We have uploaded the large training tiles to Zenodo for download. 
 
-* The annotated trainings tiles (optionall cropped) for the NIWO, MLBS, SJER, and TEAK sites.
+This includes
+
+* The annotated trainings tiles (optionally cropped) for the NIWO, MLBS, SJER, TEAK, LENO, and OSBS sites. These site training tiles vary in size.
+
 * Unannotated training tiles for the 15 additional sites. Training tiles do not overlap with evaluation plots.
 
-TODO add zenodo link.
+**TODO add zenodo link.**
 
 # Performance
 
-To submit to this benchmark, please see evaluation.py. The primary evaluation statistic is precision and recall across all sites. It is up to the authors to choose the best probability threshold if appropriate. 
+To submit to this benchmark, please see 
+
+https://github.com/weecology/NeonTreeEvaluation_package
+
+The primary evaluation statistic is precision and recall across all sites. It is up to the authors to choose the best probability threshold if appropriate. 
 
 | Author                | Precision | Recall | Description                              |   |
 |-----------------------|-----------|--------|------------------------------------------|---|
