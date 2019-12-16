@@ -74,11 +74,11 @@ trees<-lasfilter(r,!label==0)
 plot(trees,color="label")
 ```
 
-<img src=www/lidar_annotation_example.png height="200">
+<img src="figures/lidar_annotation_example.png" height="200">
 
 The same is true for the training tiles (see below)
 
-<img src=www/lidar_hand_annotations.png height="300">
+<img src="figures/lidar_hand_annotations.png" height="300">
 
 We elected to keep all points, regardless of whether they correspond to tree annotation. Non-tree points have value 0. We  recommend removing these points before evaluating the point cloud. Since the annotations were made in the RGB and then draped on to the point cloud, there will be some erroneous points at the borders of trees.
 
@@ -95,11 +95,11 @@ nlayers(g)
 [1] 3
 plotRGB(g,stretch="lin")
 ```
-<img src="www/MLBS_3band.png" height="200">
+<img src="figures/MLBS_3band.png" height="200">
 
 And in the training data:
 
-<img src="www/Hyperspec_example.png" height="400">
+<img src="figures/Hyperspec_example.png" height="400">
 
 ## Training Tiles
 
