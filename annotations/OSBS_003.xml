@@ -1,5 +1,5 @@
 <annotation>
-    <folder>plots</folder>
+    <folder>RGB</folder>
     <filename>OSBS_003.tif</filename>
     <size>
         <width>400</width>
@@ -300,8 +300,8 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>268</xmin>
-            <ymin>209</ymin>
+            <xmin>256</xmin>
+            <ymin>185</ymin>
             <xmax>301</xmax>
             <ymax>259</ymax>
         </bndbox>

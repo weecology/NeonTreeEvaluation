@@ -1,5 +1,5 @@
 <annotation>
-    <folder>samples</folder>
+    <folder>RGB</folder>
     <filename>2018_TEAK_3_316000_4093000_image_59.tif</filename>
     <size>
         <width>400</width>
@@ -7,6 +7,19 @@
         <depth>3</depth>
     </size>
     <segmented>0</segmented>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>158</xmin>
+            <ymin>48</ymin>
+            <xmax>185</xmax>
+            <ymax>84</ymax>
+        </bndbox>
+    </object>
     <object>
         <name>Tree</name>
         <pose>Unspecified</pose>
@@ -263,8 +276,8 @@
         <bndbox>
             <xmin>109</xmin>
             <ymin>51</ymin>
-            <xmax>161</xmax>
-            <ymax>98</ymax>
+            <xmax>149</xmax>
+            <ymax>96</ymax>
         </bndbox>
     </object>
     <object>

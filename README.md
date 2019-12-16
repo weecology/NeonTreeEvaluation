@@ -2,8 +2,6 @@
 
 Individual tree detection is a central task in forestry and ecology. Few papers analyze proposed methods across a wide geographic area. This limits the utility of tools and inhibits comparisons across methods. This benchmark dataset is the first dataset to have consistant annotation approach across a variety of ecosystems. 
 
-If you would prefer not to clone this repo, a static version of the benchmark is here: [insert url later]
-
 Mantainer: Ben Weinstein - University of Florida.
 
 Description: The NeonTreeEvaluation dataset is a set of bounding boxes drawn on RGB imagery from the National Ecological Observation Network (NEON). NEON is a set of 45 sites (e.g. [TEAK](https://www.neonscience.org/field-sites/field-sites-map/TEAK)) that cover the dominant ecosystems in the US.
@@ -12,7 +10,7 @@ Description: The NeonTreeEvaluation dataset is a set of bounding boxes drawn on 
 
 We have built an R package for easy evaluation and interacting with the benchmark evaluation data.
 
-See https://github.com/weecology/NeonTreeEvaluation_package
+See https://github.com/weecology/NeonTreeEvaluation_package. See that repo for installation instructions.
 
 # How were images annotated?
 
@@ -52,10 +50,10 @@ For ease of access, we have added two unlabeled sites, [BART](https://www.neonsc
 # RGB
 
 ```R
-library(raster)
-source("functions.R")
+library(NeonTreeEvaluation)
+path<-system.file("extdata", "SJER_021.tif",package = "NeonTreeEvaluation")
 
-#Read RGB image as projected raster
+#Read RGB image as projected raster, the get_data
 rgb<-stack("../SJER/RGB/SJER_021.tif")
 
 #Path to dataset

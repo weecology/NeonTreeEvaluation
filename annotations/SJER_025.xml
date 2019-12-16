@@ -1,5 +1,5 @@
 <annotation>
-    <folder>plots</folder>
+    <folder>RGB</folder>
     <filename>SJER_025.tif</filename>
     <size>
         <width>400</width>
@@ -7,6 +7,32 @@
         <depth>3</depth>
     </size>
     <segmented>0</segmented>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>1</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>32</xmin>
+            <ymin>1</ymin>
+            <xmax>76</xmax>
+            <ymax>36</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>1</xmin>
+            <ymin>279</ymin>
+            <xmax>29</xmax>
+            <ymax>315</ymax>
+        </bndbox>
+    </object>
     <object>
         <name>Tree</name>
         <pose>Unspecified</pose>
