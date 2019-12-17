@@ -84,6 +84,8 @@ We elected to keep all points, regardless of whether they correspond to tree ann
 
 # Hyperspectral 
 
+Hyperspectral surface reflectance (NEON ID: DP1.30006.001) is a 426 band raster covering visible and near infared spectrum.
+
 ```R
 path<-get_data("MLBS_071",sensor="hyperspectral")
 g<-stack(path)

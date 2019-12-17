@@ -1,5 +1,5 @@
 <annotation>
-    <folder>plots</folder>
+    <folder>RGB</folder>
     <filename>JERC_058.tif</filename>
     <size>
         <width>400</width>
@@ -7,6 +7,19 @@
         <depth>3</depth>
     </size>
     <segmented>0</segmented>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>112</xmin>
+            <ymin>115</ymin>
+            <xmax>167</xmax>
+            <ymax>161</ymax>
+        </bndbox>
+    </object>
     <object>
         <name>Tree</name>
         <pose>Unspecified</pose>
@@ -27,8 +40,8 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>362</xmin>
-            <ymin>243</ymin>
+            <xmin>358</xmin>
+            <ymin>236</ymin>
             <xmax>400</xmax>
             <ymax>316</ymax>
         </bndbox>
@@ -40,10 +53,10 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>28</xmin>
+            <xmin>25</xmin>
             <ymin>75</ymin>
             <xmax>51</xmax>
-            <ymax>95</ymax>
+            <ymax>103</ymax>
         </bndbox>
     </object>
     <object>
@@ -92,19 +105,6 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>346</xmin>
-            <ymin>10</ymin>
-            <xmax>400</xmax>
-            <ymax>98</ymax>
-        </bndbox>
-    </object>
-    <object>
-        <name>Tree</name>
-        <pose>Unspecified</pose>
-        <truncated>0</truncated>
-        <occluded>0</occluded>
-        <difficult>0</difficult>
-        <bndbox>
             <xmin>305</xmin>
             <ymin>104</ymin>
             <xmax>400</xmax>
@@ -132,8 +132,8 @@
         <difficult>0</difficult>
         <bndbox>
             <xmin>98</xmin>
-            <ymin>132</ymin>
-            <xmax>186</xmax>
+            <ymin>155</ymin>
+            <xmax>185</xmax>
             <ymax>227</ymax>
         </bndbox>
     </object>
@@ -158,8 +158,8 @@
         <difficult>0</difficult>
         <bndbox>
             <xmin>86</xmin>
-            <ymin>321</ymin>
-            <xmax>198</xmax>
+            <ymin>310</ymin>
+            <xmax>206</xmax>
             <ymax>400</ymax>
         </bndbox>
     </object>
