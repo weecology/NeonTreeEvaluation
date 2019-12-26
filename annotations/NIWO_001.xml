@@ -1,5 +1,5 @@
 <annotation>
-    <folder>plots</folder>
+    <folder>RGB</folder>
     <filename>NIWO_001.tif</filename>
     <size>
         <width>400</width>
@@ -330,19 +330,6 @@
             <ymin>256</ymin>
             <xmax>398</xmax>
             <ymax>275</ymax>
-        </bndbox>
-    </object>
-    <object>
-        <name>Tree</name>
-        <pose>Unspecified</pose>
-        <truncated>0</truncated>
-        <occluded>0</occluded>
-        <difficult>0</difficult>
-        <bndbox>
-            <xmin>133</xmin>
-            <ymin>371</ymin>
-            <xmax>154</xmax>
-            <ymax>389</ymax>
         </bndbox>
     </object>
     <object>
@@ -729,22 +716,9 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>374</xmin>
-            <ymin>383</ymin>
-            <xmax>392</xmax>
-            <ymax>399</ymax>
-        </bndbox>
-    </object>
-    <object>
-        <name>Tree</name>
-        <pose>Unspecified</pose>
-        <truncated>0</truncated>
-        <occluded>0</occluded>
-        <difficult>0</difficult>
-        <bndbox>
             <xmin>358</xmin>
-            <ymin>381</ymin>
-            <xmax>375</xmax>
+            <ymin>378</ymin>
+            <xmax>385</xmax>
             <ymax>400</ymax>
         </bndbox>
     </object>
