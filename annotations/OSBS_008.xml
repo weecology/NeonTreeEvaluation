@@ -1,5 +1,5 @@
 <annotation>
-    <folder>plots</folder>
+    <folder>RGB</folder>
     <filename>OSBS_008.tif</filename>
     <size>
         <width>400</width>
@@ -7,6 +7,71 @@
         <depth>3</depth>
     </size>
     <segmented>0</segmented>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>108</xmin>
+            <ymin>200</ymin>
+            <xmax>133</xmax>
+            <ymax>223</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>300</xmin>
+            <ymin>168</ymin>
+            <xmax>328</xmax>
+            <ymax>200</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>46</xmin>
+            <ymin>96</ymin>
+            <xmax>54</xmax>
+            <ymax>109</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>25</xmin>
+            <ymin>122</ymin>
+            <xmax>43</xmax>
+            <ymax>147</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>343</xmin>
+            <ymin>354</ymin>
+            <xmax>364</xmax>
+            <ymax>380</ymax>
+        </bndbox>
+    </object>
     <object>
         <name>Tree</name>
         <pose>Unspecified</pose>
@@ -339,8 +404,8 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>345</xmin>
-            <ymin>349</ymin>
+            <xmin>373</xmin>
+            <ymin>364</ymin>
             <xmax>400</xmax>
             <ymax>386</ymax>
         </bndbox>
@@ -393,8 +458,8 @@
         <bndbox>
             <xmin>136</xmin>
             <ymin>7</ymin>
-            <xmax>178</xmax>
-            <ymax>57</ymax>
+            <xmax>174</xmax>
+            <ymax>54</ymax>
         </bndbox>
     </object>
     <object>
@@ -482,10 +547,10 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>60</xmin>
+            <xmin>74</xmin>
             <ymin>1</ymin>
             <xmax>108</xmax>
-            <ymax>28</ymax>
+            <ymax>26</ymax>
         </bndbox>
     </object>
     <object>
@@ -522,8 +587,8 @@
         <difficult>0</difficult>
         <bndbox>
             <xmin>90</xmin>
-            <ymin>215</ymin>
-            <xmax>149</xmax>
+            <ymin>228</ymin>
+            <xmax>142</xmax>
             <ymax>273</ymax>
         </bndbox>
     </object>
