@@ -1,5 +1,5 @@
 <annotation>
-    <folder>plots</folder>
+    <folder>RGB</folder>
     <filename>SJER_009.tif</filename>
     <size>
         <width>400</width>
@@ -14,10 +14,10 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>251</xmin>
+            <xmin>258</xmin>
             <ymin>3</ymin>
-            <xmax>385</xmax>
-            <ymax>60</ymax>
+            <xmax>374</xmax>
+            <ymax>49</ymax>
         </bndbox>
     </object>
     <object>

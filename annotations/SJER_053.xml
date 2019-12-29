@@ -1,5 +1,5 @@
 <annotation>
-    <folder>plots</folder>
+    <folder>RGB</folder>
     <filename>SJER_053.tif</filename>
     <size>
         <width>400</width>
@@ -14,10 +14,23 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
+            <xmin>258</xmin>
+            <ymin>314</ymin>
+            <xmax>303</xmax>
+            <ymax>358</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
             <xmin>207</xmin>
-            <ymin>312</ymin>
-            <xmax>288</xmax>
-            <ymax>397</ymax>
+            <ymin>332</ymin>
+            <xmax>271</xmax>
+            <ymax>398</ymax>
         </bndbox>
     </object>
     <object>
@@ -133,8 +146,8 @@
         <bndbox>
             <xmin>132</xmin>
             <ymin>29</ymin>
-            <xmax>223</xmax>
-            <ymax>130</ymax>
+            <xmax>215</xmax>
+            <ymax>121</ymax>
         </bndbox>
     </object>
 </annotation>
