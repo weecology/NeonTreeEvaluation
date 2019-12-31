@@ -120,15 +120,11 @@ And in the training data:
 
 ## Training Tiles
 
-We have uploaded the large training tiles to Zenodo for download. 
+We have uploaded the large training tiles to Zenodo for download. **TODO add zenodo link.**
 
-This includes
+* The annotated trainings tiles cropped for the NIWO, MLBS, SJER, TEAK, LENO, and OSBS sites. These site training tiles vary in size. These files have been cropped and saved as GEOTIFF to match RGB format.
 
-* The annotated trainings tiles (optionally cropped) for the NIWO, MLBS, SJER, TEAK, LENO, and OSBS sites. These site training tiles vary in size.
-
-* Unannotated training tiles for the 15 additional sites. Training tiles do not overlap with evaluation plots. For ease of use, the hyperspectral training tiles have been cropped to the extent of the RGB and LiDAR data and saved as GEOTIFF. For the raw .h5 files, see the NEON Data Portal.
-
-**TODO add zenodo link.**
+* Unannotated training tiles for the 15 additional sites. Training tiles do not overlap with evaluation plots. These have not been cropped to more reasonable hand-annotation size and are in the raw .h5 file format. For help manipulating this files, see /python_utilities/hyperspectral.py
 
 # Performance
 
