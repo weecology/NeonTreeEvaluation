@@ -12,6 +12,8 @@ import pyfor
 import xmltodict
 import rasterio
 import pandas as pd
+import laspy
+import tempfile
 
 #Load .laz
 def load_lidar(laz_path, normalize=True):
@@ -207,8 +209,11 @@ def load_xml(path, dirname, res):
     #read in tile to get dimensions
     full_path=os.path.join(dirname, rgb_path)
 
-    with rasterio.open(full_path) as dataset:
-        bounds=dataset.bounds         
+    try:
+        with rasterio.open(full_path) as dataset:
+            bounds=dataset.bounds
+    except:
+        raise("Cannot open {}".format(full_path))
         
     frame=pd.DataFrame({"treeID":treeID,
                         "xmin":xmin,"xmax":xmax,
@@ -243,4 +248,32 @@ def create_boxes(annotations):
     
     return boxes
 
+def write_label(point_cloud, path):
     
+    #Create laspy object
+    inFile = laspy.file.File("dummy.laz", header=point_cloud.data.header, mode="w")    
+    for dim in point_cloud.data.points:
+        setattr(inFile, dim, point_cloud.data.points[dim])
+    
+    #Create second laspy object (TEMP)
+    outFile1 = laspy.file.File(path, mode = "w",header = inFile.header)
+
+    #look for label name
+    colnames = []
+    for dimension in inFile.point_format:
+        colnames.append(dimension.name)
+    
+    if not "label" in colnames:
+        outFile1.define_new_dimension(
+            name="label",
+            data_type=5,
+            description = "Integer Tree Label"
+         )
+    
+    # copy fields
+    for dimension in inFile.point_format:
+        dat = inFile.reader.get_dimension(dimension.name)
+        outFile1.writer.set_dimension(dimension.name, dat)
+            
+    outFile1.label = point_cloud.data.points.user_data
+    outFile1.close()
