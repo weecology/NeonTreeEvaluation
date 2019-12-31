@@ -27,17 +27,32 @@ For the point cloud annotations, the two dimensional bounding boxes were [draped
 
 | siteID, State  | Forest Description | Evaluation Annotations  |Training Annotations  |
 |---|---|---|---|
-|  SJER, CA |   Oak Savannah| 293   | 2533  |
-|  TEAK, CA |   |   |   |
-|   NIWO, CO|   |   |   |
+|  SJER, CA |   Oak Savannah| 462   | 2533  |
+|  TEAK, CA | Coniferous  |  1483 | 3405  |
+|   NIWO, CO|  Alpine |  1862 | 9730  |
+| MLBS, VA| Deciduous| 489| 1840|
+| LENO, AL | Riparian | 75 | 554|
+| OSBS, FL | Southern Pine| 485| 1271|
+| ABBY, OR | Coniferous |170| |
+| TALL, AL | Southern Hardwoods | 93 | |
+| BART, NH | Northern Hardwoods | 103| |
+| BONA, AK | Riparian| 272 | |
+| UNDE, MI | Deciduous| 134| |
+| SOAP, CA | Coniferous| 115| |
+| SERC, MD | Deciduous | 91| |
+| SCBI, VA | Deciduous| 73| |
+| BLAN, VA | Deciduous| 73| |
+| JERC, GA | Deciduous| 53| |
+| HARV, MA | Northern Hardwoods | 171| |
+| DSNY, FL | Southern Pine | 69| |
+| CLBJ, TX | Deciduous | 108| |
+| DELA, AL | Southern Hardwood | 86 | |
+| ONAQ, UT | Desert| 25| |
+| WREF, OR |Coniferous| 124| |
 
 # How can I add to this dataset?
 
-Anyone is welcome to add to this dataset by cloning this repo and labeling a new site in [rectlabel](https://rectlabel.com/). NEON data is available on the [NEON data server](http://data.neonscience.org/home). We used the NEON 2018 “classified LiDAR point cloud” data
-104 product (NEON ID: DP1.30003.001), and the “orthorectified camera mosaic” (NEON ID:
-105 DP1.30010.001). Please follow the current folder structure, with .laz and .tif files saved together in a single folder, with a unique name, as well as a single annotations folder for the rect label xml files. See /SJER for an example.
-
-For ease of access, we have added two unlabeled sites, [BART](https://www.neonscience.org/field-sites/field-sites-map/BART), and [UNDE](https://www.neonscience.org/field-sites/field-sites-map/UNDE), we encourage others to label these sites, or use models from the labeled data to predict into new, untested, areas.
+Anyone is welcome to add to this dataset by forking this repo and labeling a new site in [rectlabel](https://rectlabel.com/). For each site we have included many unannotated images. Please create a seperate folder name for your github username and send a pull request. For labeling training tiles, see the zenodo link. We recommend cropping training tiles before annotating, as *all* trees in an image must be annotated for training.
 
 # RGB
 
@@ -105,15 +120,11 @@ And in the training data:
 
 ## Training Tiles
 
-We have uploaded the large training tiles to Zenodo for download. 
+We have uploaded the large training tiles to Zenodo for download. **TODO add zenodo link.**
 
-This includes
+* The annotated trainings tiles cropped for the NIWO, MLBS, SJER, TEAK, LENO, and OSBS sites. These site training tiles vary in size. These files have been cropped and saved as GEOTIFF to match RGB format.
 
-* The annotated trainings tiles (optionally cropped) for the NIWO, MLBS, SJER, TEAK, LENO, and OSBS sites. These site training tiles vary in size.
-
-* Unannotated training tiles for the 15 additional sites. Training tiles do not overlap with evaluation plots.
-
-**TODO add zenodo link.**
+* Unannotated training tiles for the 15 additional sites. Training tiles do not overlap with evaluation plots. These have not been cropped to more reasonable hand-annotation size and are in the raw .h5 file format. For help manipulating this files, see /python_utilities/hyperspectral.py
 
 # Performance
 
@@ -126,9 +137,9 @@ The primary evaluation statistic is precision and recall across all sites. It is
 | Author                | Precision | Recall | Description                              |   |
 |-----------------------|-----------|--------|------------------------------------------|---|
 | Weinstein et al. 2019 <sup>1</sup> | 0.55      | 0.65   | Semi-supervised RGB Deep Learning        |   |
-| Silva et al. 2016     |       0.09    | 0.23        | Unsupervised LiDAR raster  |   |
-| Dalponte et al 2016   |           |        | Unsupervised LidAR raster  |   |                      |   |
-| Li et al. 2012        |           |        | Unsupervised LiDAR point cloud|                      |   |
+| Silva et al. 2016     |       0.23    | 0.33        | Unsupervised LiDAR raster  |   |
+| Dalponte et al 2016   |         0.23  | 0.34       | Unsupervised LidAR raster  |   |                      |   |
+| Li et al. 2012        |      0.06     |  0.12      | Unsupervised LiDAR point cloud|                      |   |
 
 To reproduce the analysis for the benchmark comparison see https://github.com/weecology/NeonTreeEvaluation_analysis
 
