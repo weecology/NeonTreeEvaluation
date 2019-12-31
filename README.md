@@ -27,9 +27,28 @@ For the point cloud annotations, the two dimensional bounding boxes were [draped
 
 | siteID, State  | Forest Description | Evaluation Annotations  |Training Annotations  |
 |---|---|---|---|
-|  SJER, CA |   Oak Savannah| 293   | 2533  |
-|  TEAK, CA |   |   |   |
-|   NIWO, CO|   |   |   |
+|  SJER, CA |   Oak Savannah| 462   | 2533  |
+|  TEAK, CA | Coniferous  |  1483 | 3405  |
+|   NIWO, CO|  Alpine |  1862 | 9730  |
+| MLBS, VA| Deciduous| 489| 1840|
+| LENO, AL | Riparian | 75 | 554|
+| OSBS, FL | Southern Pine| 485| 1271|
+| ABBY, OR | Coniferous |170| |
+| TALL, AL | Southern Hardwoods | 93 | |
+| BART, NH | Northern Hardwoods | 103| |
+| BONA, AK | Riparian| 272 | |
+| UNDE, MI | Deciduous| 134| |
+| SOAP, CA | Coniferous| 115| |
+| SERC, MD | Deciduous | 91| |
+| SCBI, VA | Deciduous| 73| |
+| BLAN, VA | Deciduous| 73| |
+| JERC, GA | Deciduous| 53| |
+| HARV, MA | Northern Hardwoods | 171| |
+| DSNY, FL | Southern Pine | 69| |
+| CLBJ, TX | Deciduous | 108| |
+| DELA, AL | Southern Hardwood | 86 | |
+| ONAQ, UT | Desert| 25| |
+| WREF, OR |Coniferous| 124| |
 
 # How can I add to this dataset?
 
