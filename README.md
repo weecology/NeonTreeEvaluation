@@ -99,7 +99,7 @@ We elected to keep all points, regardless of whether they correspond to tree ann
 
 # Hyperspectral 
 
-Hyperspectral surface reflectance (NEON ID: DP1.30006.001) is a 426 band raster covering visible and near infared spectrum.
+Hyperspectral surface reflectance (NEON ID: DP1.30006.001) is a 426 band raster covering visible and near infared spectrum. For the .tif files, the water absorption bands have been removed.   
 
 ```R
 path<-get_data("MLBS_071",sensor="hyperspectral")
@@ -141,9 +141,9 @@ The primary evaluation statistic is precision and recall across all sites. It is
 | Author                | Precision | Recall | Description                              |   |
 |-----------------------|-----------|--------|------------------------------------------|---|
 | Weinstein et al. 2019 <sup>1</sup> | 0.55      | 0.65   | Semi-supervised RGB Deep Learning        |   |
-| Silva et al. 2016     |       0.09    | 0.23        | Unsupervised LiDAR raster  |   |
-| Dalponte et al 2016   |           |        | Unsupervised LidAR raster  |   |                      |   |
-| Li et al. 2012        |           |        | Unsupervised LiDAR point cloud|                      |   |
+| Silva et al. 2016     |       0.23    | 0.33        | Unsupervised LiDAR raster  |   |
+| Dalponte et al 2016   |         0.23  | 0.34       | Unsupervised LidAR raster  |   |                      |   |
+| Li et al. 2012        |      0.06     |  0.12      | Unsupervised LiDAR point cloud|                      |   |
 
 To reproduce the analysis for the benchmark comparison see https://github.com/weecology/NeonTreeEvaluation_analysis
 
