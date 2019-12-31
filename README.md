@@ -33,11 +33,7 @@ For the point cloud annotations, the two dimensional bounding boxes were [draped
 
 # How can I add to this dataset?
 
-Anyone is welcome to add to this dataset by cloning this repo and labeling a new site in [rectlabel](https://rectlabel.com/). NEON data is available on the [NEON data server](http://data.neonscience.org/home). We used the NEON 2018 “classified LiDAR point cloud” data
-104 product (NEON ID: DP1.30003.001), and the “orthorectified camera mosaic” (NEON ID:
-105 DP1.30010.001). Please follow the current folder structure, with .laz and .tif files saved together in a single folder, with a unique name, as well as a single annotations folder for the rect label xml files. See /SJER for an example.
-
-For ease of access, we have added two unlabeled sites, [BART](https://www.neonscience.org/field-sites/field-sites-map/BART), and [UNDE](https://www.neonscience.org/field-sites/field-sites-map/UNDE), we encourage others to label these sites, or use models from the labeled data to predict into new, untested, areas.
+Anyone is welcome to add to this dataset by forking this repo and labeling a new site in [rectlabel](https://rectlabel.com/). For each site we have included many unannotated images. Please create a seperate folder name for your github username and send a pull request. For labeling training tiles, see the zenodo link. We recommend cropping training tiles before annotating, as *all* trees in an image must be annotated for training.
 
 # RGB
 
