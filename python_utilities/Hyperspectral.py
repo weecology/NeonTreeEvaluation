@@ -244,9 +244,9 @@ def generate_raster(h5_path, save_dir, rgb_filename = None, bands=None):
 
 if __name__ == "__main__":
     #Load RGB raster and get bounds
-    rgb_filename = "/Users/ben/Downloads/2019_OSBS_5_405000_3287000_image_crop.tif"
+    rgb_filename = "/Users/ben/Downloads/2018_SJER_3_258000_4106000_image.tif"
     
-    h5_path = "/Users/ben/Dropbox/Weecology/temp_training/NEON_D03_OSBS_DP3_405000_3287000_reflectance.h5"
+    h5_path = "/Users/ben/Downloads/NEON_D17_SJER_DP3_258000_4106000_reflectance.h5"
     
     #Working_dir
     save_dir = "/Users/ben/Downloads/"
