@@ -1,0 +1,23 @@
+<annotation>
+    <folder>RGB</folder>
+    <filename>DSNY_002.tif</filename>
+    <size>
+        <width>400</width>
+        <height>400</height>
+        <depth>3</depth>
+    </size>
+    <segmented>0</segmented>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>316</xmin>
+            <ymin>284</ymin>
+            <xmax>379</xmax>
+            <ymax>357</ymax>
+        </bndbox>
+    </object>
+</annotation>
