@@ -27,7 +27,7 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>271</xmin>
+            <xmin>258</xmin>
             <ymin>265</ymin>
             <xmax>394</xmax>
             <ymax>372</ymax>

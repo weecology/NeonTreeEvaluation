@@ -1,9 +1,9 @@
 <annotation>
-    <folder>RGB</folder>
-    <filename>2018_TEAK_3_318000_4107000_image_718.tif</filename>
+    <folder>temp_training</folder>
+    <filename>2019_TOOL_3_403000_7617000_image.tif</filename>
     <size>
-        <width>400</width>
-        <height>400</height>
+        <width>10000</width>
+        <height>10000</height>
         <depth>3</depth>
     </size>
     <segmented>0</segmented>
@@ -14,10 +14,10 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>270</xmin>
-            <ymin>291</ymin>
-            <xmax>312</xmax>
-            <ymax>339</ymax>
+            <xmin>4802</xmin>
+            <ymin>4617</ymin>
+            <xmax>4858</xmax>
+            <ymax>4680</ymax>
         </bndbox>
     </object>
 </annotation>

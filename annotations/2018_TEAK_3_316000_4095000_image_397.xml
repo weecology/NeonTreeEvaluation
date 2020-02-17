@@ -677,10 +677,10 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>129</xmin>
+            <xmin>154</xmin>
             <ymin>332</ymin>
             <xmax>186</xmax>
-            <ymax>374</ymax>
+            <ymax>370</ymax>
         </bndbox>
     </object>
     <object>

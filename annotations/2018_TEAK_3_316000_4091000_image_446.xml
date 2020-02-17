@@ -1,5 +1,5 @@
 <annotation>
-    <folder>samples</folder>
+    <folder>RGB</folder>
     <filename>2018_TEAK_3_316000_4091000_image_446.tif</filename>
     <size>
         <width>400</width>
@@ -27,8 +27,8 @@
         <occluded>0</occluded>
         <difficult>0</difficult>
         <bndbox>
-            <xmin>308</xmin>
-            <ymin>102</ymin>
+            <xmin>286</xmin>
+            <ymin>91</ymin>
             <xmax>400</xmax>
             <ymax>190</ymax>
         </bndbox>
