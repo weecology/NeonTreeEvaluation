@@ -9,3 +9,4 @@ universal_model_july30.h5
 Weinstein2019b/pretraining/
 Weinstein2019b/hand_annotations/
 *.tfrecord
+*.aux.xml
