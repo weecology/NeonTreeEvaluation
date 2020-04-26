@@ -120,7 +120,9 @@ And in the training data:
 
 ## Training Tiles
 
-We have uploaded the large training tiles to Zenodo for download. **TODO add zenodo link.**
+We have uploaded the large training tiles to Zenodo for download.
+
+https://zenodo.org/record/3459803#.XpeLTVNKhQI
 
 * The annotated trainings tiles cropped for the NIWO, MLBS, SJER, TEAK, LENO, and OSBS sites. These site training tiles vary in size. These files have been cropped and saved as GEOTIFF to match RGB format.
 
