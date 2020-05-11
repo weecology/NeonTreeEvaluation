@@ -1,5 +1,5 @@
 <annotation>
-    <folder>mining_round1</folder>
+    <folder>temp_training</folder>
     <filename>2019_TALL_5_456000_3644000_image_crop.tif</filename>
     <size>
         <width>334</width>
@@ -7,6 +7,32 @@
         <depth>3</depth>
     </size>
     <segmented>0</segmented>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>164</xmin>
+            <ymin>201</ymin>
+            <xmax>188</xmax>
+            <ymax>225</ymax>
+        </bndbox>
+    </object>
+    <object>
+        <name>Tree</name>
+        <pose>Unspecified</pose>
+        <truncated>0</truncated>
+        <occluded>0</occluded>
+        <difficult>0</difficult>
+        <bndbox>
+            <xmin>124</xmin>
+            <ymin>191</ymin>
+            <xmax>147</xmax>
+            <ymax>212</ymax>
+        </bndbox>
+    </object>
     <object>
         <name>Tree</name>
         <pose>Unspecified</pose>
