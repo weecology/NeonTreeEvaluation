@@ -1,5 +1,5 @@
 <annotation>
-    <folder>plots</folder>
+    <folder>RGB</folder>
     <filename>SJER_059.tif</filename>
     <size>
         <width>400</width>
@@ -83,19 +83,6 @@
             <ymin>72</ymin>
             <xmax>128</xmax>
             <ymax>159</ymax>
-        </bndbox>
-    </object>
-    <object>
-        <name>Tree</name>
-        <pose>Unspecified</pose>
-        <truncated>0</truncated>
-        <occluded>0</occluded>
-        <difficult>0</difficult>
-        <bndbox>
-            <xmin>173</xmin>
-            <ymin>141</ymin>
-            <xmax>221</xmax>
-            <ymax>192</ymax>
         </bndbox>
     </object>
     <object>

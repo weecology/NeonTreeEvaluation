@@ -1,5 +1,5 @@
 <annotation>
-    <folder>plots</folder>
+    <folder>RGB</folder>
     <filename>OSBS_022.tif</filename>
     <size>
         <width>400</width>
@@ -7,45 +7,6 @@
         <depth>3</depth>
     </size>
     <segmented>0</segmented>
-    <object>
-        <name>Tree</name>
-        <pose>Unspecified</pose>
-        <truncated>0</truncated>
-        <occluded>0</occluded>
-        <difficult>0</difficult>
-        <bndbox>
-            <xmin>357</xmin>
-            <ymin>367</ymin>
-            <xmax>400</xmax>
-            <ymax>400</ymax>
-        </bndbox>
-    </object>
-    <object>
-        <name>Tree</name>
-        <pose>Unspecified</pose>
-        <truncated>0</truncated>
-        <occluded>0</occluded>
-        <difficult>0</difficult>
-        <bndbox>
-            <xmin>342</xmin>
-            <ymin>214</ymin>
-            <xmax>371</xmax>
-            <ymax>256</ymax>
-        </bndbox>
-    </object>
-    <object>
-        <name>Tree</name>
-        <pose>Unspecified</pose>
-        <truncated>0</truncated>
-        <occluded>0</occluded>
-        <difficult>0</difficult>
-        <bndbox>
-            <xmin>358</xmin>
-            <ymin>288</ymin>
-            <xmax>396</xmax>
-            <ymax>332</ymax>
-        </bndbox>
-    </object>
     <object>
         <name>Tree</name>
         <pose>Unspecified</pose>
@@ -83,45 +44,6 @@
             <ymin>48</ymin>
             <xmax>400</xmax>
             <ymax>107</ymax>
-        </bndbox>
-    </object>
-    <object>
-        <name>Tree</name>
-        <pose>Unspecified</pose>
-        <truncated>0</truncated>
-        <occluded>0</occluded>
-        <difficult>0</difficult>
-        <bndbox>
-            <xmin>315</xmin>
-            <ymin>155</ymin>
-            <xmax>333</xmax>
-            <ymax>174</ymax>
-        </bndbox>
-    </object>
-    <object>
-        <name>Tree</name>
-        <pose>Unspecified</pose>
-        <truncated>0</truncated>
-        <occluded>0</occluded>
-        <difficult>0</difficult>
-        <bndbox>
-            <xmin>280</xmin>
-            <ymin>141</ymin>
-            <xmax>304</xmax>
-            <ymax>170</ymax>
-        </bndbox>
-    </object>
-    <object>
-        <name>Tree</name>
-        <pose>Unspecified</pose>
-        <truncated>0</truncated>
-        <occluded>0</occluded>
-        <difficult>0</difficult>
-        <bndbox>
-            <xmin>201</xmin>
-            <ymin>165</ymin>
-            <xmax>237</xmax>
-            <ymax>205</ymax>
         </bndbox>
     </object>
 </annotation>
