@@ -1,0 +1,10 @@
+<annotation>
+    <folder>crops</folder>
+    <filename>2018_MLBS_3_542000_4136000_image.tif</filename>
+    <size>
+        <width>10000</width>
+        <height>10000</height>
+        <depth>3</depth>
+    </size>
+    <segmented>0</segmented>
+</annotation>
