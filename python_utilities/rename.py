@@ -39,8 +39,8 @@ for path in paths:
     os.rename(src=path, dst=dst)
     
 #CHM
-paths = glob.glob("/Users/ben/Dropbox/Weecology/competition/test_original/RemoteSensing/CHM/MLBS*.tif")
+paths = glob.glob("/Users/ben/Dropbox/Weecology/competition/test_original/RemoteSensing/CHM/*.tif")
 for path in paths:
-    basename = path.split("_CHM")[0]
-    dst =  "{basename}_competition_CHM.tif".format(basename=basename)
+    dst="{}.tif".format("".join(path.split(".tif")))
     os.rename(src=path, dst=dst)
+    
