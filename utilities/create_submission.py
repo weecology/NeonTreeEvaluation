@@ -1,5 +1,6 @@
 import glob
 import os
+import cv2
 import pandas as pd
 from deepforest import deepforest
 
@@ -8,10 +9,17 @@ def submission_no_chm(tiles_to_predict):
     results = []
     model = deepforest.deepforest()
     model.use_release()    
-    for tile in tiles_to_predict:
+    for path in tiles_to_predict:
         try:
-            result = model.predict_tile(tile,return_plot=False,patch_size=400)
-            result["plot_name"] = os.path.splitext(os.path.basename(tile))[0]
+            image = cv2.imread(path)
+            result = model.predict_image(numpy_image=image,return_plot=False)
+            
+            #resize boxes back to original scales
+            result["xmin"] = result["xmin"]/x_scale
+            result["xmax"] = result["xmax"]/x_scale
+            result["ymin"] = result["ymin"]/y_scale
+            result["ymax"] = result["ymax"]/y_scale            
+            result["plot_name"] = os.path.splitext(os.path.basename(path))[0]
             results.append(result)
         except Exception as e:
             print(e)
