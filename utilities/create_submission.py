@@ -11,14 +11,7 @@ def submission_no_chm(tiles_to_predict):
     model.use_release()    
     for path in tiles_to_predict:
         try:
-            image = cv2.imread(path)
-            result = model.predict_image(numpy_image=image,return_plot=False)
-            
-            #resize boxes back to original scales
-            result["xmin"] = result["xmin"]/x_scale
-            result["xmax"] = result["xmax"]/x_scale
-            result["ymin"] = result["ymin"]/y_scale
-            result["ymax"] = result["ymax"]/y_scale            
+            result = model.predict_image(path,return_plot=False)    
             result["plot_name"] = os.path.splitext(os.path.basename(path))[0]
             results.append(result)
         except Exception as e:
