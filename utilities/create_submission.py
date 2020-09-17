@@ -9,7 +9,7 @@ def submission_no_chm(tiles_to_predict):
     results = []
     model = deepforest.deepforest()
     model.use_release()    
-    for path in tiles_to_predict:
+    for path in tiles_to_predict:   
         try:
             result = model.predict_image(path,return_plot=False)    
             result["plot_name"] = os.path.splitext(os.path.basename(path))[0]
@@ -23,6 +23,6 @@ def submission_no_chm(tiles_to_predict):
     
     return boxes
 
-tiles_to_predict = glob.glob("/home/b.weinstein/NeonTreeEvaluation/evaluation/RGB/*.tif") 
+tiles_to_predict = glob.glob("/Users/ben/Documents/NeonTreeEvaluation/evaluation/RGB/*.tif") 
 df = submission_no_chm(tiles_to_predict)
 df.to_csv("all_images_submission.csv")

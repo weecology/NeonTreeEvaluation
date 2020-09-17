@@ -3,13 +3,13 @@ library(raster)
 a<-list.files("/Users/ben/Downloads/competition/sarah_test_plots/mage", full.names = T)
 for(i in a){
   img = stack(i)
-  x = str_replace(i,"(\\w+).tif",paste("\\1_competition"))
+  x = str_replace(i,"(\\w+).tif",paste("\\1_competition.tif"))
   writeRaster(img,x,datatype='INT1U',overwrite=T)
 }
 
 a<-list.files("/Users/ben/Downloads/competition/sarah_test_plots/hsi", full.names = T)
 for(i in a){
-  x = str_replace(i,"(\\w+).tif",paste("\\1_competition_hyperspectral"))
+  x = str_replace(i,"(\\w+).tif",paste("\\1_competition_hyperspectral.tif"))
   file.rename(i, x)
 }
 
@@ -25,4 +25,9 @@ for(i in a){
   file.rename(i, x)
 }
 
+a<-list.files("/Users/ben/Downloads/competition/sarah_test_plots/_CHM/", full.names = T)
+for(i in a){
+  x = paste(i,".tif",sep="")
+  file.rename(i, x)
+}
 
