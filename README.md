@@ -5,8 +5,6 @@ Individual tree detection is a central task in forestry and ecology. Few papers 
 Evaluation images are included in this repo under /evaluation folder.
 Annotation files (.xml) are included in this repo under /annotations/
 
-For the larger annotated training tiles, as well as unannotated  training tiles for additional sites, see zenodo [archive]()
-
 Mantainer: Ben Weinstein - University of Florida.
 
 # How do I evaluate against the benchmark?
@@ -129,24 +127,10 @@ https://zenodo.org/record/3459803#.XpeLTVNKhQI
 * Unannotated training tiles for the 15 additional sites. Training tiles do not overlap with evaluation plots. These have not been cropped to more reasonable hand-annotation size and are in the raw .h5 file format. For help manipulating this files, see /python_utilities/hyperspectral.py
 
 # Performance
-
-To submit to this benchmark, please see 
+See the R package for current data and scores. This repo is just to hold the annotations in version control.
 
 https://github.com/weecology/NeonTreeEvaluation_package
-
-The primary evaluation statistic is precision and recall across all sites. It is up to the authors to choose the best probability threshold if appropriate. 
-
-| Author                | Precision | Recall | Description                              |   |
-|-----------------------|-----------|--------|------------------------------------------|---|
-| Weinstein et al. 2019 <sup>1</sup> | 0.55      | 0.65   | Semi-supervised RGB Deep Learning        |   |
-| Silva et al. 2016     |       0.23    | 0.33        | Unsupervised LiDAR raster  |   |
-| Dalponte et al 2016   |         0.23  | 0.34       | Unsupervised LidAR raster  |   |                      |   |
-| Li et al. 2012        |      0.06     |  0.12      | Unsupervised LiDAR point cloud|                      |   |
-
-To reproduce the analysis for the benchmark comparison see https://github.com/weecology/NeonTreeEvaluation_analysis
 
 ## Cited
 <sup>1</sup> Weinstein, Ben G., et al. "Individual tree-crown detection in RGB imagery using semi-supervised deep learning neural networks." Remote Sensing 11.11 (2019): 1309. https://www.mdpi.com/2072-4292/11/11/1309
 Thanks to the lidR R package for making algorithms accessible for comparison.
-
-Please submit a pull request, or contact the mantainer if you use these data in analysis and would like the results to be shown here.
