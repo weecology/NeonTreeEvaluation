@@ -23,6 +23,6 @@ def submission_no_chm(tiles_to_predict):
     
     return boxes
 
-tiles_to_predict = glob.glob("/Users/ben/Documents/NeonTreeEvaluation/evaluation/RGB/*.tif") 
+tiles_to_predict = glob.glob("/home/b.weinstein/NeonTreeEvaluation/evaluation/RGB/*.tif") 
 df = submission_no_chm(tiles_to_predict)
 df.to_csv("all_images_submission.csv")
