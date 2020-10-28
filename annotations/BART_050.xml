@@ -133,21 +133,8 @@
         <bndbox>
             <xmin>367</xmin>
             <ymin>331</ymin>
-            <xmax>400</xmax>
-            <ymax>362</ymax>
-        </bndbox>
-    </object>
-    <object>
-        <name>Tree</name>
-        <pose>Unspecified</pose>
-        <truncated>0</truncated>
-        <occluded>0</occluded>
-        <difficult>0</difficult>
-        <bndbox>
-            <xmin>319</xmin>
-            <ymin>340</ymin>
-            <xmax>364</xmax>
-            <ymax>382</ymax>
+            <xmax>399</xmax>
+            <ymax>359</ymax>
         </bndbox>
     </object>
     <object>
