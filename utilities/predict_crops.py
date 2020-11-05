@@ -8,7 +8,7 @@ model.use_release()
 files = glob.glob("/orange/ewhite/b.weinstein/NeonTreeEvaluation/pretraining/crops/*.jpg")
 results = []
 for x in files[0:2]:
-    boxes = model.predict_image(x)
+    boxes = model.predict_image(x, return_plot = False)
     results.append(boxes)
 
 results = pd.concat(results)
