@@ -9,6 +9,7 @@ files = glob.glob("/orange/ewhite/b.weinstein/NeonTreeEvaluation/pretraining/cro
 results = []
 for x in files[0:2]:
     boxes = model.predict_image(x, return_plot = False)
+    boxes["file"] = x
     results.append(boxes)
 
 results = pd.concat(results)
