@@ -8,7 +8,6 @@ import pyfor
 import numpy as np
 import geopandas as gp
 from shapely import geometry
-import pyfor
 import xmltodict
 import rasterio
 import pandas as pd
