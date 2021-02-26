@@ -1,20 +1,17 @@
 library(stringr)
-fils<-list.files("/Users/benweinstein/Downloads/temporal/2019/RGB",full.names = T)
-fils<-fils[!str_detect(fils,"2019")]
-fils<-fils[!str_detect(fils,"2020")]
-fils<-fils[!str_detect(fils,"2018")]
-fils<-fils[!str_detect(fils,"competition")]
+data_dir<-"/Users/benweinstein/Downloads/temporal/2019/"
+fils<-list.files(paste(data_dir,"Camera/",sep=""),full.names = T)
 
 year = "2019"
 
 #get sites
 for(x in fils){
 
-  new_name = str_replace(x, ".tif", paste("_",year,".tif",sep=""))
-  file.rename(x, new_name)
+  #new_name = str_replace(x, ".tif", paste("_",year,".tif",sep=""))
+  #file.rename(x, new_name)
 
   #get basename
-  basename <- str_match(x,"(\\w+).tif")[,2]
+  basename <- str_match(x,"(\\w+)_\\d+.tif")[,2]
 
   #rename laz
   old_filename <- paste(data_dir,"LiDAR/",basename,".laz",sep="")
