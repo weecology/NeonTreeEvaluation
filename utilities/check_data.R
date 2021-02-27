@@ -3,18 +3,19 @@ library(NeonTreeEvaluation)
 library(stringr)
 
 rgb<-list_rgb()
+rgb<-rgb[!str_detect(rgb,"competition")]
 for(r in rgb){
   #get plot name
   plot_name <- str_match(r, "(\\w+).tif")[,2]
   #CHM
   CHM <- file.exists(get_data(plot_name, "chm"))
-  if(!CHM){paste(plot_name, "missing CHM")}
+  if(!CHM){print(paste(plot_name, "missing CHM"))}
 
   hsi <- file.exists(get_data(plot_name, "hyperspectral"))
-  if(!hsi){paste(plot_name, "missing hsi")}
+  if(!hsi){print(paste(plot_name, "missing hsi"))}
 
   lidar <- file.exists(get_data(plot_name, "lidar"))
-  if(!lidar){paste(plot_name, "missing lidar")}
+  if(!lidar){print(paste(plot_name, "missing lidar"))}
 }
 
 #check annotations

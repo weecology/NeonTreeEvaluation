@@ -7,20 +7,20 @@ year = "2018"
 #get sites
 for(x in fils){
 
-  new_name = str_replace(x, ".tif", paste("_",year,".tif",sep=""))
+  #new_name = str_replace(x, ".tif", paste("_",year,".tif",sep=""))
   file.rename(x, new_name)
 
   #get basename
-  basename <- str_match(x,"(\\w+).tif")[,2]
+  basename <- str_match(x,"(\\w+)_\\d+.tif")[,2]
 
   #rename laz
-  old_filename <- paste(data_dir,"LiDAR/",basename,".laz",sep="")
-  new_filename <-paste(data_dir,"LiDAR/",basename,"_",year,".laz",sep="")
-  file.rename(old_filename, new_filename)
+  #old_filename <- paste(data_dir,"LiDAR/",basename,".laz",sep="")
+  #new_filename <-paste(data_dir,"LiDAR/",basename,"_",year,".laz",sep="")
+  #file.rename(old_filename, new_filename)
 
-  old_filename <- paste(data_dir,"CHM/",basename,"_CHM.tif",sep="")
-  new_filename <-paste(data_dir,"CHM/",basename,"_",year,"_CHM.tif",sep="")
-  file.rename(old_filename, new_filename)
+  #old_filename <- paste(data_dir,"CHM/",basename,"_CHM.tif",sep="")
+  #new_filename <-paste(data_dir,"CHM/",basename,"_",year,"_CHM.tif",sep="")
+  #file.rename(old_filename, new_filename)
 
 
   old_filename <- paste(data_dir,"Hyperspectral/",basename,"_hyperspectral.tif",sep="")
