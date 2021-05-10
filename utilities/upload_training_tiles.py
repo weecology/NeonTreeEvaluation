@@ -51,11 +51,9 @@ def find_sensor_path(rgb_path, lookup_pool):
     match = [x for x in lookup_pool if geo_index in x]
     if len(match) == 0:
         raise ValueError("Cannot find HSI match for RGB {}".format(rgb_path))
-    if len(match) > 1:
-        year = year_from_path(rgb_path)        
-        HSI_path = [x for x in match if year in x]
-        
-    HSI_path = match[0]
+    
+    year = year_from_path(rgb_path)        
+    HSI_path = [x for x in match if year in x][0]
         
     return HSI_path
 
