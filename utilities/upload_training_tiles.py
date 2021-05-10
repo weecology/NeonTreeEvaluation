@@ -81,6 +81,7 @@ def lookup_and_convert(rgb_path, hyperspectral_pool, tif_savedir):
     tif_path = "{}/{}".format(tif_savedir, tif_basename)
 
     if not os.path.exists(tif_path):
+        print("Converting {}".format(tif_path))
         tif_path = convert_h5(hyperspectral_h5_path, rgb_path, tif_savedir)
 
     return tif_path
@@ -172,11 +173,16 @@ if __name__ == "__main__":
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2019_YELL_2_541000_4977000_image_crop.tif"]
     
     for tile in training_tiles:
-        run(
+        
+        try:
+            print(tile)
+            run(
             rgb_tile=tile,
             savedir="/orange/idtrees-collab/zenodo/training",
             CHM_glob="/orange/ewhite/NeonData/**/CanopyHeightModelGtif/*.tif",
             hyperspectral_glob="/orange/ewhite/NeonData/**/Reflectance/*.h5",
             tif_savedir="/orange/idtrees-collab/Hyperspectral_tifs",
             zenodo_record=4746605)
+        except Exception as e:
+            print(e)
         
