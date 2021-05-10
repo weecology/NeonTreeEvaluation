@@ -112,12 +112,10 @@ def crop_CHM(path,CHM_pool, savedir):
     
     if len(match) == 0:
         raise ValueError("Cannot find CHM match for RGB {}".format(path))
-    if len(match) > 1:
-        year = year_from_path(path)        
-        CHM_path = [x for x in match if year in x]
-    else:
-        CHM_path = match[0]
-        
+
+    year = year_from_path(path)        
+    CHM_path = [x for x in match if year in x][0]
+
     RGB_src = rio.open(path)
     left, bottom, right, top = RGB_src.bounds
     
