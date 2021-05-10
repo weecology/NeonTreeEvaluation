@@ -1,11 +1,10 @@
 import numpy as np
 import h5py
-import gdal, osr
 import matplotlib.pyplot as plt
 import sys
-import ogr
 import os
 import rasterio
+from rasterio.crs import CRS
 
 def h5refl2array(refl_filename, epsg):
     """
@@ -91,45 +90,20 @@ def array2raster(newRaster, reflBandArray, reflArray_metadata, extent, ras_dir):
     extent: The UTM coordinate extent
     ras_dir: Where to save the file
     """
-    NP2GDAL_CONVERSION = {
-        "uint8": 1,
-        "int8": 1,
-        "uint16": 2,
-        "int16": 3,
-        "uint32": 4,
-        "int32": 5,
-        "float32": 6,
-        "float64": 7,
-        "complex64": 10,
-        "complex128": 11,
-    }
-
-    pwd = os.getcwd()
-    os.chdir(ras_dir)
-    cols = reflBandArray.shape[1]
-    rows = reflBandArray.shape[0]
-    bands = reflBandArray.shape[2]
-    pixelWidth = float(reflArray_metadata['res']['pixelWidth'])
-    pixelHeight = -float(reflArray_metadata['res']['pixelHeight'])
+    res = float(reflArray_metadata['res']['pixelWidth'])    
     originX = extent['xMin']
-    originY = extent['yMax']
-
-    driver = gdal.GetDriverByName('GTiff')
-    gdaltype = NP2GDAL_CONVERSION[reflBandArray.dtype.name]
-    outRaster = driver.Create(newRaster, cols, rows, bands, gdaltype)
-    outRaster.SetGeoTransform((originX, pixelWidth, 0, originY, 0, pixelHeight))
-    # outband = outRaster.GetRasterBand(1)
-    # outband.WriteArray(reflBandArray[:,:,x])
+    originY = extent['yMax']    
+    transform = rasterio.transform.from_origin(originX, originY, res, res)
+    new_dataset = rasterio.open("{}/{}".format(ras_dir, newRaster), 'w', driver='GTiff',
+                                height = reflBandArray.shape[0], width = reflBandArray.shape[1],
+                                dtype=str(reflBandArray.dtype),
+                                count=reflBandArray.shape[2],
+                                crs=CRS.from_epsg(reflArray_metadata['epsg']),
+                                transform=transform)
     
-    for band in range(bands):
-        outRaster.GetRasterBand(band + 1).WriteArray(reflBandArray[:, :, band])
-
-    outRasterSRS = osr.SpatialReference()
-    #outRasterSRS.ImportFromEPSG(reflArray_metadata['epsg'])
-    outRaster.SetProjection(outRasterSRS.ExportToWkt())
-    outRaster.FlushCache()
-    os.chdir(pwd)
-
+    new_dataset.write(np.rollaxis(reflBandArray,-1))
+    new_dataset.close()    
+    
 def calc_clip_index(clipExtent, h5Extent, xscale=1, yscale=1):
     """Extract numpy index for the utm coordinates"""
     
