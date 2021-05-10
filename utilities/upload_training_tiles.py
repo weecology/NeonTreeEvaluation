@@ -54,8 +54,8 @@ def find_sensor_path(rgb_path, lookup_pool):
     if len(match) > 1:
         year = year_from_path(rgb_path)        
         HSI_path = [x for x in match if year in x]
-    else:
-        HSI_path = match[0]
+        
+    HSI_path = match[0]
         
     return HSI_path
 
@@ -177,5 +177,6 @@ if __name__ == "__main__":
             savedir="/orange/idtrees-collab/zenodo/training",
             CHM_glob="/orange/ewhite/NeonData/**/CanopyHeightModelGtif/*.tif",
             hyperspectral_glob="/orange/ewhite/NeonData/**/Reflectance/*.h5",
-            tif_savedir="/orange/idtrees-collab/Hyperspectral_tifs", zenodo_record=4746605)
+            tif_savedir="/orange/idtrees-collab/Hyperspectral_tifs",
+            zenodo_record=4746605)
         
