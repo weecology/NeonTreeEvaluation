@@ -20,4 +20,4 @@ sfdf <- st_sf(submission, st_sfc(lst))
 plot(sfdf[1,"label"])
 write_sf(sfdf, "/Users/Ben/Documents/neontreeevaluation_python/data/submission.shp")
 submission_polygons<-sfdf
-devtools::use_data(submission_polygons)
+use_data(submission_polygons,overwrite = T )

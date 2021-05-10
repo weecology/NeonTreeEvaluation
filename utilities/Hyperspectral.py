@@ -19,12 +19,12 @@ def h5refl2array(refl_filename, epsg):
 
     #Extract the reflectance & wavelength datasets
     reflArray = hdf5_file[sitename]['Reflectance']
-    wavelengths =reflArray['Reflectance_Data'].value
+    wavelengths =reflArray['Reflectance_Data'][:]
 
     # Create dictionary containing relevant metadata information
     metadata = {}
-    metadata['mapInfo'] = reflArray['Metadata']['Coordinate_System']['Map_Info'].value
-    metadata['wavelength'] = reflArray['Metadata']['Spectral_Data']['Wavelength'].value
+    metadata['mapInfo'] = reflArray['Metadata']['Coordinate_System']['Map_Info'][()]
+    metadata['wavelength'] = reflArray['Metadata']['Spectral_Data']['Wavelength'][:]
     metadata['shape'] = wavelengths.shape
     
     #Extract no data value & scale factor
