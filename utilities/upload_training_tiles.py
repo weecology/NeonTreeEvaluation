@@ -12,21 +12,17 @@ import requests
 import glob
 import os
 
-def get_token():
-    """TOKEN is stored in env"""
-    token = os.environ.get('ZENODO_TOKEN')
-    return token
-
 def upload(ACCESS_TOKEN, path):
     """Upload an item to zenodo"""
     
-    get_token()
+    token = os.environ.get('ZENODO_TOKEN')
+    
      # Get the deposition id from the already created record
     deposition_id = "3765872"
     data = {'name': os.path.basename(path)}
     files = {'file': open(path, 'rb')}
     r = requests.post('https://zenodo.org/api/deposit/depositions/%s/files' % deposition_id,
-                      params={'access_token': ACCESS_TOKEN}, data=data, files=files)
+                      params={'access_token': token}, data=data, files=files)
     print("request of path {} returns {}".format(path, r.json()))
     
     
@@ -177,8 +173,7 @@ if __name__ == "__main__":
             savedir="/orange/idtrees-collab/zenodo/training",
             CHM_glob="/orange/ewhite/NeonData/**/CanopyHeightModelGtif/*.tif",
             hyperspectral_glob="/orange/ewhite/NeonData/**/Reflectance/*.h5",
-            tif_savedir="/orange/idtrees-collab/Hyperspectral_tifs",
-            zenodo_record=4746605)
+            tif_savedir="/orange/idtrees-collab/Hyperspectral_tifs")
         except Exception as e:
             print(e)
         
