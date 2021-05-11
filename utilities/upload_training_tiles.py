@@ -147,9 +147,9 @@ def run(rgb_tile,savedir,CHM_glob, hyperspectral_glob, tif_savedir, zenodo_recor
     
 if __name__ == "__main__":
     training_tiles = [
-    #"/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2018_BART_4_322000_4882000_image_crop.tif",
-    #"/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2018_HARV_5_733000_4698000_image_crop.tif",
-    #"/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2018_JERC_4_742000_3451000_image_crop.tif",
+    "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2018_BART_4_322000_4882000_image_crop.tif",
+    "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2018_HARV_5_733000_4698000_image_crop.tif",
+    "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2018_JERC_4_742000_3451000_image_crop.tif",
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2018_MLBS_3_541000_4140000_image_crop2.tif",
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2018_MLBS_3_541000_4140000_image_crop.tif",
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2018_NIWO_2_450000_4426000_image_crop.tif",
