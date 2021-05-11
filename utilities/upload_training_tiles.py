@@ -99,7 +99,9 @@ def crop_HSI(path, hyperspectral_pool, savedir, tif_savedir):
     fname = "{}/{}_hyperspectral.tif".format(savedir,os.path.splitext(os.path.basename(path)))
     with rio.open(fname, "w", **out_meta) as dest:
         dest.write(outImage)
-           
+    
+    return fname
+
 def crop_CHM(path,CHM_pool, savedir):
     """Lookup CHM path based on RGB data and crop"""
     basename = os.path.splitext(os.path.basename(path))[0]
@@ -127,6 +129,8 @@ def crop_CHM(path,CHM_pool, savedir):
     fname = "{}/{}_hyperspectral.tif".format(savedir,os.path.splitext(os.path.basename(path)))
     with rio.open(fname, "w", **out_meta) as dest:
         dest.write(outImage)
+        
+    return fname
         
 def run(rgb_tile,savedir,CHM_glob, hyperspectral_glob, tif_savedir, zenodo_record=None):
     """Crop data based on annotated RGB .tif"""
