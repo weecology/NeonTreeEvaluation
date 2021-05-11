@@ -18,4 +18,8 @@ def upload(path):
     
 files = glob.glob("/orange/idtrees-collab/zenodo/training/*.laz")
 for f in files:
-    upload(f)
+    print(f)
+    try:
+        upload(f)
+    except Exception as e:
+        print(e)
