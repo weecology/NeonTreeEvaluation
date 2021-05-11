@@ -18,7 +18,7 @@ def upload(path):
     token = os.environ.get('ZENODO_TOKEN')
     
      # Get the deposition id from the already created record
-    deposition_id = "3765872"
+    deposition_id = "4746605"
     data = {'name': os.path.basename(path)}
     files = {'file': open(path, 'rb')}
     r = requests.post('https://zenodo.org/api/deposit/depositions/%s/files' % deposition_id,
@@ -164,7 +164,7 @@ if __name__ == "__main__":
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2019_YELL_2_528000_4978000_image_crop2.tif",
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2019_YELL_2_541000_4977000_image_crop.tif"]
     
-    for tile in training_tiles:
+    for tile in training_tiles[:1]:
         
         try:
             print(tile)
@@ -173,7 +173,7 @@ if __name__ == "__main__":
             savedir="/orange/idtrees-collab/zenodo/training",
             CHM_glob="/orange/ewhite/NeonData/**/CanopyHeightModelGtif/*.tif",
             hyperspectral_glob="/orange/ewhite/NeonData/**/Reflectance/*.h5",
-            tif_savedir="/orange/idtrees-collab/Hyperspectral_tifs")
+            tif_savedir="/orange/idtrees-collab/Hyperspectral_tifs", zenodo_record=4746605)
         except Exception as e:
             print(e)
         
