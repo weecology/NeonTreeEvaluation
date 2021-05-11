@@ -12,7 +12,7 @@ import requests
 import glob
 import os
 
-def upload(ACCESS_TOKEN, path):
+def upload(path):
     """Upload an item to zenodo"""
     
     token = os.environ.get('ZENODO_TOKEN')
