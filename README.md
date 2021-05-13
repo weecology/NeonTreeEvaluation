@@ -23,6 +23,8 @@ For the point cloud annotations, the two dimensional bounding boxes were [draped
 
 # Sites ([NEON locations](https://www.neonscience.org/field-sites/field-sites-map/list))
 
+Please note that the dataset continues to grow and there may be more annotations available currently.
+
 | siteID, State  | Forest Description | Evaluation Annotations  |Training Annotations  |
 |---|---|---|---|
 |  SJER, CA |   Oak Savannah| 462   | 2533  |
