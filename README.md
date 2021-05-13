@@ -48,10 +48,6 @@ For the point cloud annotations, the two dimensional bounding boxes were [draped
 | ONAQ, UT | Desert| 25| |
 | WREF, OR |Coniferous| 124| |
 
-# How can I add to this dataset?
-
-Anyone is welcome to add to this dataset by forking this repo and labeling a new site in [rectlabel](https://rectlabel.com/). For each site we have included many unannotated images. Please create a seperate folder name for your github username and send a pull request. For labeling training tiles, see the zenodo link. We recommend cropping training tiles before annotating, as *all* trees in an image must be annotated for training.
-
 # RGB
 
 ```R
