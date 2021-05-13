@@ -23,6 +23,8 @@ For the point cloud annotations, the two dimensional bounding boxes were [draped
 
 # Sites ([NEON locations](https://www.neonscience.org/field-sites/field-sites-map/list))
 
+Please note that the dataset continues to grow and there may be more annotations available currently.
+
 | siteID, State  | Forest Description | Evaluation Annotations  |Training Annotations  |
 |---|---|---|---|
 |  SJER, CA |   Oak Savannah| 462   | 2533  |
@@ -48,10 +50,6 @@ For the point cloud annotations, the two dimensional bounding boxes were [draped
 | ONAQ, UT | Desert| 25| |
 | WREF, OR |Coniferous| 124| |
 
-# How can I add to this dataset?
-
-Anyone is welcome to add to this dataset by forking this repo and labeling a new site in [rectlabel](https://rectlabel.com/). For each site we have included many unannotated images. Please create a seperate folder name for your github username and send a pull request. For labeling training tiles, see the zenodo link. We recommend cropping training tiles before annotating, as *all* trees in an image must be annotated for training.
-
 # RGB
 
 ```R
@@ -59,21 +57,22 @@ library(raster)
 library(NeonTreeEvaluation)
 
 #Read RGB image as projected raster
-rgb_path<-get_data(plot_name = "SJER_021",sensor="rgb")
+rgb_path<-get_data(plot_name = "SJER_059_2018",type="rgb")
 rgb<-stack(rgb_path)
 
-#Path to dataset
-xmls<-readTreeXML(siteID="SJER")
+#Path to annotations dataset
+annotation_path <- get_data("SJER_059_2018",type="annotations")
+annotations <- xml_parse(annotation_path)
 
 #View one plot's annotations as polygons, project into UTM
 #copy project utm zone (epsg), xml has no native projection metadata
-xml_polygons <- boxes_to_spatial_polygons(xmls[xmls$filename %in% "SJER_021.tif",],rgb)
+boxes<-boxes_to_spatial_polygons(annotations, rgb)
 
 plotRGB(rgb)
-plot(xml_polygons,add=T)
+plot(boxes,add=T, col=NA, border="red")
 ```
 
-<img src="figures/RGB_annotations.png" height="300">
+<img src="figures/SJER_058_2018.png" height="300">
 
 # Lidar
 
@@ -81,7 +80,7 @@ To access the draped lidar hand annotations, use the "label" column. Each tree h
 
 ```R
 library(lidR)
-path<-get_data("TEAK_052",sensor="lidar")
+path<-get_data("TEAK_052_2018",type="lidar")
 r<-readLAS(path)
 trees<-lasfilter(r,!label==0)
 plot(trees,color="label")
@@ -100,7 +99,7 @@ We elected to keep all points, regardless of whether they correspond to tree ann
 Hyperspectral surface reflectance (NEON ID: DP1.30006.001) is a 426 band raster covering visible and near infared spectrum.
 
 ```R
-path<-get_data("MLBS_071",sensor="hyperspectral")
+path<-get_data("MLBS_071_2018",type="hyperspectral")
 g<-stack(path)
 nlayers(g)
 [1] 426
@@ -120,11 +119,9 @@ And in the training data:
 
 We have uploaded the large training tiles to Zenodo for download.
 
-https://zenodo.org/record/3459803#.XpeLTVNKhQI
+https://zenodo.org/record/4746605
 
-* The annotated trainings tiles cropped for the NIWO, MLBS, SJER, TEAK, LENO, and OSBS sites. These site training tiles vary in size. These files have been cropped and saved as GEOTIFF to match RGB format.
-
-* Unannotated training tiles for the 15 additional sites. Training tiles do not overlap with evaluation plots. These have not been cropped to more reasonable hand-annotation size and are in the raw .h5 file format. For help manipulating this files, see /python_utilities/hyperspectral.py
+The annotations are alongside the evaluation annotations in this repo.
 
 # Performance
 See the R package for current data and scores. This repo is just to hold the annotations in version control.
