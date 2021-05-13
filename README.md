@@ -59,21 +59,22 @@ library(raster)
 library(NeonTreeEvaluation)
 
 #Read RGB image as projected raster
-rgb_path<-get_data(plot_name = "SJER_021",sensor="rgb")
+rgb_path<-get_data(plot_name = "SJER_059_2018",type="rgb")
 rgb<-stack(rgb_path)
 
-#Path to dataset
-xmls<-readTreeXML(siteID="SJER")
+#Path to annotations dataset
+annotation_path <- get_data("SJER_059_2018",type="annotations")
+annotations <- xml_parse(annotation_path)
 
 #View one plot's annotations as polygons, project into UTM
 #copy project utm zone (epsg), xml has no native projection metadata
-xml_polygons <- boxes_to_spatial_polygons(xmls[xmls$filename %in% "SJER_021.tif",],rgb)
+boxes<-boxes_to_spatial_polygons(annotations, rgb)
 
 plotRGB(rgb)
-plot(xml_polygons,add=T)
+plot(boxes,add=T, col=NA, border="red")
 ```
 
-<img src="figures/RGB_annotations.png" height="300">
+<img src="figures/SJER_058_2018.png" height="300">
 
 # Lidar
 
@@ -81,7 +82,7 @@ To access the draped lidar hand annotations, use the "label" column. Each tree h
 
 ```R
 library(lidR)
-path<-get_data("TEAK_052",sensor="lidar")
+path<-get_data("TEAK_052_2018",type="lidar")
 r<-readLAS(path)
 trees<-lasfilter(r,!label==0)
 plot(trees,color="label")
@@ -100,7 +101,7 @@ We elected to keep all points, regardless of whether they correspond to tree ann
 Hyperspectral surface reflectance (NEON ID: DP1.30006.001) is a 426 band raster covering visible and near infared spectrum.
 
 ```R
-path<-get_data("MLBS_071",sensor="hyperspectral")
+path<-get_data("MLBS_071_2018",type="hyperspectral")
 g<-stack(path)
 nlayers(g)
 [1] 426
