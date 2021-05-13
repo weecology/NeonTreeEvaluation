@@ -72,7 +72,7 @@ plotRGB(rgb)
 plot(boxes,add=T, col=NA, border="red")
 ```
 
-<img src="figures/SJER_058_2018.png" height="300">
+<img src="figures/SJER_059_2018.png" height="300">
 
 # Lidar
 
