@@ -63,7 +63,7 @@ def convert_h5(hyperspectral_h5_path, rgb_path, savedir):
     if not os.path.exists(tif_path):
         Hyperspectral.generate_raster(h5_path=hyperspectral_h5_path,
                                       rgb_filename=rgb_path,
-                                      bands="All",
+                                      bands="all",
                                       save_dir=savedir)
 
     return tif_path
@@ -146,6 +146,8 @@ def run(rgb_tile,savedir,CHM_glob, hyperspectral_glob, tif_savedir, zenodo_recor
         os.mkdir("{}/CHM".format(savedir))
         os.mkdir("{}/RGB".format(savedir))
         os.mkdir("{}/Hyperspectral".format(savedir))
+    except:
+        pass
         
     if zenodo_record:
         upload(rgb_tile)
@@ -177,31 +179,31 @@ if __name__ == "__main__":
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2019_YELL_2_528000_4978000_image_crop2.tif",
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2019_YELL_2_541000_4977000_image_crop.tif"]
     
-    for tile in training_tiles[-1]:
+    #for tile in training_tiles[-1]:
+    #    try:
+    #        print(tile)
+    #       run(
+    #        rgb_tile=tile,
+    #        savedir="/orange/idtrees-collab/zenodo/training",
+    #        CHM_glob="/orange/ewhite/NeonData/**/CanopyHeightModelGtif/*.tif",
+    #        hyperspectral_glob="/orange/ewhite/NeonData/**/Reflectance/*.h5",
+    #        tif_savedir="/orange/idtrees-collab/Hyperspectral_tifs", zenodo_record=5911359)
+    #    except Exception as e:
+    #        print(e)
+            
+    futures = []
+    for tile in training_tiles:
+        future = client.submit(run,
+                               rgb_tile=tile,
+                               savedir="/orange/idtrees-collab/zenodo/training",
+                               CHM_glob="/orange/ewhite/NeonData/**/CanopyHeightModelGtif/*.tif",
+                               hyperspectral_glob="/orange/ewhite/NeonData/**/Reflectance/*.h5",
+                               tif_savedir="/orange/idtrees-collab/Hyperspectral_tifs", zenodo_record=5911359)
+        futures.append(future)
+    wait(futures)
+    
+    for x in futures:
         try:
-            print(tile)
-            run(
-            rgb_tile=tile,
-            savedir="/orange/idtrees-collab/zenodo/training",
-            CHM_glob="/orange/ewhite/NeonData/**/CanopyHeightModelGtif/*.tif",
-            hyperspectral_glob="/orange/ewhite/NeonData/**/Reflectance/*.h5",
-            tif_savedir="/orange/idtrees-collab/Hyperspectral_tifs", zenodo_record=5911359)
+            x.result()
         except Exception as e:
             print(e)
-            
-    #futures = []
-    #for tile in training_tiles:
-        #future = client.submit(run,
-                               #rgb_tile=tile,
-                               #savedir="/orange/idtrees-collab/zenodo/training",
-                               #CHM_glob="/orange/ewhite/NeonData/**/CanopyHeightModelGtif/*.tif",
-                               #hyperspectral_glob="/orange/ewhite/NeonData/**/Reflectance/*.h5",
-                               #tif_savedir="/orange/idtrees-collab/Hyperspectral_tifs", zenodo_record=5911359)
-        #futures.append(future)
-    #wait(futures)
-    
-    #for x in futures:
-        #try:
-            #x.result()
-        #except Exception as e:
-            #print(e)
