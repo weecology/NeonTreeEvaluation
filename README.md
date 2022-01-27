@@ -1,6 +1,6 @@
 # A multi-sensor benchmark dataset for detecting individual trees in airborne RGB, Hyperspectral and LIDAR point clouds
 
-Individual tree detection is a central task in forestry and ecology. Few papers analyze proposed methods across a wide geographic area. The NeonTreeEvaluation dataset is a set of bounding boxes drawn on RGB imagery for 22 sites in the National Ecological Observation Network (NEON). Each site covers a different forest type(e.g. [TEAK](https://www.neonscience.org/field-sites/field-sites-map/TEAK)). This dataset is the first to have consistant annotations across a variety of ecosystems for co-registered RGB, LiDAR and hyperspectral imagery.
+Individual tree detection is a central task in forestry and ecology. Few papers analyze proposed methods across a wide geographic area. The NeonTreeEvaluation dataset is a set of bounding boxes drawn on RGB imagery for 22 sites in the National Ecological Observation Network (NEON). Each site covers a different forest type(e.g. [TEAK](https://www.neonscience.org/field-sites/field-sites-map/TEAK)). This dataset is the first to have consistant annotations across a variety of ecosystems for co-registered RGB, LiDAR and hyperspectral imagery. In total this repo holds 30975 Tree annotations.
 
 Evaluation images are included in this repo under /evaluation folder.
 Annotation files (.xml) are included in this repo under /annotations/
@@ -22,35 +22,6 @@ Each visible tree was annotated to create a bounding box that encompassed all po
 <img src="figures/rectlabel.png" height="400">
 
 For the point cloud annotations, the two dimensional bounding boxes were [draped](https://github.com/weecology/DeepLidar/blob/b3449f6bd4d0e00c24624ff82da5cfc0a018afc5/DeepForest/postprocessing.py#L13) over the point cloud, and all non-ground points (height < 2m) were excluded. Minor cosmetic cleanup was performed to include missing points. In general, the point cloud annotations should be seen as less thoroughly cleaned, given the tens of thousands of potential points in each image.
-
-# Sites ([NEON locations](https://www.neonscience.org/field-sites/field-sites-map/list))
-
-Please note that the dataset continues to grow and there may be more annotations available currently.
-
-| siteID, State  | Forest Description | Evaluation Annotations  |Training Annotations  |
-|---|---|---|---|
-|  SJER, CA |   Oak Savannah| 462   | 2533  |
-|  TEAK, CA | Coniferous  |  1483 | 3405  |
-|   NIWO, CO|  Alpine |  1862 | 9730  |
-| MLBS, VA| Deciduous| 489| 1840|
-| LENO, AL | Riparian | 75 | 554|
-| OSBS, FL | Southern Pine| 485| 1271|
-| ABBY, OR | Coniferous |170| |
-| TALL, AL | Southern Hardwoods | 93 | |
-| BART, NH | Northern Hardwoods | 103| |
-| BONA, AK | Riparian| 272 | |
-| UNDE, MI | Deciduous| 134| |
-| SOAP, CA | Coniferous| 115| |
-| SERC, MD | Deciduous | 91| |
-| SCBI, VA | Deciduous| 73| |
-| BLAN, VA | Deciduous| 73| |
-| JERC, GA | Deciduous| 53| |
-| HARV, MA | Northern Hardwoods | 171| |
-| DSNY, FL | Southern Pine | 69| |
-| CLBJ, TX | Deciduous | 108| |
-| DELA, AL | Southern Hardwood | 86 | |
-| ONAQ, UT | Desert| 25| |
-| WREF, OR |Coniferous| 124| |
 
 # RGB
 
