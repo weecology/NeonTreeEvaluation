@@ -5,6 +5,8 @@ Individual tree detection is a central task in forestry and ecology. Few papers 
 Evaluation images are included in this repo under /evaluation folder.
 Annotation files (.xml) are included in this repo under /annotations/
 
+*Note: Not all plots in the evaluation folder contain annotations, many are unannotated to support future growth of the benchmark.*
+
 Mantainer: Ben Weinstein - University of Florida.
 
 # How do I evaluate against the benchmark?
