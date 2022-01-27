@@ -174,7 +174,6 @@ if __name__ == "__main__":
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2019_OSBS_5_405000_3287000_image_crop2.tif",
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2019_OSBS_5_405000_3287000_image_crop.tif",
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2019_SJER_4_251000_4103000_image.tif",
-    "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2019_TALL_5_456000_3644000_image_crop.tif",
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2019_TOOL_3_403000_7617000_image.tif",
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2019_YELL_2_528000_4978000_image_crop2.tif",
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2019_YELL_2_541000_4977000_image_crop.tif"]
@@ -187,7 +186,7 @@ if __name__ == "__main__":
              savedir="/orange/idtrees-collab/zenodo/training",
              CHM_glob="/orange/ewhite/NeonData/**/CanopyHeightModelGtif/*.tif",
              hyperspectral_glob="/orange/ewhite/NeonData/**/Reflectance/*.h5",
-             tif_savedir="/orange/idtrees-collab/Hyperspectral_tifs", zenodo_record=5911359)
+             tif_savedir="/orange/idtrees-collab/zenodo/training/", zenodo_record=5911359)
         except Exception as e:
             print(e)
             
