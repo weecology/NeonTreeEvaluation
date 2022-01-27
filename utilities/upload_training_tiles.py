@@ -135,7 +135,7 @@ def crop_CHM(path,CHM_pool, savedir):
         
     return fname
         
-def run(rgb_tile,savedir,CHM_glob, hyperspectral_glob, tif_savedir, zenodo_record=None):
+def run(rgb_tile,savedir,CHM_pool, hyperspectral_pool, tif_savedir, zenodo_record=None):
     """Crop data based on annotated RGB .tif"""
     try:
         os.mkdir("{}/CHM".format(savedir))
@@ -144,9 +144,16 @@ def run(rgb_tile,savedir,CHM_glob, hyperspectral_glob, tif_savedir, zenodo_recor
     except:
         pass
         
-    CHM_pool = glob.glob(CHM_glob, recursive=True)
-    HSI_path = crop_HSI(rgb_tile, hyperspectral_pool, savedir, tif_savedir)
-    CHM_path = crop_CHM(rgb_tile, CHM_pool, savedir)
+    try:
+        HSI_path = crop_HSI(rgb_tile, hyperspectral_pool, savedir, tif_savedir)
+    except Exception as e:
+        print(e)
+        
+    try:
+        CHM_path = crop_CHM(rgb_tile, CHM_pool, savedir)
+    except Exception as e:
+        print(e)
+        
     shutil.copy(rgb_tile, "{}/RGB/{}".format(savedir, os.path.basename(rgb_tile)))
     
     #if zenodo_record:
@@ -179,6 +186,7 @@ if __name__ == "__main__":
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2019_YELL_2_541000_4977000_image_crop.tif"]
     
     hyperspectral_pool = glob.glob("/orange/ewhite/NeonData/**/Reflectance/*.h5", recursive=True)
+    CHM_pool = glob.glob("/orange/ewhite/NeonData/**/CanopyHeightModelGtif/*.tif", recursive=True)
     
     for tile in training_tiles:
         try:
@@ -186,7 +194,7 @@ if __name__ == "__main__":
             run(
              rgb_tile=tile,
              savedir="/orange/idtrees-collab/zenodo/training",
-             CHM_glob="/orange/ewhite/NeonData/**/CanopyHeightModelGtif/*.tif",
+             CHM_pool=CHM_pool,
              hyperspectral_pool=hyperspectral_pool,
              tif_savedir="/orange/idtrees-collab/zenodo/training/", zenodo_record=5911359)
         except Exception as e:
