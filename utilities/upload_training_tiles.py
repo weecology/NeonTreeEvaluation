@@ -13,6 +13,7 @@ import glob
 import os
 from start_cluster import start
 from distributed import wait
+import shutil
 
 def upload(path):
     """Upload an item to zenodo"""
@@ -143,16 +144,15 @@ def run(rgb_tile,savedir,CHM_glob, hyperspectral_glob, tif_savedir, zenodo_recor
     except:
         pass
         
-    hyperspectral_pool = glob.glob(hyperspectral_glob, recursive=True)
     CHM_pool = glob.glob(CHM_glob, recursive=True)
-    
     HSI_path = crop_HSI(rgb_tile, hyperspectral_pool, savedir, tif_savedir)
     CHM_path = crop_CHM(rgb_tile, CHM_pool, savedir)
-        
-    if zenodo_record:
-        upload(rgb_tile)
-        upload(HSI_path)
-        upload(CHM_path)
+    shutil.copy(rgb_tile, "{}/RGB/{}".format(savedir, os.path.basename(rgb_tile)))
+    
+    #if zenodo_record:
+        #upload(rgb_tile)
+        #upload(HSI_path)
+        #upload(CHM_path)
     
 if __name__ == "__main__":
     #client = start(cpus=10, mem_size="80GB")
@@ -178,6 +178,8 @@ if __name__ == "__main__":
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2019_YELL_2_528000_4978000_image_crop2.tif",
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2019_YELL_2_541000_4977000_image_crop.tif"]
     
+    hyperspectral_pool = glob.glob("/orange/ewhite/NeonData/**/Reflectance/*.h5", recursive=True)
+    
     for tile in training_tiles:
         try:
             print(tile)
@@ -185,7 +187,7 @@ if __name__ == "__main__":
              rgb_tile=tile,
              savedir="/orange/idtrees-collab/zenodo/training",
              CHM_glob="/orange/ewhite/NeonData/**/CanopyHeightModelGtif/*.tif",
-             hyperspectral_glob="/orange/ewhite/NeonData/**/Reflectance/*.h5",
+             hyperspectral_pool=hyperspectral_pool,
              tif_savedir="/orange/idtrees-collab/zenodo/training/", zenodo_record=5911359)
         except Exception as e:
             print(e)

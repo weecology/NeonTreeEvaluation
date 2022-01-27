@@ -16,7 +16,7 @@ def upload(path):
                       params={'access_token': token}, data=data, files=files)
     print("request of path {} returns {}".format(path, r.json()))
     
-files = glob.glob("/orange/idtrees-collab/zenodo/training/LIDAR*.laz")
+files = glob.glob("/orange/idtrees-collab/zenodo/training/*.laz")
 for f in files:
     print(f)
     try:
