@@ -136,16 +136,16 @@ def crop_CHM(path,CHM_pool, savedir):
         
 def run(rgb_tile,savedir,CHM_glob, hyperspectral_glob, tif_savedir, zenodo_record=None):
     """Crop data based on annotated RGB .tif"""
+    try:
+        os.mkdir("{}/CHM".format(savedir))
+        os.mkdir("{}/RGB".format(savedir))
+        os.mkdir("{}/Hyperspectral".format(savedir))
+        
     hyperspectral_pool = glob.glob(hyperspectral_glob, recursive=True)
     CHM_pool = glob.glob(CHM_glob, recursive=True)
     
     HSI_path = crop_HSI(rgb_tile, hyperspectral_pool, savedir, tif_savedir)
     CHM_path = crop_CHM(rgb_tile, CHM_pool, savedir)
-    
-    try:
-        os.mkdir("{}/CHM".format(savedir))
-        os.mkdir("{}/RGB".format(savedir))
-        os.mkdir("{}/Hyperspectral".format(savedir))
         
     if zenodo_record:
         upload(rgb_tile)
