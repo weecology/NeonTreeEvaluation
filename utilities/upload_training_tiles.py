@@ -63,7 +63,7 @@ def convert_h5(hyperspectral_h5_path, rgb_path, savedir):
     if not os.path.exists(tif_path):
         Hyperspectral.generate_raster(h5_path=hyperspectral_h5_path,
                                       rgb_filename=rgb_path,
-                                      bands="All",
+                                      bands="all",
                                       save_dir=savedir)
 
     return tif_path
@@ -140,6 +140,8 @@ def run(rgb_tile,savedir,CHM_glob, hyperspectral_glob, tif_savedir, zenodo_recor
         os.mkdir("{}/CHM".format(savedir))
         os.mkdir("{}/RGB".format(savedir))
         os.mkdir("{}/Hyperspectral".format(savedir))
+    except:
+        pass
         
     hyperspectral_pool = glob.glob(hyperspectral_glob, recursive=True)
     CHM_pool = glob.glob(CHM_glob, recursive=True)
@@ -153,7 +155,7 @@ def run(rgb_tile,savedir,CHM_glob, hyperspectral_glob, tif_savedir, zenodo_recor
         upload(CHM_path)
     
 if __name__ == "__main__":
-    client = start(cpus=10, mem_size="80GB")
+    #client = start(cpus=10, mem_size="80GB")
     training_tiles = [
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2018_BART_4_322000_4882000_image_crop.tif",
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2018_HARV_5_733000_4698000_image_crop.tif",
@@ -177,15 +179,15 @@ if __name__ == "__main__":
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2019_YELL_2_528000_4978000_image_crop2.tif",
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2019_YELL_2_541000_4977000_image_crop.tif"]
     
-    for tile in training_tiles[-1]:
+    for tile in training_tiles:
         try:
             print(tile)
             run(
-            rgb_tile=tile,
-            savedir="/orange/idtrees-collab/zenodo/training",
-            CHM_glob="/orange/ewhite/NeonData/**/CanopyHeightModelGtif/*.tif",
-            hyperspectral_glob="/orange/ewhite/NeonData/**/Reflectance/*.h5",
-            tif_savedir="/orange/idtrees-collab/Hyperspectral_tifs", zenodo_record=5911359)
+             rgb_tile=tile,
+             savedir="/orange/idtrees-collab/zenodo/training",
+             CHM_glob="/orange/ewhite/NeonData/**/CanopyHeightModelGtif/*.tif",
+             hyperspectral_glob="/orange/ewhite/NeonData/**/Reflectance/*.h5",
+             tif_savedir="/orange/idtrees-collab/Hyperspectral_tifs", zenodo_record=5911359)
         except Exception as e:
             print(e)
             
