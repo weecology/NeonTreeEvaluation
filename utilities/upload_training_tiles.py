@@ -11,6 +11,8 @@ from shapely.geometry import box
 import requests
 import glob
 import os
+from start_cluster import start
+from distributed import wait
 
 def upload(path):
     """Upload an item to zenodo"""
@@ -18,7 +20,7 @@ def upload(path):
     token = os.environ.get('ZENODO_TOKEN')
     
      # Get the deposition id from the already created record
-    deposition_id = "4746605"
+    deposition_id = "5911359"
     data = {'name': os.path.basename(path)}
     files = {'file': open(path, 'rb')}
     r = requests.post('https://zenodo.org/api/deposit/depositions/%s/files' % deposition_id,
@@ -96,7 +98,7 @@ def crop_HSI(path, hyperspectral_pool, savedir, tif_savedir):
                      "width": outImage.shape[2],
                      "transform": outTransform})
     
-    fname = "{}/{}_hyperspectral.tif".format(savedir,os.path.splitext(os.path.basename(path))[0])
+    fname = "{}/Hyperspectral/{}_hyperspectral.tif".format(savedir,os.path.splitext(os.path.basename(path))[0])
     with rio.open(fname, "w", **out_meta) as dest:
         dest.write(outImage)
     
@@ -126,7 +128,7 @@ def crop_CHM(path,CHM_pool, savedir):
                      "width": outImage.shape[2],
                      "transform": outTransform})
     
-    fname = "{}/{}_CHM.tif".format(savedir,os.path.splitext(os.path.basename(path))[0])
+    fname = "{}/CHM/{}_CHM.tif".format(savedir,os.path.splitext(os.path.basename(path))[0])
     with rio.open(fname, "w", **out_meta) as dest:
         dest.write(outImage)
         
@@ -140,12 +142,18 @@ def run(rgb_tile,savedir,CHM_glob, hyperspectral_glob, tif_savedir, zenodo_recor
     HSI_path = crop_HSI(rgb_tile, hyperspectral_pool, savedir, tif_savedir)
     CHM_path = crop_CHM(rgb_tile, CHM_pool, savedir)
     
+    try:
+        os.mkdir("{}/CHM".format(savedir))
+        os.mkdir("{}/RGB".format(savedir))
+        os.mkdir("{}/Hyperspectral".format(savedir))
+        
     if zenodo_record:
         upload(rgb_tile)
         upload(HSI_path)
         upload(CHM_path)
     
 if __name__ == "__main__":
+    client = start(cpus=10, mem_size="80GB")
     training_tiles = [
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2018_BART_4_322000_4882000_image_crop.tif",
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2018_HARV_5_733000_4698000_image_crop.tif",
@@ -161,16 +169,15 @@ if __name__ == "__main__":
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2019_DSNY_5_452000_3113000_image_crop.tif",
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2019_LENO_5_383000_3523000_image_crop.tif",
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2019_ONAQ_2_367000_4449000_image_crop.tif",
-    "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2019_OSBS_5_405000_3287000_image2.tif",
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2019_OSBS_5_405000_3287000_image_crop2.tif",
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2019_OSBS_5_405000_3287000_image_crop.tif",
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2019_SJER_4_251000_4103000_image.tif",
+    "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2019_TALL_5_456000_3644000_image_crop.tif",
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2019_TOOL_3_403000_7617000_image.tif",
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2019_YELL_2_528000_4978000_image_crop2.tif",
     "/orange/ewhite/b.weinstein/NeonTreeEvaluation/hand_annotations/2019_YELL_2_541000_4977000_image_crop.tif"]
     
-    for tile in training_tiles[:1]:
-        
+    for tile in training_tiles[-1]:
         try:
             print(tile)
             run(
@@ -178,7 +185,23 @@ if __name__ == "__main__":
             savedir="/orange/idtrees-collab/zenodo/training",
             CHM_glob="/orange/ewhite/NeonData/**/CanopyHeightModelGtif/*.tif",
             hyperspectral_glob="/orange/ewhite/NeonData/**/Reflectance/*.h5",
-            tif_savedir="/orange/idtrees-collab/Hyperspectral_tifs", zenodo_record=4746605)
+            tif_savedir="/orange/idtrees-collab/Hyperspectral_tifs", zenodo_record=5911359)
         except Exception as e:
             print(e)
-        
+            
+    #futures = []
+    #for tile in training_tiles:
+        #future = client.submit(run,
+                               #rgb_tile=tile,
+                               #savedir="/orange/idtrees-collab/zenodo/training",
+                               #CHM_glob="/orange/ewhite/NeonData/**/CanopyHeightModelGtif/*.tif",
+                               #hyperspectral_glob="/orange/ewhite/NeonData/**/Reflectance/*.h5",
+                               #tif_savedir="/orange/idtrees-collab/Hyperspectral_tifs", zenodo_record=5911359)
+        #futures.append(future)
+    #wait(futures)
+    
+    #for x in futures:
+        #try:
+            #x.result()
+        #except Exception as e:
+            #print(e)

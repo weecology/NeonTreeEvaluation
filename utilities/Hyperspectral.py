@@ -1,12 +1,9 @@
 import numpy as np
 import h5py
-import matplotlib.pyplot as plt
-import sys
 import os
 import rasterio
-from rasterio.crs import CRS
 
-def h5refl2array(refl_filename, epsg):
+def h5refl2array(refl_filename):
     """
     Extract metadata from h5 object and reflectance values
     returns: metadata and a numpy array
@@ -18,48 +15,55 @@ def h5refl2array(refl_filename, epsg):
 
     #Extract the reflectance & wavelength datasets
     reflArray = hdf5_file[sitename]['Reflectance']
-    wavelengths =reflArray['Reflectance_Data'][:]
-
+    wavelengths = reflArray['Reflectance_Data'][:]
+    # get file's EPSG
+    epsg = str(reflArray['Metadata']['Coordinate_System']['EPSG Code'][()])
+    #reflArray['Metadata']['Coordinate_System'].keys()
     # Create dictionary containing relevant metadata information
     metadata = {}
     metadata['mapInfo'] = reflArray['Metadata']['Coordinate_System']['Map_Info'][()]
-    metadata['wavelength'] = reflArray['Metadata']['Spectral_Data']['Wavelength'][:]
+    metadata['wavelength'] = reflArray['Metadata']['Spectral_Data']['Wavelength'][()]
     metadata['shape'] = wavelengths.shape
-    
+
     #Extract no data value & scale factor
-    metadata['noDataVal'] = float(reflArray['Reflectance_Data'].attrs['Data_Ignore_Value'])
+    metadata['noDataVal'] = float(
+        reflArray['Reflectance_Data'].attrs['Data_Ignore_Value'])
     metadata['scaleFactor'] = float(reflArray['Reflectance_Data'].attrs['Scale_Factor'])
-    
+
     #metadata['interleave'] = reflData.attrs['Interleave']
     metadata['bad_band_window1'] = np.array([1340, 1445])
     metadata['bad_band_window2'] = np.array([1790, 1955])
     metadata['epsg'] = str(epsg)
 
-    mapInfo_string = str(metadata['mapInfo']);
+    mapInfo_string = str(metadata['mapInfo'])
     mapInfo_split = mapInfo_string.split(",")
-    mapInfo_split
+    epsg = epsg.split("'")[1]
 
     # Extract the resolution & convert to floating decimal number
     metadata['res'] = {}
     metadata['res']['pixelWidth'] = float(mapInfo_split[5])
     metadata['res']['pixelHeight'] = float(mapInfo_split[6])
-    
+
     # Extract the upper left-hand corner coordinates from mapInfo
     xMin = float(mapInfo_split[3])  # convert from string to floating point number
     yMax = float(mapInfo_split[4])
 
     # Calculate the xMax and yMin values from the dimensions
-    xMax = xMin + (metadata['shape'][1] * metadata['res']['pixelWidth'])  # xMax = left edge + (# of columns * resolution)",
-    yMin = yMax - (metadata['shape'][0] * metadata['res']['pixelHeight'])  # yMin = top edge - (# of rows * resolution)",
+    xMax = xMin + (metadata['shape'][1] * metadata['res']['pixelWidth']
+                  )  # xMax = left edge + (# of columns * resolution)",
+    yMin = yMax - (metadata['shape'][0] * metadata['res']['pixelHeight']
+                  )  # yMin = top edge - (# of rows * resolution)",
     metadata['extent'] = (xMin, xMax, yMin, yMax)  # useful format for plotting
     metadata['ext_dict'] = {}
     metadata['ext_dict']['xMin'] = xMin
     metadata['ext_dict']['xMax'] = xMax
     metadata['ext_dict']['yMin'] = yMin
     metadata['ext_dict']['yMax'] = yMax
-    hdf5_file.close
+    metadata['epsg'] = epsg
+    hdf5_file.close()
 
     return metadata, wavelengths
+
 
 def stack_subset_bands(reflArray, reflArray_metadata, bands, clipIndex):
     subArray_rows = clipIndex['yMax'] - clipIndex['yMin']
@@ -71,16 +75,21 @@ def stack_subset_bands(reflArray, reflArray_metadata, bands, clipIndex):
 
     for i in range(len(bands)):
         band_clean_names.append("b" + str(bands[i]) + "_refl_clean")
-        band_clean_dict[band_clean_names[i]] = subset_clean_band(reflArray, reflArray_metadata, clipIndex, bands[i])
+        band_clean_dict[band_clean_names[i]] = subset_clean_band(
+            reflArray, reflArray_metadata, clipIndex, bands[i])
         stackedArray[..., i] = band_clean_dict[band_clean_names[i]]
 
     return stackedArray
 
+
 def subset_clean_band(reflArray, reflArray_metadata, clipIndex, bandIndex):
-    bandCleaned = reflArray[clipIndex['yMin']:clipIndex['yMax'], clipIndex['xMin']:clipIndex['xMax'],
-                  bandIndex - 1].astype(np.int16)
+    bandCleaned = reflArray[clipIndex['yMin']:clipIndex['yMax'],
+                            clipIndex['xMin']:clipIndex['xMax'],
+                            bandIndex - 1].astype(np.int16)
 
     return bandCleaned
+
+#    array2raster(tilename, hyperspec_raster, sub_meta, clipExtent, save_dir)
 
 def array2raster(newRaster, reflBandArray, reflArray_metadata, extent, ras_dir):
     """
@@ -90,23 +99,44 @@ def array2raster(newRaster, reflBandArray, reflArray_metadata, extent, ras_dir):
     extent: The UTM coordinate extent
     ras_dir: Where to save the file
     """
-    res = float(reflArray_metadata['res']['pixelWidth'])    
+    from rasterio.transform import Affine
+    cols = reflBandArray.shape[1]
+    rows = reflBandArray.shape[0]
+    bands = reflBandArray.shape[2]
     originX = extent['xMin']
-    originY = extent['yMax']    
-    transform = rasterio.transform.from_origin(originX, originY, res, res)
-    new_dataset = rasterio.open("{}/{}".format(ras_dir, newRaster), 'w', driver='GTiff',
-                                height = reflBandArray.shape[0], width = reflBandArray.shape[1],
-                                dtype=str(reflBandArray.dtype),
-                                count=reflBandArray.shape[2],
-                                crs=CRS.from_epsg(reflArray_metadata['epsg']),
-                                transform=transform)
-    
-    new_dataset.write(np.rollaxis(reflBandArray,-1))
-    new_dataset.close()    
-    
+    originY = extent['yMax']
+    res = reflArray_metadata['res']['pixelWidth']
+    transform = Affine.translation(originX, originY) * Affine.scale(res, -res)
+    reflBandArray = np.moveaxis(reflBandArray,2,0)  
+    with rasterio.open(
+        "{}/{}".format(ras_dir,newRaster),
+         'w',
+         driver='GTiff',
+         height=rows,
+         width=cols,
+         count=bands,
+         dtype=reflBandArray.dtype,
+         crs=rasterio.crs.CRS.from_dict(init='epsg:'+str(reflArray_metadata["epsg"])),
+         transform=transform,) as dst:
+        dst.write(reflBandArray)
+        
+    # outRaster = driver.Create(newRaster, cols, rows, bands, gdaltype)
+    # outRaster.SetGeoTransform((originX, pixelWidth, 0, originY, 0, pixelHeight))
+    # # outband = outRaster.GetRasterBand(1)
+    # # outband.WriteArray(reflBandArray[:,:,x])
+
+    # for band in range(bands):
+    #     outRaster.GetRasterBand(band + 1).WriteArray(reflBandArray[:, :, band])
+
+    # outRasterSRS = osr.SpatialReference()
+    # #outRasterSRS.ImportFromEPSG(reflArray_metadata['epsg'])
+    # outRaster.SetProjection(outRasterSRS.ExportToWkt())
+    # outRaster.FlushCache()
+    # os.chdir(pwd)
+
+
 def calc_clip_index(clipExtent, h5Extent, xscale=1, yscale=1):
     """Extract numpy index for the utm coordinates"""
-    
     h5rows = h5Extent['yMax'] - h5Extent['yMin']
     h5cols = h5Extent['xMax'] - h5Extent['xMin']
 
@@ -118,67 +148,37 @@ def calc_clip_index(clipExtent, h5Extent, xscale=1, yscale=1):
 
     return ind_ext
 
-def create_raster(subInd, rgb,refl):
-    """
-    subInd: The extent dictionary of the clipped raster
-    rgb: The desired index of bands
-    refl: The numpy array of wavelength data
-    
-    returns: The hyperpsectral raster
-    """
-    #TODO check the float or int type (memory load)
-    #Create a raster from a numpy array
-    subArray_rows = subInd['yMax'] - subInd['yMin']
-    subArray_cols = subInd['xMax'] - subInd['xMin']
-    
-    #Empty raster
-    hcp = np.zeros((subArray_rows, subArray_cols, len(rgb)), dtype=np.int16)
-    
-    #Fill index
-    band_index = 0
-    for i in rgb:
-        hcp[..., band_index] = refl[:, :, i].astype(np.int16)
-        band_index+=1
-    
-    return hcp
 
-
-def generate_raster(h5_path, save_dir, rgb_filename = None, bands=None):
+def generate_raster(h5_path, save_dir, rgb_filename=None, bands="no_water", bounds = False):
     """
     h5_path: input path to h5 file on disk
-    bands: "All" bands or "false color" bands
+    bands: "all" bands or "false color", "no_water" bands
     save_dir: Directory to save raster object
     rgb_filename= Path to rgb image to draw extent and crs definition
     
     returns: True if saved file exists
     """
-       
-    #Load h5 hyperspectral tile and extractr epsg from rgb, epsg as string.    
-    if rgb_filename:
-        with rasterio.open(rgb_filename) as dataset:
-            bounds = dataset.bounds   
-    
-        epsg = str(dataset.crs).split(":")[-1]
-           
+
     #Get numpy array and metadata
-    metadata, refl = h5refl2array(h5_path, epsg = epsg)
+    metadata, refl = h5refl2array(h5_path)
     
     #Select nanometers RGB see NeonTreeEvaluation/utilities/neon_aop_bands.csv
-    if bands:
-        if bands =="All":
-            #Delete water absorption bands
-            rgb = np.r_[0:425]
-            rgb = np.delete(rgb, np.r_[419:425])
-            rgb = np.delete(rgb, np.r_[283:315])
-            rgb = np.delete(rgb, np.r_[192:210])
-        elif bands == "false_color":
-            rgb = [16, 54,112]
+    if bands == "no_water":
+        #Delete water absorption bands
+        rgb = np.r_[0:425]
+        rgb = np.delete(rgb, np.r_[419:425])
+        rgb = np.delete(rgb, np.r_[283:315])
+        rgb = np.delete(rgb, np.r_[192:210])
+    elif bands == "false_color":
+        rgb = [16, 54, 112]
+    elif bands == "all":
+        rgb = np.r_[0:426]
     else:
-        rgb = np.r_[0:426]        
-        
-    #print(itc_id, itc_xmin, itc_xmax, itc_ymin, itc_ymax, epsg)
-    xmin, xmax, ymin, ymax = metadata['extent']
+        raise ValueError("no band combination specified")
     
+    refl = refl[:,:,rgb]
+    xmin, xmax, ymin, ymax = metadata['extent']
+
     #Optional clip
     if bounds:
         #Set extent in utm
@@ -187,42 +187,30 @@ def generate_raster(h5_path, save_dir, rgb_filename = None, bands=None):
         clipExtent['xMax'] = bounds.right
         clipExtent['yMin'] = bounds.bottom
         clipExtent['yMax'] = bounds.top
-    
+    else:
+        clipExtent = {}
+        clipExtent['xMin'] = xmin
+        clipExtent['xMax'] = xmax
+        clipExtent['yMin'] = ymin
+        clipExtent['yMax'] = ymax
     #Get hyperspectral array extent with respect to the pixel index
     subInd = calc_clip_index(clipExtent, metadata['ext_dict'])
     #Turn to integer
     for x in subInd:
         subInd[x] = int(subInd[x])
-        
+
     #Index numpy array of hyperspec reflectance
     refl = refl[(subInd['yMin']):subInd['yMax'], (subInd['xMin']):subInd['xMax'], :]
-    
-    #Create raster object from numpy array
-    hyperspec_raster = create_raster(subInd, rgb, refl)
-    sub_meta = metadata
-    
+
     #Create new filepath
-    if bands=="false_color":
-        tilename = os.path.splitext(os.path.basename(rgb_filename))[0] + "_false_color.tif"
+    if bands == "false_color":
+        tilename = os.path.splitext(
+            os.path.basename(rgb_filename))[0] + "_false_color.tif"
     else:
-        tilename = os.path.splitext(os.path.basename(rgb_filename))[0] + "_hyperspectral.tif"        
+        tilename = os.path.splitext(
+            os.path.basename(rgb_filename))[0] + "_hyperspectral.tif"
 
-    #Save georeference crop to file 
-    array2raster(tilename, hyperspec_raster, sub_meta, clipExtent, save_dir)
-    
-    if os.path.exists(os.path.join(save_dir, tilename)):
-        status = True
-    else:
-        status = False
-    return status
+    #Save georeference crop to file
+    array2raster(tilename, refl, metadata, clipExtent, save_dir)
 
-if __name__ == "__main__":
-    #Load RGB raster and get bounds
-    rgb_filename = "/Users/ben/Downloads/2018_SJER_3_258000_4106000_image.tif"
-    
-    h5_path = "/Users/ben/Downloads/NEON_D17_SJER_DP3_258000_4106000_reflectance.h5"
-    
-    #Working_dir
-    save_dir = "/Users/ben/Downloads/"
-    
-    generate_raster(h5_path=h5_path, rgb_filename = rgb_filename, bands=None, save_dir=save_dir)
+    return tilename

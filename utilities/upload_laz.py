@@ -9,7 +9,7 @@ def upload(path):
     token = os.environ.get('ZENODO_TOKEN')
     
      # Get the deposition id from the already created record
-    deposition_id = "4746605"
+    deposition_id = "5911359"
     data = {'name': os.path.basename(path)}
     files = {'file': open(path, 'rb')}
     r = requests.post('https://zenodo.org/api/deposit/depositions/%s/files' % deposition_id,
