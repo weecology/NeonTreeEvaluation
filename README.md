@@ -99,6 +99,9 @@ The annotations are alongside the evaluation annotations in this repo. Not every
 * 2019_DSNY_5_452000_3113000_image_crop.tif does not have a LiDAR point cloud.
 * 2019_YELL_2_541000_4977000_image_crop.tif is unprojected and does not have CHM, LIDAR or HSI data
 * 2019_YELL_2_528000_4978000_image_crop2.tif is unprojected and does not have CHM, LIDAR or HSI data
+* 2019_ONAQ_2_367000_4449000_image_crop.tif is projected, but NEON did not have any LiDAR data at the site
+
+These tiles represent a small portion of the annotations and can be removed if HSI and LiDAR data are used.
 
 # Performance
 See the R package for current data and scores. This repo is just to hold the annotations in version control.
