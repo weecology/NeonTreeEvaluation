@@ -2,6 +2,9 @@
 
 Individual tree detection is a central task in forestry and ecology. Few papers analyze proposed methods across a wide geographic area. The NeonTreeEvaluation dataset is a set of bounding boxes drawn on RGB imagery for 22 sites in the National Ecological Observation Network (NEON). Each site covers a different forest type(e.g. [TEAK](https://www.neonscience.org/field-sites/field-sites-map/TEAK)). This dataset is the first to have consistant annotations across a variety of ecosystems for co-registered RGB, LiDAR and hyperspectral imagery. In total this repo holds 30975 Tree annotations.
 
+A static version of this benchmark can be downloaded from zenodo.
+https://zenodo.org/record/5914554#.YfRhcPXMKHE
+
 Evaluation images are included in this repo under /evaluation folder.
 Annotation files (.xml) are included in this repo under /annotations/
 
@@ -92,7 +95,7 @@ And in the training data:
 
 We have uploaded the large training tiles to Zenodo for download.
 
-https://zenodo.org/record/4746605
+https://zenodo.org/record/5914554#.YfRhcPXMKHE
 
 The annotations are alongside the evaluation annotations in this repo. Not every training tile has all three data types. There are several known omissions.
 
